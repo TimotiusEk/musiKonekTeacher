@@ -40,4 +40,16 @@
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
+    <style name="SplashScreenTheme" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+    </style>
+
+    <style name="MediumWhiteText" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">23sp</item>
+    </style>
 </resources>

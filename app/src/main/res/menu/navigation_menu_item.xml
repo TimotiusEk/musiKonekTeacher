@@ -17,6 +17,7 @@
             android:id="@+id/menu_profile"
             android:icon="@drawable/ic_person_black_24dp"
             android:title="Profil"
+            android:checkable="false"
             />
 
         <item

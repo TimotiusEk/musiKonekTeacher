@@ -26,6 +26,7 @@ public class ShowSkillFragment extends Fragment {
     ListView showSkillListView;
     ArrayList<Skill> skills;
     ShowSkillAdapter showSkillAdapter;
+    MainActivity ma;
 
     public ShowSkillFragment() {
         // Required empty public constructor
@@ -37,13 +38,15 @@ public class ShowSkillFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_show_skill, container, false);
         ButterKnife.bind(this,view);
+        ma = (MainActivity) getActivity();
+        ma.setTitle("Keahlian");
+
         skills = new ArrayList<>();
         skills.add(new Skill("Gitar", "Gitar Akustik"));
         skills.add(new Skill("Piano", "Piano Pop"));
 
         showSkillAdapter = new ShowSkillAdapter(skills, getActivity());
         showSkillListView.setAdapter(showSkillAdapter);
-
         // Inflate the layout for this fragment
         return view;
     }

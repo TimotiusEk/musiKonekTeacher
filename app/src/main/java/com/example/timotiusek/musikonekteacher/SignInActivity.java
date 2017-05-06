@@ -18,6 +18,10 @@ public class SignInActivity extends AppCompatActivity {
 
     }
 
+    @OnClick(R.id.sign_in_btn)
+    void signIn(){
+        startActivity(new Intent(this, MainActivity.class));
+    }
     @OnClick(R.id.link_to_register)
     void clickToRegisterPage(){
         startActivity(new Intent(this, SignUpActivity.class));

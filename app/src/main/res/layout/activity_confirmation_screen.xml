@@ -45,6 +45,6 @@
         android:background="#3F569A"
         android:padding="20dp"
         android:layout_marginTop="180dp"
-        android:id="@+id/sign_in_btn"
+        android:id="@+id/ok_btn"
         />
 </LinearLayout>

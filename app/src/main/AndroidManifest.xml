@@ -21,7 +21,10 @@
         <activity android:name=".EditProfileActivity" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/NoActionBarTheme">
+            android:theme="@style/NoActionBarTheme" />
+        <activity
+            android:name=".SplashScreen"
+            android:theme="@style/SplashScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,7 +32,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddSkillActivity" />
-        <activity android:name=".EditSkillActivity"></activity>
+        <activity android:name=".EditSkillActivity" />
+        <activity android:name=".ProfileActivity" android:theme="@style/NoActionBarTheme"/>
     </application>
 
 </manifest>

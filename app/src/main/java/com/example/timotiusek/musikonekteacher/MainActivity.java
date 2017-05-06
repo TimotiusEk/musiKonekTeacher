@@ -1,7 +1,6 @@
 package com.example.timotiusek.musikonekteacher;
 
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -12,9 +11,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         changeFragment(new ShowSkillFragment());
+        setChecked(R.id.menu_skill);
 
         setSupportActionBar(toolbar);
         toggle = new ActionBarDrawerToggle(
@@ -46,12 +44,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
         navigationView.setNavigationItemSelectedListener(MainActivity.this);
-
-        setChecked(R.id.menu_home);
-
-
-
-        getSupportActionBar().setTitle("MainActivity");
     }
 
     public void changeFragment(Fragment newFragment) {
@@ -86,9 +78,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
              * Todo: add menu_course behaviour
              */
         } else if(id == R.id.menu_profile){
-            /**
-             * Todo: add menu_profile behaviour
-             */
+            startActivity(new Intent(this, ProfileActivity.class));
         } else if(id == R.id.menu_skill){
 
             /**
@@ -108,21 +98,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setCheckedItem(id);
     }
 
-    /*public void setHomeToBackBtn(final Fragment fragment){
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeFragment(fragment);
-                setSupportActionBar(toolbar);
-                toggle = new ActionBarDrawerToggle(
-                        MainActivity.this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-                drawer.setDrawerListener(toggle);
-                toggle.syncState();
-            }
-        });
-    }*/
+
 
 }
 
