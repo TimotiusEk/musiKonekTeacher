@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">musiKonekTeacher</string>
+    <string name="email_hint_label">Email</string>
+    <string name="password_hint_label">Password</string>
+    <string name="phone_num_hint_label">Phone Number</string>
+    <string-array name="gender_arrays">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+</resources>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="Beranda" />
+
+        <item
+            android:id="@+id/menu_course"
+            android:icon="@drawable/ic_library_music_black_24dp"
+            android:title="Kursus"
+            />
+
+        <item
+            android:id="@+id/menu_profile"
+            android:icon="@drawable/ic_person_black_24dp"
+            android:title="Profil"
+            />
+
+        <item
+            android:id="@+id/menu_skill"
+            android:icon="@drawable/ic_library_music_black_24dp"
+            android:title="Keahlian"
+            />
+
+        <item
+            android:id="@+id/menu_attendance"
+            android:icon="@drawable/ic_event_black_24dp"
+            android:title="Kehadiran"
+            />
+        <item
+            android:id="@+id/menu_quit"
+            android:icon="@drawable/ic_exit_to_app_black_24dp"
+            android:title="Keluar"
+            />
+    </group>
+</menu>

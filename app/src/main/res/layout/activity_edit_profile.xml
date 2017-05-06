@@ -1,0 +1,129 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="15dp"
+    >
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/first_name"
+        android:textColorHint="#b7b7b7"
+        app:hintTextAppearance="@style/TextLabel"
+        >
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Firstname"
+            android:inputType="textPersonName"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:theme="@style/PrimaryLine"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="10dp"
+        android:textColorHint="#b7b7b7"
+        app:hintTextAppearance="@style/TextLabel"
+        >
+
+        <EditText
+            android:id="@+id/last_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Lastname"
+            android:inputType="textPersonName"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:theme="@style/PrimaryLine"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:id="@+id/gender_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Gender"
+        android:textColor="#cecece"
+        android:textSize="17sp" />
+
+    <Spinner
+        android:id="@+id/c_car_brand_list"
+        style="@style/Widget.AppCompat.Spinner.Underlined"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/gender_arrays"
+        android:popupBackground="#fff"
+        android:spinnerMode="dropdown"
+        android:theme="@style/PrimaryLine" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="10dp"
+        android:textColorHint="#c5c5c5"
+        app:hintTextAppearance="@style/TextLabel"
+        >
+
+        <EditText
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Address"
+            android:inputType="textPersonName"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:theme="@style/PrimaryLine"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:id="@+id/upload_profile_picture_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Unggah Foto"
+        android:textColor="#cecece"
+        android:textSize="17sp" />
+
+    <ImageView
+        android:id="@+id/profile_picture_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/pi_upload_btn"
+        android:layout_width="120dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/round_btn"
+        android:text="Unggah"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/save_btn"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginTop="75dp"
+        android:background="@drawable/round_btn"
+        android:text="Simpan"
+        android:textColor="@android:color/white" />
+</LinearLayout>

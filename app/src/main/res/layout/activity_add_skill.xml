@@ -1,0 +1,69 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="15dp"
+    android:weightSum="2"
+    >
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/first_name"
+        android:textColorHint="#b7b7b7"
+        app:hintTextAppearance="@style/TextLabel"
+        >
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nama Keahlian"
+            android:inputType="textPersonName"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:theme="@style/PrimaryLine"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="10dp"
+        android:textColorHint="#b7b7b7"
+        app:hintTextAppearance="@style/TextLabel"
+        android:layout_weight="2"
+        >
+
+        <EditText
+            android:id="@+id/last_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Keterangan Keahlian"
+            android:inputType="textPersonName"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:theme="@style/PrimaryLine"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/save_btn"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/round_btn"
+        android:text="Simpan"
+        android:textColor="@android:color/white"
+        android:layout_weight="0"
+        />
+</LinearLayout>
