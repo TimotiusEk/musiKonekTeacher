@@ -11,20 +11,24 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".SignUpActivity"
-            android:theme="@style/SignTheme" />
+            android:theme="@style/SignTheme"
+            android:noHistory="true"/>
         <activity
             android:name=".SignInActivity"
-            android:theme="@style/SignTheme" />
+            android:theme="@style/SignTheme"
+            android:noHistory="true"/>
         <activity
             android:name=".ConfirmationScreenActivity"
-            android:theme="@style/NoActionBarTheme" />
+            android:theme="@style/NoActionBarTheme"
+            android:noHistory="true"/>
         <activity android:name=".EditProfileActivity" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/NoActionBarTheme" />
         <activity
             android:name=".SplashScreen"
-            android:theme="@style/SplashScreenTheme">
+            android:theme="@style/SplashScreenTheme"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

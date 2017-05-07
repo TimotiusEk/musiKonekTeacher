@@ -26,4 +26,5 @@ public class SignInActivity extends AppCompatActivity {
     void clickToRegisterPage(){
         startActivity(new Intent(this, SignUpActivity.class));
     }
+
 }

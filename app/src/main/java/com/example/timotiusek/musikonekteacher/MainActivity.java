@@ -85,9 +85,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
              * Todo: add menu_skill behaviour
              */
         } else if(id == R.id.menu_quit){
-            /**
-             * Todo: add menu_quit behaviour
-             */
+           System.exit(0);
         }
 
         drawer.closeDrawer(GravityCompat.START);
