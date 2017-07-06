@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nama Murid"
+        android:textColor="#b7b7b7"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/student_name_student_info_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Hendra Sulaeman"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alamat Email"
+        android:textColor="#b7b7b7"
+        android:textSize="15sp"
+        />
+
+    <TextView
+        android:id="@+id/student_email_student_info_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="HS@gmail.com"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alamat Rumah"
+        android:textColor="#b7b7b7"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/student_address_view_order_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Plaza Ratu III No. 9, Jakarta Pusat"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nomor Telpon"
+        android:textColor="#b7b7b7"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/student_phone_student_info_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:text="+62 888 123 456"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/set_schedule_btn_student_info_page"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="10dp"
+        android:background="@color/colorPrimary"
+        android:text="Pasang Jadwal"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/close_btn_student_info_page"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:layout_gravity="bottom"
+        android:background="#3F569A"
+        android:text="Tutup"
+        android:textColor="@android:color/white" />
+</LinearLayout>

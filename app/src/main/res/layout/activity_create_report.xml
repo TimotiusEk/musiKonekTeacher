@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.timotiusek.musikonekteacher.CreateReportActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    >
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="10dp"
+            android:nextFocusLeft="@id/ll"
+            android:nextFocusUp="@id/ll"
+            android:textColorHint="#b7b7b7"
+            app:hintTextAppearance="@style/TextLabelGray">
+
+            <EditText
+                android:id="@+id/homework_report_page"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Lagu &amp; Pekerjaan Rumah"
+                android:inputType="textMultiLine"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="10dp"
+            android:nextFocusLeft="@id/ll"
+            android:nextFocusUp="@id/ll"
+            android:textColorHint="#b7b7b7"
+            app:hintTextAppearance="@style/TextLabelGray">
+
+            <EditText
+                android:id="@+id/exercise_create_report_page"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Latihan untuk Pertemuan Berikutnya"
+                android:inputType="textMultiLine"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:nextFocusLeft="@id/ll"
+            android:nextFocusUp="@id/ll"
+            android:textColorHint="#b7b7b7"
+            app:hintTextAppearance="@style/TextLabelGray">
+
+            <EditText
+                android:id="@+id/comment_create_report_page"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Komentar"
+                android:inputType="textMultiLine"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/checkin_btn_create_report_page"
+            android:layout_width="match_parent"
+            android:layout_height="33dp"
+            android:layout_gravity="bottom"
+            android:background="#3F569A"
+            android:text="Checkin"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/save_btn_create_report_page"
+            android:layout_width="match_parent"
+            android:layout_height="33dp"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/round_btn"
+            android:text="Simpan"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+</ScrollView>

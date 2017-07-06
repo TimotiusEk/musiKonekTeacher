@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:padding="15dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nama Kursus"
+        android:textColor="#b7b7b7"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/course_name_view_order_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kursus Piano Pemula"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Jenis Kursus"
+    android:textColor="#b7b7b7"
+    android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/course_type_view_order_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Paket 6 kali pertemuan"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nama Murid"
+        android:textColor="#b7b7b7"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/student_name_view_order_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hendra Sulaeman"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Catatan"
+        android:textColor="#b7b7b7"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/note_view_order_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Saya pemula, tidak pernah pegang piano."
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/reject_btn_view_order_page"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:layout_gravity="bottom"
+        android:background="#3F569A"
+        android:text="Tolak"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="10dp"
+        />
+
+    <Button
+        android:id="@+id/accept_btn_view_order_page"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:layout_gravity="bottom"
+        android:background="@color/colorPrimary"
+        android:text="Terima"
+        android:textColor="@android:color/white" />
+</LinearLayout>

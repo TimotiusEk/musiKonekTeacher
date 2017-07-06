@@ -84,7 +84,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             /**
              * Todo: add menu_skill behaviour
              */
-        } else if(id == R.id.menu_quit){
+        } else if(id == R.id.menu_attendance){
+           changeFragment(new WeeklyScheduleFragment());
+        }else if(id == R.id.menu_quit){
            System.exit(0);
         }
 

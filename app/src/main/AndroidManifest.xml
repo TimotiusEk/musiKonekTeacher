@@ -11,24 +11,28 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".SignUpActivity"
-            android:theme="@style/SignTheme"
-            android:noHistory="true"/>
+            android:noHistory="true"
+            android:theme="@style/SignTheme" />
         <activity
             android:name=".SignInActivity"
-            android:theme="@style/SignTheme"
-            android:noHistory="true"/>
+            android:noHistory="true"
+            android:theme="@style/SignTheme" />
         <activity
             android:name=".ConfirmationScreenActivity"
-            android:theme="@style/NoActionBarTheme"
-            android:noHistory="true"/>
+            android:noHistory="true"
+            android:theme="@style/NoActionBarTheme" />
         <activity android:name=".EditProfileActivity" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/NoActionBarTheme" />
         <activity
             android:name=".SplashScreen"
-            android:theme="@style/SplashScreenTheme"
-            android:noHistory="true">
+            android:noHistory="true"
+            android:theme="@style/SplashScreenTheme" />
+        <activity android:name=".ViewOrderActivity" />
+        <activity android:name=".CreateTestimonialActivity" />
+        <activity android:name=".ReasonRejectActivity"/>
+        <activity android:name=".CreateReportActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -37,7 +41,11 @@
         </activity>
         <activity android:name=".AddSkillActivity" />
         <activity android:name=".EditSkillActivity" />
-        <activity android:name=".ProfileActivity" android:theme="@style/NoActionBarTheme"/>
+        <activity
+            android:name=".ProfileActivity"
+            android:theme="@style/NoActionBarTheme" />
+        <activity android:name=".StudentInfoActivity" />
+
     </application>
 
 </manifest>

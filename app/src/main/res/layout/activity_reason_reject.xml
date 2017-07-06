@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.timotiusek.musikonekteacher.ReasonRejectActivity"
+    android:orientation="vertical"
+    android:padding="15dp"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="10dp"
+        android:textColorHint="#b7b7b7"
+        app:hintTextAppearance="@style/TextLabelGray"
+        android:layout_weight="1"
+        android:nextFocusUp="@id/rating_bar_testimonial_page"
+        android:nextFocusLeft="@id/rating_bar_testimonial_page"
+        >
+
+        <EditText
+            android:id="@+id/reason_reject"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Alasan Menolak"
+            android:inputType="textMultiLine"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/send_btn_reason_reject_page"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:background="@drawable/round_btn"
+        android:text="Kirim"
+        android:textColor="@android:color/white"
+        />
+</LinearLayout>
