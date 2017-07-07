@@ -50,7 +50,7 @@
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="33dp"
         android:text="SIGN IN"
         android:textColor="@android:color/white"
         android:background="#3F569A"

@@ -1,4 +1,4 @@
-package com.example.timotiusek.musikonekteacher;
+package com.example.timotiusek.musikonekteacher.CustomClass;
 
 /**
  * Created by TimotiusEk on 5/6/2017.

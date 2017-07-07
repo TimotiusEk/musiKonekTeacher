@@ -11,7 +11,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class ProfileActivity extends AppCompatActivity {
-    @BindView(R.id.toolbar_course_detail) android.support.v7.widget.Toolbar toolbar;
+    @BindView(R.id.toolbar_earning_detail_page) android.support.v7.widget.Toolbar toolbar;
     @BindView(R.id.link_to_edit_profile)
     ImageView linkToEditProfile;
     @Override

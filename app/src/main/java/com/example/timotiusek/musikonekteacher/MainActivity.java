@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        changeFragment(new ShowSkillFragment());
+        changeFragment(new EarningLayoutFragment());
         setChecked(R.id.menu_skill);
 
         setSupportActionBar(toolbar);
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if(id == R.id.menu_profile){
             startActivity(new Intent(this, ProfileActivity.class));
         } else if(id == R.id.menu_skill){
-
+            changeFragment(new ShowSkillFragment());
             /**
              * Todo: add menu_skill behaviour
              */

@@ -23,16 +23,20 @@
             android:theme="@style/NoActionBarTheme" />
         <activity android:name=".EditProfileActivity" />
         <activity
-            android:name=".MainActivity"
-            android:theme="@style/NoActionBarTheme" />
-        <activity
             android:name=".SplashScreen"
             android:noHistory="true"
             android:theme="@style/SplashScreenTheme" />
         <activity android:name=".ViewOrderActivity" />
         <activity android:name=".CreateTestimonialActivity" />
-        <activity android:name=".ReasonRejectActivity"/>
-        <activity android:name=".CreateReportActivity">
+        <activity android:name=".ReasonRejectActivity" />
+        <activity android:name=".CreateReportActivity" />
+        <activity
+            android:name=".EarningDetailActivity"
+            android:theme="@style/NoActionBarTheme" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/NoActionBarTheme"/>
+        <activity android:name=".StudentInfoActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -44,8 +48,8 @@
         <activity
             android:name=".ProfileActivity"
             android:theme="@style/NoActionBarTheme" />
-        <activity android:name=".StudentInfoActivity" />
 
+        <activity android:name=".SetScheduleActivity"></activity>
     </application>
 
 </manifest>

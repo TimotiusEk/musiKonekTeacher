@@ -45,7 +45,7 @@
 
 
             <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar_course_detail"
+                android:id="@+id/toolbar_earning_detail_page"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:title="Testing"

@@ -5,24 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context="com.example.timotiusek.musikonekteacher.WeeklyScheduleFragment">
+    tools:context="com.example.timotiusek.musikonekteacher.EarningLayoutFragment">
 
     <android.support.design.widget.TabLayout
-        android:id="@+id/tab_layout_weekly_schedule_page"
+        android:id="@+id/tab_layout_earning_layout_page"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
+        app:layout_scrollFlags="scroll|exitUntilCollapsed"
         app:tabGravity="fill"
         app:tabIndicatorColor="@android:color/black"
-        app:tabMode="scrollable"
+        app:tabMode="fixed"
         app:tabSelectedTextColor="@android:color/white"
-        app:tabTextColor="@color/tabTextColor"
-        app:layout_scrollFlags="scroll|exitUntilCollapsed"
-        />
+        app:tabTextColor="@color/tabTextColor" />
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/view_pager_weekly_schedule_page"
+        android:id="@+id/view_pager_earning_layout_page"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>
-

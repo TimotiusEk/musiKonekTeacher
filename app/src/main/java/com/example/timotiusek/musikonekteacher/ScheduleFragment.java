@@ -1,25 +1,24 @@
 package com.example.timotiusek.musikonekteacher;
 
 
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
@@ -34,7 +33,9 @@ public class ScheduleFragment extends Fragment {
     private RelativeLayout.LayoutParams params;
     RelativeLayout scheduleRL;
     Resources r;
-    String day;
+    String day = "";
+    @BindView(R.id.current_date)
+    TextView currentDate;
 
     public ScheduleFragment() {
         // Required empty public constructor
@@ -57,6 +58,7 @@ public class ScheduleFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_schedule, container, false);
+        ButterKnife.bind(this, v);
 
         mContext = getActivity().getApplicationContext();
 
@@ -89,6 +91,14 @@ public class ScheduleFragment extends Fragment {
             setAvailability(10, 11, true);
             setAvailability(1130, 13, false);
             setCourseSchedule(20, 22);
+        } else{
+            /**
+             * Not for weekly schedule fragment
+             */
+            setAvailability(7, 9, false);
+            setCourseSchedule(9, 11);
+            setAvailability(11, 22, false);
+            currentDate.setVisibility(View.GONE);
         }
 
         // Inflate the layout for this fragment
