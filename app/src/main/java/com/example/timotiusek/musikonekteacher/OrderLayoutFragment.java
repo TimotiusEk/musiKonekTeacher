@@ -36,7 +36,7 @@ public class OrderLayoutFragment extends Fragment {
 
         ma = (MainActivity) getActivity();
         ma.setTitle("Order");
-        ma.setChecked(R.id.menu_attendance);
+        ma.clearCheckedItems();
         /**
          * todo : tentuin set checknya
          */

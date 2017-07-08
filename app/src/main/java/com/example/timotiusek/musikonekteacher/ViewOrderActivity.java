@@ -18,8 +18,14 @@ public class ViewOrderActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Lihat Order");
         ButterKnife.bind(this);
     }
-    @OnClick(R.id.set_schedule_btn_view_order_page)
-    void goToSetSchedulePage(){
-        startActivity(new Intent(ViewOrderActivity.this, SetScheduleActivity.class));
+    @OnClick(R.id.reject_btn_view_order_page)
+    void goToRejectReasonPage(){
+        startActivity(new Intent(this, ReasonRejectActivity.class));
     }
+
+    @OnClick(R.id.accept_btn_view_order_page)
+    void goToStudentInfoPage(){
+        startActivity(new Intent(this, StudentInfoActivity.class));
+    }
+
 }

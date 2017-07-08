@@ -34,8 +34,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        changeFragment(new EarningLayoutFragment());
-        setChecked(R.id.menu_skill);
+        toolbar.setTitle("Beranda");
+        changeFragment(new UnderDevelopmentFragment());
+        setChecked(R.id.menu_home);
 
         setSupportActionBar(toolbar);
         toggle = new ActionBarDrawerToggle(
@@ -70,10 +71,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         if (id == R.id.menu_home) {
+            toolbar.setTitle("Beranda");
+            changeFragment(new UnderDevelopmentFragment());
             /**
              * Todo: add menu_home behaviour
              */
         } else if(id == R.id.menu_course){
+            toolbar.setTitle("Kursus");
+            changeFragment(new UnderDevelopmentFragment());
             /**
              * Todo: add menu_course behaviour
              */
@@ -81,10 +86,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(new Intent(this, ProfileActivity.class));
         } else if(id == R.id.menu_skill){
             changeFragment(new ShowSkillFragment());
-            /**
-             * Todo: add menu_skill behaviour
-             */
-        } else if(id == R.id.menu_attendance){
+        } else if(id == R.id.menu_schedule){
            changeFragment(new WeeklyScheduleFragment());
         }else if(id == R.id.menu_quit){
            System.exit(0);
@@ -98,6 +100,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setCheckedItem(id);
     }
 
+    public void clearCheckedItems(){
+        int size = navigationView.getMenu().size();
+        for (int i = 0; i < size; i++) {
+            navigationView.getMenu().getItem(i).setChecked(false);
+        }
+    }
 
 
 }

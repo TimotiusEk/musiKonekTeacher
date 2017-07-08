@@ -38,7 +38,7 @@ public class StudentDetailFragment extends Fragment {
 
         ma = (MainActivity) getActivity();
         ma.setTitle("Student Detail");
-        ma.setChecked(R.id.menu_attendance);
+        ma.clearCheckedItems();
         /**
          * todo : tentuin set checknya
          */

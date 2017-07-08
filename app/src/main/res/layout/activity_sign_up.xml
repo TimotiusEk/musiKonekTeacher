@@ -62,11 +62,10 @@
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="33dp"
         android:text="SIGN UP"
         android:textColor="@android:color/white"
         android:background="#3F569A"
-        android:padding="10dp"
         android:layout_marginTop="60dp"
         android:id="@+id/sign_up_btn"
         />

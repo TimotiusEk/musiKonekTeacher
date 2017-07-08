@@ -43,8 +43,8 @@ public class WeeklyScheduleFragment extends Fragment {
         ButterKnife.bind(this, view);
 
         ma = (MainActivity) getActivity();
-        ma.setTitle("Schedule");
-        ma.setChecked(R.id.menu_attendance);
+        ma.getSupportActionBar().setTitle("Jadwal");
+        ma.setChecked(R.id.menu_schedule);
 
 
         viewPager.setAdapter(new MyAdapter(getActivity().getSupportFragmentManager()));

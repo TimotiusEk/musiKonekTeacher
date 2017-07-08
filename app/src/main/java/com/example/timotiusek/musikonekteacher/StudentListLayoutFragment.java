@@ -1,5 +1,6 @@
 package com.example.timotiusek.musikonekteacher;
 
+
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -13,17 +14,18 @@ import android.view.ViewGroup;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+
 /**
  * A simple {@link Fragment} subclass.
  */
-public class EarningLayoutFragment extends Fragment {
-    @BindView(R.id.tab_layout_earning_layout_page)
+public class StudentListLayoutFragment extends Fragment {
+    @BindView(R.id.tab_layout_student_list_page)
     TabLayout tabLayout;
-    @BindView(R.id.view_pager_earning_layout_page)
+    @BindView(R.id.view_pager_student_list_page)
     ViewPager viewPager;
     MainActivity ma;
 
-    public EarningLayoutFragment() {
+    public StudentListLayoutFragment() {
         // Required empty public constructor
     }
 
@@ -31,19 +33,18 @@ public class EarningLayoutFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_earning_layout, container, false);
+        View view = inflater.inflate(R.layout.fragment_student_list_layout, container, false);
         ButterKnife.bind(this, view);
 
         ma = (MainActivity) getActivity();
-        ma.setTitle("Earning Page");
+        ma.setTitle("Student List");
         ma.clearCheckedItems();
-
         /**
          * todo : tentuin set checknya
          */
 
 
-        viewPager.setAdapter(new EarningLayoutFragment.MyAdapter(getActivity().getSupportFragmentManager()));
+        viewPager.setAdapter(new StudentListLayoutFragment.MyAdapter(getActivity().getSupportFragmentManager()));
         tabLayout.setupWithViewPager(viewPager);
 
         viewPager.setCurrentItem(0);
@@ -61,8 +62,8 @@ public class EarningLayoutFragment extends Fragment {
         public Fragment getItem(int position)
         {
             switch (position){
-                case 0 : return new EarningFragment("EXISTING");
-                case 1 : return new EarningFragment("FINISHED");
+                case 0 : return new StudentListFragment("EXISTING");
+                case 1 : return new StudentListFragment("GRADUATED");
             }
             return null;
         }
@@ -76,7 +77,7 @@ public class EarningLayoutFragment extends Fragment {
         public CharSequence getPageTitle(int position) {
             switch (position){
                 case 0 : return "EXISTING";
-                case 1 : return "FINISHED";
+                case 1 : return "GRADUATED";
             }
             return null;
         }

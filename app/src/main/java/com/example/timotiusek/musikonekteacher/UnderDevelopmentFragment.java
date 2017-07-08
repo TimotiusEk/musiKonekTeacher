@@ -11,10 +11,10 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ShortTestimonialFragment extends Fragment {
-MainActivity ma;
+public class UnderDevelopmentFragment extends Fragment {
 
-    public ShortTestimonialFragment() {
+
+    public UnderDevelopmentFragment() {
         // Required empty public constructor
     }
 
@@ -22,10 +22,8 @@ MainActivity ma;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        ma = (MainActivity) getActivity();
-        ma.clearCheckedItems();
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_short_testimonial, container, false);
+        return inflater.inflate(R.layout.fragment_under_development, container, false);
     }
 
 }

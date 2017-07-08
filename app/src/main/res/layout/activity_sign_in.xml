@@ -54,7 +54,6 @@
         android:text="SIGN IN"
         android:textColor="@android:color/white"
         android:background="#3F569A"
-        android:padding="10dp"
         android:layout_marginTop="40dp"
         android:id="@+id/sign_in_btn"
         />
