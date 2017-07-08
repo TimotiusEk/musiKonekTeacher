@@ -72,13 +72,21 @@
         android:layout_marginBottom="10dp"
         android:layout_weight="1"/>
 
+    <Button
+        android:id="@+id/reject_btn_view_order_page"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:background="#3F569A"
+        android:text="Tolak"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="10dp"/>
 
     <Button
-        android:id="@+id/set_schedule_btn_view_order_page"
+        android:id="@+id/accept_btn_view_order_page"
         android:layout_width="match_parent"
         android:layout_height="33dp"
         android:layout_gravity="bottom"
         android:background="@color/colorPrimary"
-        android:text="Pasang Jadwal"
+        android:text="Terima"
         android:textColor="@android:color/white" />
 </LinearLayout>

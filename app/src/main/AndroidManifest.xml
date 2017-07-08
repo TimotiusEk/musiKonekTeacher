@@ -22,11 +22,9 @@
             android:noHistory="true"
             android:theme="@style/NoActionBarTheme" />
         <activity android:name=".EditProfileActivity" />
-        <activity
-            android:name=".SplashScreen"
-            android:noHistory="true"
-            android:theme="@style/SplashScreenTheme" />
-        <activity android:name=".ViewOrderActivity" />
+
+        <activity android:name=".ViewOrderActivity"
+            android:noHistory="true"/>
         <activity android:name=".CreateTestimonialActivity" />
         <activity android:name=".ReasonRejectActivity" />
         <activity android:name=".CreateReportActivity" />
@@ -36,7 +34,11 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/NoActionBarTheme"/>
-        <activity android:name=".StudentInfoActivity" >
+        <activity android:name=".StudentInfoActivity" />
+        <activity
+            android:name=".SplashScreen"
+            android:noHistory="true"
+            android:theme="@style/SplashScreenTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

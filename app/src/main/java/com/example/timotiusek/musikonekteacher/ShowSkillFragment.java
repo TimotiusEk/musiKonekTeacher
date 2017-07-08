@@ -39,7 +39,7 @@ public class ShowSkillFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_show_skill, container, false);
         ButterKnife.bind(this,view);
         ma = (MainActivity) getActivity();
-        ma.setTitle("Keahlian");
+        ma.getSupportActionBar().setTitle("Keahlian");
 
         skills = new ArrayList<>();
         skills.add(new Skill("Gitar", "Gitar Akustik"));

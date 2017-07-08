@@ -1,11 +1,13 @@
 package com.example.timotiusek.musikonekteacher;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.timotiusek.musikonekteacher.CustomClass.Earning;
@@ -42,6 +44,7 @@ public class EarningFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_earning, container, false);
         ButterKnife.bind(this, v);
+
         notFilteredEarnings = new ArrayList<>();
         notFilteredEarnings.add(new Earning(R.drawable.avatar, "Kursus Piano Pemula", "Paket 5 kali pertemuan","Joe Biden", "EXISTING"));
         notFilteredEarnings.add(new Earning(R.drawable.avatar, "Kursus Gitar Pemula", "Paket 2 kali pertemuan","Joe Allen", "EXISTING"));
@@ -67,6 +70,16 @@ public class EarningFragment extends Fragment {
 
         EarningAdapter earningAdapter = new EarningAdapter(filteredEarnings, getActivity());
         listView.setAdapter(earningAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                /**
+                 * todo : make bundle to send data
+                 */
+                startActivity(new Intent(getActivity(), EarningDetailActivity.class));
+            }
+        });
         // Inflate the layout for this fragment
         return v;
     }

@@ -1,11 +1,13 @@
 package com.example.timotiusek.musikonekteacher;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.timotiusek.musikonekteacher.CustomClass.Attendance;
@@ -24,6 +26,7 @@ public class ShowAttendanceFragment extends Fragment {
     ListView showAttendanceListView;
     ArrayList<Attendance> attendances;
     ShowAttendanceAdapter showAttendanceAdapter;
+    MainActivity ma;
 
     public ShowAttendanceFragment() {
         // Required empty public constructor
@@ -35,6 +38,7 @@ public class ShowAttendanceFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_show_attendance, container, false);
         ButterKnife.bind(this,view);
+        ma.clearCheckedItems();
 
         attendances = new ArrayList<>();
         attendances.add(new Attendance(R.drawable.avatar, "Kursus Piano Pemula", "Pertemuan 1", "Hendra Sulaeman"));
@@ -44,6 +48,13 @@ public class ShowAttendanceFragment extends Fragment {
 
         showAttendanceAdapter = new ShowAttendanceAdapter(attendances, getActivity());
         showAttendanceListView.setAdapter(showAttendanceAdapter);
+
+        showAttendanceListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                startActivity(new Intent(getActivity(), CreateReportActivity.class));
+            }
+        });
         // Inflate the layout for this fragment
         return view;
     }

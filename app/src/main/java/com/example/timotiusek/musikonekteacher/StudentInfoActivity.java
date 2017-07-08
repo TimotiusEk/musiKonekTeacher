@@ -21,4 +21,9 @@ public class StudentInfoActivity extends AppCompatActivity {
     void goToSetSchedulePage(){
         startActivity(new Intent(StudentInfoActivity.this, SetScheduleActivity.class));
     }
+
+    @OnClick(R.id.close_btn_student_info_page)
+    void goBack(){
+        super.onBackPressed();
+    }
 }
