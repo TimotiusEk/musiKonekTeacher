@@ -22,7 +22,7 @@ import butterknife.ButterKnife;
  * A simple {@link Fragment} subclass.
  */
 public class StudentListFragment extends Fragment {
-    String status;
+    String status = "";
     ArrayList<Student> notFilteredStudents;
     ArrayList<Student> filteredStudents;
     @BindView(R.id.student_list_list_view)
