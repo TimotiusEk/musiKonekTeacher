@@ -35,11 +35,11 @@ public class OrderLayoutFragment extends Fragment {
         ButterKnife.bind(this, view);
 
         ma = (MainActivity) getActivity();
-        ma.setTitle("Order");
-        ma.clearCheckedItems();
-        /**
-         * todo : tentuin set checknya
-         */
+        ma.getSupportActionBar().setTitle("Order");
+//        ma.clearCheckedItems();
+//        /**
+//         * todo : tentuin set checknya
+//         */
 
 
         viewPager.setAdapter(new OrderLayoutFragment.MyAdapter(getActivity().getSupportFragmentManager()));

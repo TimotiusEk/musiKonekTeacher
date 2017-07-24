@@ -88,7 +88,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             changeFragment(new ShowSkillFragment());
         } else if(id == R.id.menu_schedule){
            changeFragment(new WeeklyScheduleFragment());
-        }else if(id == R.id.menu_quit){
+        } else if(id == R.id.menu_order){
+            changeFragment(new OrderLayoutFragment());
+        } else if(id == R.id.menu_student){
+            changeFragment(new StudentListLayoutFragment());
+        } else if(id == R.id.menu_quit){
            System.exit(0);
         }
 

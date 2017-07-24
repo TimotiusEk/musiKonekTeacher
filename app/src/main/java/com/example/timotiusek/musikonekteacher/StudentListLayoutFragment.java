@@ -37,11 +37,11 @@ public class StudentListLayoutFragment extends Fragment {
         ButterKnife.bind(this, view);
 
         ma = (MainActivity) getActivity();
-        ma.setTitle("Student List");
-        ma.clearCheckedItems();
-        /**
-         * todo : tentuin set checknya
-         */
+        ma.getSupportActionBar().setTitle("Student List");
+//        ma.clearCheckedItems();
+//        /**
+//         * todo : tentuin set checknya
+//         */
 
 
         viewPager.setAdapter(new StudentListLayoutFragment.MyAdapter(getActivity().getSupportFragmentManager()));

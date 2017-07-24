@@ -31,6 +31,19 @@
             android:icon="@drawable/ic_event_black_24dp"
             android:title="Jadwal"
             />
+
+        <item
+            android:id="@+id/menu_order"
+            android:icon="@drawable/ic_event_black_24dp"
+            android:title="Pesanan"
+            />
+
+        <item
+            android:id="@+id/menu_student"
+            android:icon="@drawable/ic_event_black_24dp"
+            android:title="Murid"
+            />
+
         <item
             android:id="@+id/menu_quit"
             android:icon="@drawable/ic_exit_to_app_black_24dp"
