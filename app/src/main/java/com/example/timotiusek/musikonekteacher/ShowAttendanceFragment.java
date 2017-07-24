@@ -38,6 +38,7 @@ public class ShowAttendanceFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_show_attendance, container, false);
         ButterKnife.bind(this,view);
+        ma = (MainActivity) getActivity();
         ma.clearCheckedItems();
 
         attendances = new ArrayList<>();
