@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -17,6 +18,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private String username;
 
     SharedPreferences sharedPreferences;
+    private boolean doubleBackToExitPressedOnce = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,9 +86,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            if (doubleBackToExitPressedOnce) {
+                super.onBackPressed();
+                return;
+            }
+
+            this.doubleBackToExitPressedOnce = true;
+            Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+            new Handler().postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    doubleBackToExitPressedOnce=false;
+                }
+            }, 2000);
         }
     }
+
+
 
 
 
@@ -116,8 +135,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             changeFragment(new OrderLayoutFragment());
         } else if(id == R.id.menu_student){
             changeFragment(new StudentListLayoutFragment());
-        } else if(id == R.id.menu_quit){
-           System.exit(0);
+        } else if(id == R.id.menu_logout){
+           logout();
         }
 
         drawer.closeDrawer(GravityCompat.START);
@@ -135,7 +154,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    public void updateNavView(){
+    private void updateNavView(){
         if(!sharedPreferences.getString("email","").equals("")) {
             email = sharedPreferences.getString("email","");
         }
@@ -152,6 +171,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onResume();
         //Log.d("ASDF","called");
         updateNavView();
+    }
+
+    private void logout(){
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("token","");
+        editor.putString("username","");
+
+        editor.apply();
+
+        Intent intent = new Intent(this, SignInActivity.class);
+        startActivity(intent);
+
+        finish();
+
     }
 
 

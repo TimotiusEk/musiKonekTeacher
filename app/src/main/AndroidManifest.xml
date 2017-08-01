@@ -24,9 +24,9 @@
             android:noHistory="true"
             android:theme="@style/NoActionBarTheme" />
         <activity android:name=".EditProfileActivity" />
-
-        <activity android:name=".ViewOrderActivity"
-            android:noHistory="true"/>
+        <activity
+            android:name=".ViewOrderActivity"
+            android:noHistory="true" />
         <activity android:name=".CreateTestimonialActivity" />
         <activity android:name=".ReasonRejectActivity" />
         <activity android:name=".CreateReportActivity" />
@@ -35,12 +35,12 @@
             android:theme="@style/NoActionBarTheme" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/NoActionBarTheme"/>
+            android:theme="@style/NoActionBarTheme" />
         <activity android:name=".StudentInfoActivity" />
         <activity
             android:name=".SplashScreen"
             android:noHistory="true"
-            android:theme="@style/SplashScreenTheme" >
+            android:theme="@style/SplashScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -52,8 +52,8 @@
         <activity
             android:name=".ProfileActivity"
             android:theme="@style/NoActionBarTheme" />
-
-        <activity android:name=".SetScheduleActivity"></activity>
+        <activity android:name=".SetScheduleActivity" />
+        <activity android:name=".ViewAcceptedOrderActivity"></activity>
     </application>
 
 </manifest>
