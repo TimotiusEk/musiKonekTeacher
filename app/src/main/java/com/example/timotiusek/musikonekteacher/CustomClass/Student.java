@@ -10,13 +10,15 @@ public class Student {
     private String coursePackage;
     private String studentName;
     private String status;
+    private String courseID;
 
-    public Student(int studentImage, String courseName, String coursePackage, String studentName, String status) {
+    public Student(int studentImage, String courseName, String coursePackage, String studentName, String status, String courseID) {
         this.studentImage = studentImage;
         this.courseName = courseName;
         this.coursePackage = coursePackage;
         this.studentName = studentName;
         this.status = status;
+        this.courseID = courseID;
     }
 
     public int getStudentImage() {
@@ -51,6 +53,14 @@ public class Student {
         this.studentName = studentName;
     }
 
+    public String getCourseID() {
+        return courseID;
+    }
+
+    public void setCourseID(String courseID) {
+        this.courseID = courseID;
+    }
+
     public String getStatus() {
         return status;
     }
@@ -58,4 +68,7 @@ public class Student {
     public void setStatus(String status) {
         this.status = status;
     }
+
+
+
 }

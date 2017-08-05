@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.timotiusek.musikonekteacher.CustomClass.Student;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -23,12 +25,31 @@ public class StudentDetailFragment extends Fragment {
     TabLayout tabLayout;
     @BindView(R.id.view_pager_student_detail_page)
     ViewPager viewPager;
-    MainActivity ma;
+    StudentListActivity ma;
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    private Student student;
 
     public StudentDetailFragment() {
         // Required empty public constructor
     }
 
+    public static StudentDetailFragment newInstance(Student student){
+
+        StudentDetailFragment sdf = new StudentDetailFragment();
+        sdf.setStudent(student);
+
+        return sdf;
+
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,9 +57,9 @@ public class StudentDetailFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_student_detail, container, false);
         ButterKnife.bind(this, view);
 
-        ma = (MainActivity) getActivity();
+        ma = (StudentListActivity) getActivity();
         ma.setTitle("Student Detail");
-        ma.clearCheckedItems();
+//        ma.clearCheckedItems();
         /**
          * todo : tentuin set checknya
          */
@@ -62,7 +83,7 @@ public class StudentDetailFragment extends Fragment {
         public Fragment getItem(int position)
         {
             switch (position){
-                case 0 : return new ShowAttendanceFragment();
+                case 0 : return ShowAttendanceFragment.newInstance(student);
                 case 1 : return new ShortTestimonialFragment();
                 case 2 :  return new ScheduleFragment();
             }

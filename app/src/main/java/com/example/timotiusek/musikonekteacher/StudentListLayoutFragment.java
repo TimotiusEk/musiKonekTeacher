@@ -62,8 +62,8 @@ public class StudentListLayoutFragment extends Fragment {
         public Fragment getItem(int position)
         {
             switch (position){
-                case 0 : return new StudentListFragment("EXISTING");
-                case 1 : return new StudentListFragment("GRADUATED");
+                case 0 : return new StudentListFragment("existing");
+                case 1 : return new StudentListFragment("graduated");
             }
             return null;
         }
