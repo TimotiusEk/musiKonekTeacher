@@ -36,14 +36,14 @@ public class EarningLayoutFragment extends Fragment {
 
         ma = (MainActivity) getActivity();
         ma.setTitle("Earning Page");
-        ma.clearCheckedItems();
+        //ma.clearCheckedItems();
 
         /**
          * todo : tentuin set checknya
          */
 
 
-        viewPager.setAdapter(new EarningLayoutFragment.MyAdapter(getActivity().getSupportFragmentManager()));
+        viewPager.setAdapter(new EarningLayoutFragment.MyAdapter(getChildFragmentManager()));
         tabLayout.setupWithViewPager(viewPager);
 
         viewPager.setCurrentItem(0);
@@ -51,7 +51,7 @@ public class EarningLayoutFragment extends Fragment {
         return view;
     }
 
-    private class MyAdapter extends FragmentStatePagerAdapter {
+    private class MyAdapter extends android.support.v4.app.FragmentStatePagerAdapter {
 
         MyAdapter(FragmentManager fm) {
             super(fm);

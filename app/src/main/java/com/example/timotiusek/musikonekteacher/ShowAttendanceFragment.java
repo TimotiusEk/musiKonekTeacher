@@ -39,7 +39,7 @@ public class ShowAttendanceFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_show_attendance, container, false);
         ButterKnife.bind(this,view);
         ma = (MainActivity) getActivity();
-        ma.clearCheckedItems();
+        //ma.clearCheckedItems();
 
         attendances = new ArrayList<>();
         attendances.add(new Attendance(R.drawable.avatar, "Kursus Piano Pemula", "Pertemuan 1", "Hendra Sulaeman"));

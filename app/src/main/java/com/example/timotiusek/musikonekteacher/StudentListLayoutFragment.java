@@ -44,7 +44,7 @@ public class StudentListLayoutFragment extends Fragment {
 //         */
 
 
-        viewPager.setAdapter(new StudentListLayoutFragment.MyAdapter(getActivity().getSupportFragmentManager()));
+        viewPager.setAdapter(new StudentListLayoutFragment.MyAdapter(getChildFragmentManager()));
         tabLayout.setupWithViewPager(viewPager);
 
         viewPager.setCurrentItem(0);
@@ -52,7 +52,7 @@ public class StudentListLayoutFragment extends Fragment {
         return view;
     }
 
-    private class MyAdapter extends FragmentStatePagerAdapter {
+    private class MyAdapter extends android.support.v4.app.FragmentStatePagerAdapter {
 
         MyAdapter(FragmentManager fm) {
             super(fm);

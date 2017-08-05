@@ -38,13 +38,13 @@ public class StudentDetailFragment extends Fragment {
 
         ma = (MainActivity) getActivity();
         ma.setTitle("Student Detail");
-        ma.clearCheckedItems();
+        //ma.clearCheckedItems();
         /**
          * todo : tentuin set checknya
          */
 
 
-        viewPager.setAdapter(new StudentDetailFragment.MyAdapter(getActivity().getSupportFragmentManager()));
+        viewPager.setAdapter(new StudentDetailFragment.MyAdapter(getChildFragmentManager()));
         tabLayout.setupWithViewPager(viewPager);
 
         viewPager.setCurrentItem(0);
@@ -52,7 +52,7 @@ public class StudentDetailFragment extends Fragment {
         return view;
     }
 
-    class MyAdapter extends FragmentStatePagerAdapter {
+    class MyAdapter extends android.support.v4.app.FragmentStatePagerAdapter {
 
         public MyAdapter(FragmentManager fm) {
             super(fm);
@@ -64,7 +64,7 @@ public class StudentDetailFragment extends Fragment {
             switch (position){
                 case 0 : return new ShowAttendanceFragment();
                 case 1 : return new ShortTestimonialFragment();
-                case 2 :  return new ScheduleFragment();
+                case 2 :  return new StudentDetailScheduleFragment();
             }
             return null;
         }

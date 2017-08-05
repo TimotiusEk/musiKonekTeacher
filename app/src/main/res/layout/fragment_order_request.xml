@@ -1,0 +1,47 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.timotiusek.musikonekteacher.OrderRequestFragment"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="Pending Request"
+       android:textSize="23sp"
+       android:background="@color/colorPrimary"
+       android:padding="8dp"
+       android:textColor="@android:color/white"
+       android:textStyle="bold"/>
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/pending_orders_lv__order_request_page"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Accepted Request"
+            android:textSize="23sp"
+            android:background="@color/colorPrimary"
+            android:padding="8dp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"/>
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/accepted_orders_lv__order_request_page"/>
+    </LinearLayout>
+
+</LinearLayout>

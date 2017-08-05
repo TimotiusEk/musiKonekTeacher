@@ -14,7 +14,6 @@ import com.example.timotiusek.musikonekteacher.CustomClass.Order;
 import com.example.timotiusek.musikonekteacher.CustomClass.OrderAdapter;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,25 +22,30 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class OrderFragment extends Fragment {
-    String status;
-    ArrayList<Order> notFilteredOrders;
-    ArrayList<Order> filteredOrders;
-    @BindView(R.id.order_fragment_list_view)
-    ListView listView;
-    public OrderFragment() {
+public class OrderRequestFragment extends Fragment {
+    private ArrayList<Order> notFilteredOrders;
+    private ArrayList<Order> pendingOrders;
+    private ArrayList<Order> acceptedOrders;
+
+    @BindView(R.id.accepted_orders_lv__order_request_page)
+    ListView acceptedOrdersLv;
+
+    @BindView(R.id.pending_orders_lv__order_request_page)
+    ListView pendingOrdersLv;
+
+    private OrderAdapter pendingOrdersAdapter;
+    private OrderAdapter acceptedOrdersAdapter;
+    public OrderRequestFragment() {
         // Required empty public constructor
     }
 
-    public OrderFragment(String status){
-        this.status = status;
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_order, container, false);
+        View v = inflater.inflate(R.layout.fragment_order_request, container, false);
         ButterKnife.bind(this, v);
+
         notFilteredOrders = new ArrayList<>();
         notFilteredOrders.add(new Order(R.drawable.avatar, "Kursus Piano Pemula", "Paket 5 kali pertemuan","Joe Biden", "PENDING"));
         notFilteredOrders.add(new Order(R.drawable.avatar, "Kursus Gitar Pemula", "Paket 2 kali pertemuan","Joe Allen", "REJECTED"));
@@ -49,15 +53,20 @@ public class OrderFragment extends Fragment {
         notFilteredOrders.add(new Order(R.drawable.avatar, "Kursus Vokal Pemula", "Paket 4 kali pertemuan","Joe shua Suherman", "ACCEPTED"));
         notFilteredOrders.add(new Order(R.drawable.avatar, "Kursus Piano Intermediate", "Paket 12 kali pertemuan","Joe unochi", "REJECTED"));
         notFilteredOrders.add(new Order(R.drawable.avatar, "Kursus Angkung Pemula", "Paket 3 kali pertemuan","Joealan Kacang", "ACCEPTED"));
-        filteredOrders = new ArrayList<>();
+        pendingOrders = new ArrayList<>();
+        acceptedOrders = new ArrayList<>();
 
-        if(status.equals("PENDING")){
-            for(Order notFilteredOrder : notFilteredOrders){
-                if(notFilteredOrder.getStatus().equals("PENDING")){
-                    filteredOrders.add(notFilteredOrder);
-                }
+
+        for(Order notFilteredOrder : notFilteredOrders){
+            if(notFilteredOrder.getStatus().equals("PENDING")){
+                pendingOrders.add(notFilteredOrder);
             }
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        }
+
+        pendingOrdersAdapter = new OrderAdapter(pendingOrders, getActivity());
+        pendingOrdersLv.setAdapter(pendingOrdersAdapter);
+
+        pendingOrdersLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     /**
@@ -66,13 +75,16 @@ public class OrderFragment extends Fragment {
                     startActivity(new Intent(getActivity(), ViewOrderActivity.class));
                 }
             });
-        } else if(status.equals("ACCEPTED")){
-            for(Order notFilteredOrder : notFilteredOrders){
-                if(notFilteredOrder.getStatus().equals("ACCEPTED")){
-                    filteredOrders.add(notFilteredOrder);
-                }
+
+        for(Order notFilteredOrder : notFilteredOrders){
+            if(notFilteredOrder.getStatus().equals("ACCEPTED")){
+                acceptedOrders.add(notFilteredOrder);
             }
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        }
+
+        acceptedOrdersAdapter = new OrderAdapter(acceptedOrders, getActivity());
+        acceptedOrdersLv.setAdapter(acceptedOrdersAdapter);
+        acceptedOrdersLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     /**
@@ -81,16 +93,7 @@ public class OrderFragment extends Fragment {
                     startActivity(new Intent(getActivity(), StudentInfoActivity.class));
                 }
             });
-        } else if(status.equals("REJECTED")){
-            for(Order notFilteredOrder : notFilteredOrders){
-                if(notFilteredOrder.getStatus().equals("REJECTED")){
-                    filteredOrders.add(notFilteredOrder);
-                }
-            }
-        }
 
-        OrderAdapter orderAdapter = new OrderAdapter(filteredOrders, getActivity());
-        listView.setAdapter(orderAdapter);
         // Inflate the layout for this fragment
         return v;
     }

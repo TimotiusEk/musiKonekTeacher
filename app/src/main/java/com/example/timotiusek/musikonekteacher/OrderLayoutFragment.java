@@ -36,13 +36,14 @@ public class OrderLayoutFragment extends Fragment {
 
         ma = (MainActivity) getActivity();
         ma.getSupportActionBar().setTitle("Order");
+        ma.setChecked(R.id.menu_order);
 //        ma.clearCheckedItems();
 //        /**
 //         * todo : tentuin set checknya
 //         */
 
 
-        viewPager.setAdapter(new OrderLayoutFragment.MyAdapter(getActivity().getSupportFragmentManager()));
+        viewPager.setAdapter(new OrderLayoutFragment.MyAdapter(getChildFragmentManager()));
         tabLayout.setupWithViewPager(viewPager);
 
         viewPager.setCurrentItem(0);
@@ -50,7 +51,7 @@ public class OrderLayoutFragment extends Fragment {
         return view;
     }
 
-    private class MyAdapter extends FragmentStatePagerAdapter {
+    private class MyAdapter extends android.support.v4.app.FragmentStatePagerAdapter {
 
         MyAdapter(FragmentManager fm) {
             super(fm);
@@ -60,9 +61,9 @@ public class OrderLayoutFragment extends Fragment {
         public Fragment getItem(int position)
         {
             switch (position){
-                case 0 : return new OrderFragment("PENDING");
-                case 1 : return new OrderFragment("ACCEPTED");
-                case 2 :  return new OrderFragment("REJECTED");
+                case 0 : return new OrderRequestFragment();
+                case 1 : return new OrderPaymentFragment();
+                case 2 :  return new OrderRejectedFragment();
             }
             return null;
         }
@@ -75,8 +76,8 @@ public class OrderLayoutFragment extends Fragment {
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position){
-                case 0 : return "PENDING";
-                case 1 : return "ACCEPTED";
+                case 0 : return "REQUEST";
+                case 1 : return "PAYMENT";
                 case 2 : return "REJECTED";
             }
             return null;

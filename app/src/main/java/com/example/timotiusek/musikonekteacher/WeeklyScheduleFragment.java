@@ -47,7 +47,8 @@ public class WeeklyScheduleFragment extends Fragment {
         ma.setChecked(R.id.menu_schedule);
 
 
-        viewPager.setAdapter(new MyAdapter(getActivity().getSupportFragmentManager()));
+
+        viewPager.setAdapter(new MyAdapter(getChildFragmentManager()));
         tabLayout.setupWithViewPager(viewPager);
 
         viewPager.setCurrentItem(0);
@@ -57,7 +58,7 @@ public class WeeklyScheduleFragment extends Fragment {
     }
 
 
-    class MyAdapter extends FragmentStatePagerAdapter {
+    class MyAdapter extends android.support.v4.app.FragmentStatePagerAdapter {
 
         public MyAdapter(FragmentManager fm) {
             super(fm);

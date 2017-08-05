@@ -21,7 +21,8 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="33dp"
-        android:text="KIRIM"
+        android:text="PASANG"
+        android:textColor="@android:color/white"
         android:background="@drawable/round_btn"
         android:layout_alignParentBottom="true"
         android:id="@+id/send_btn_set_schedule_page"

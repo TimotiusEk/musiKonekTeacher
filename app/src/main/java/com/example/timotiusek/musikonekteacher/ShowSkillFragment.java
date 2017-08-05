@@ -40,6 +40,7 @@ public class ShowSkillFragment extends Fragment {
         ButterKnife.bind(this,view);
         ma = (MainActivity) getActivity();
         ma.getSupportActionBar().setTitle("Keahlian");
+        ma.setChecked(R.id.menu_skill);
 
         skills = new ArrayList<>();
         skills.add(new Skill("Gitar", "Gitar Akustik"));

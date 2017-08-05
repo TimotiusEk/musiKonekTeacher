@@ -71,7 +71,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/comment_short_testimonial_fragment"
-                android:text="- Kurangi berkonsentrasi\n- Jangan terlalu sedikit instirahat"
+                android:text="- Kurangi berkonsentrasi\n- Jangan terlalu sedikit istirahat"
                 android:textSize="18sp"
                 />
             <Button

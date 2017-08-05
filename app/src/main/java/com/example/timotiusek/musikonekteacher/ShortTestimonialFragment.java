@@ -23,7 +23,7 @@ MainActivity ma;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ma = (MainActivity) getActivity();
-        ma.clearCheckedItems();
+        //ma.clearCheckedItems();
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_short_testimonial, container, false);
     }

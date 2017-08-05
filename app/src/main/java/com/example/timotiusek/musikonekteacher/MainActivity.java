@@ -35,9 +35,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         toolbar.setTitle("Beranda");
-        changeFragment(new UnderDevelopmentFragment());
         setChecked(R.id.menu_home);
-
+        showTheFirstFragment();
         setSupportActionBar(toolbar);
         toggle = new ActionBarDrawerToggle(
                 MainActivity.this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -47,15 +46,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(MainActivity.this);
     }
 
+    void showTheFirstFragment(){
+        mFragmentManager = getSupportFragmentManager();
+        mFragmentTransaction = mFragmentManager.beginTransaction();
+        mFragmentTransaction.replace(R.id.fragment_container, new UnderDevelopmentFragment());
+        mFragmentTransaction.commit();
+    }
     public void changeFragment(Fragment newFragment) {
         mFragmentManager = getSupportFragmentManager();
         mFragmentTransaction = mFragmentManager.beginTransaction();
         mFragmentTransaction.replace(R.id.fragment_container, newFragment);
+        mFragmentTransaction.addToBackStack(null);
         mFragmentTransaction.commit();
     }
 
     @Override
     public void onBackPressed() {
+
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -72,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.menu_home) {
             toolbar.setTitle("Beranda");
-            changeFragment(new UnderDevelopmentFragment());
+            changeFragment(new ShowReportsFragment());
             /**
              * Todo: add menu_home behaviour
              */

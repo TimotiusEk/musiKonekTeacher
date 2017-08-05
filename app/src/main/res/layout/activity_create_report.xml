@@ -2,94 +2,154 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.timotiusek.musikonekteacher.CreateReportActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    >
+    tools:context="com.example.timotiusek.musikonekteacher.CreateReportActivity">
 
     <LinearLayout
-        android:id="@+id/ll"
         android:layout_width="match_parent"
-
-        android:layout_height="match_parent"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="15dp">
+        android:padding="10dp">
 
-        <android.support.design.widget.TextInputLayout
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Detil Waktu Pertemuan"
+            android:textSize="20sp" />
+
+        <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="10dp"
-            android:nextFocusLeft="@id/ll"
-            android:nextFocusUp="@id/ll"
-            android:textColorHint="#b7b7b7"
-            app:hintTextAppearance="@style/TextLabelGray">
-
-            <EditText
-                android:id="@+id/homework_report_page"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp">
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Lagu &amp; Pekerjaan Rumah"
-                android:inputType="textMultiLine"
-                android:textColor="@android:color/black"
-                android:textSize="20sp" />
-        </android.support.design.widget.TextInputLayout>
+                android:background="@android:color/white"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical"
+                android:padding="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="22sp"
+                    android:text="Senin, 31 Juli 2015"
+                    android:id="@+id/show_date__create_report_page"/>
 
-        <android.support.design.widget.TextInputLayout
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="Jam 17:30"
+                    android:id="@+id/show_time__create_report_page"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Detil Laporan"
+            android:textSize="20sp" />
+
+        <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
-            android:nextFocusLeft="@id/ll"
-            android:nextFocusUp="@id/ll"
-            android:textColorHint="#b7b7b7"
-            app:hintTextAppearance="@style/TextLabelGray">
+            >
 
-            <EditText
-                android:id="@+id/exercise_create_report_page"
+            <LinearLayout
+                android:id="@+id/ll"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Latihan untuk Pertemuan Berikutnya"
-                android:inputType="textMultiLine"
-                android:textColor="@android:color/black"
-                android:textSize="20sp" />
-        </android.support.design.widget.TextInputLayout>
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
 
-        <android.support.design.widget.TextInputLayout
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="10dp"
+                    android:nextFocusLeft="@id/ll"
+                    android:nextFocusUp="@id/ll"
+                    android:textColorHint="#b7b7b7"
+                    app:hintTextAppearance="@style/TextLabelGray">
+
+                    <EditText
+                        android:id="@+id/homework__create_report_page"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Lagu &amp; Pekerjaan Rumah"
+                        android:inputType="textMultiLine"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="10dp"
+                    android:nextFocusLeft="@id/ll"
+                    android:nextFocusUp="@id/ll"
+                    android:textColorHint="#b7b7b7"
+                    app:hintTextAppearance="@style/TextLabelGray">
+
+                    <EditText
+                        android:id="@+id/exercise__create_report_page"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Latihan untuk Pertemuan Berikutnya"
+                        android:inputType="textMultiLine"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:nextFocusLeft="@id/ll"
+                    android:nextFocusUp="@id/ll"
+                    android:textColorHint="#b7b7b7"
+                    app:hintTextAppearance="@style/TextLabelGray">
+
+                    <EditText
+                        android:id="@+id/comment__create_report_page"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Komentar"
+                        android:inputType="textMultiLine"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <View
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:nextFocusLeft="@id/ll"
-            android:nextFocusUp="@id/ll"
-            android:textColorHint="#b7b7b7"
-            app:hintTextAppearance="@style/TextLabelGray">
-
-            <EditText
-                android:id="@+id/comment_create_report_page"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Komentar"
-                android:inputType="textMultiLine"
-                android:textColor="@android:color/black"
-                android:textSize="20sp" />
-        </android.support.design.widget.TextInputLayout>
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
 
         <Button
-            android:id="@+id/checkin_btn_create_report_page"
+            android:id="@+id/checkin_btn__create_report_page"
             android:layout_width="match_parent"
             android:layout_height="33dp"
             android:layout_gravity="bottom"
-            android:background="#3F569A"
+            android:background="@drawable/blue_round_btn"
             android:text="Checkin"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+
+            />
 
         <Button
-            android:id="@+id/save_btn_create_report_page"
+            android:id="@+id/save_btn__create_report_page"
             android:layout_width="match_parent"
             android:layout_height="33dp"
             android:layout_gravity="center_horizontal|bottom"
