@@ -21,7 +21,7 @@ import butterknife.ButterKnife;
  * A simple {@link Fragment} subclass.
  */
 public class ShowReportsFragment extends Fragment {
-    @BindView(R.id.reports_lv__show_reports_page)
+    @BindView(R.id.reports_lv__show_reports_fra)
     ListView reportsLv;
     ArrayList<Report> reports;
     ReportAdapter reportAdapter;

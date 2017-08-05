@@ -1,6 +1,5 @@
 package com.example.timotiusek.musikonekteacher;
 
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.graphics.Color;
@@ -11,12 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,7 +21,7 @@ import butterknife.OnClick;
 
 public class SetScheduleActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
     private Context context;
-    @BindView(R.id.show_scheduled_date)
+    @BindView(R.id.show_scheduled_date__set_schedule_act)
     EditText showScheduledDate;
     DatePickerDialog datePickerDialog;
     @Override
@@ -52,7 +49,7 @@ public class SetScheduleActivity extends AppCompatActivity implements DatePicker
         datePickerDialog.show();
     }
 
-    @OnClick(R.id.show_scheduled_date)
+    @OnClick(R.id.show_scheduled_date__set_schedule_act)
     void showDateDialog(){
         datePickerDialog.show();
     }

@@ -37,14 +37,14 @@
                     android:layout_height="wrap_content"
                     android:textSize="22sp"
                     android:text="Senin, 31 Juli 2015"
-                    android:id="@+id/show_date__create_report_page"/>
+                    android:id="@+id/show_date__create_report_act"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
                     android:text="Jam 17:30"
-                    android:id="@+id/show_time__create_report_page"/>
+                    android:id="@+id/show_time__create_report_act"/>
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
@@ -62,7 +62,7 @@
             >
 
             <LinearLayout
-                android:id="@+id/ll"
+                android:id="@+id/ll__create_report_act"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@android:color/white"
@@ -75,13 +75,13 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:layout_marginTop="10dp"
-                    android:nextFocusLeft="@id/ll"
-                    android:nextFocusUp="@id/ll"
+                    android:nextFocusLeft="@id/ll__create_report_act"
+                    android:nextFocusUp="@id/ll__create_report_act"
                     android:textColorHint="#b7b7b7"
                     app:hintTextAppearance="@style/TextLabelGray">
 
                     <EditText
-                        android:id="@+id/homework__create_report_page"
+                        android:id="@+id/homework__create_report_act"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Lagu &amp; Pekerjaan Rumah"
@@ -95,13 +95,13 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:layout_marginTop="10dp"
-                    android:nextFocusLeft="@id/ll"
-                    android:nextFocusUp="@id/ll"
+                    android:nextFocusLeft="@id/ll__create_report_act"
+                    android:nextFocusUp="@id/ll__create_report_act"
                     android:textColorHint="#b7b7b7"
                     app:hintTextAppearance="@style/TextLabelGray">
 
                     <EditText
-                        android:id="@+id/exercise__create_report_page"
+                        android:id="@+id/exercise__create_report_act"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Latihan untuk Pertemuan Berikutnya"
@@ -116,13 +116,13 @@
                     android:layout_marginBottom="8dp"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
-                    android:nextFocusLeft="@id/ll"
-                    android:nextFocusUp="@id/ll"
+                    android:nextFocusLeft="@id/ll__create_report_act"
+                    android:nextFocusUp="@id/ll__create_report_act"
                     android:textColorHint="#b7b7b7"
                     app:hintTextAppearance="@style/TextLabelGray">
 
                     <EditText
-                        android:id="@+id/comment__create_report_page"
+                        android:id="@+id/comment__create_report_act"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Komentar"
@@ -138,7 +138,7 @@
             android:layout_weight="1"/>
 
         <Button
-            android:id="@+id/checkin_btn__create_report_page"
+            android:id="@+id/checkin_btn__create_report_act"
             android:layout_width="match_parent"
             android:layout_height="33dp"
             android:layout_gravity="bottom"
@@ -149,7 +149,7 @@
             />
 
         <Button
-            android:id="@+id/save_btn__create_report_page"
+            android:id="@+id/save_btn__create_report_act"
             android:layout_width="match_parent"
             android:layout_height="33dp"
             android:layout_gravity="center_horizontal|bottom"

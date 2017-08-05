@@ -12,11 +12,8 @@ import android.widget.ListView;
 
 import com.example.timotiusek.musikonekteacher.CustomClass.Earning;
 import com.example.timotiusek.musikonekteacher.CustomClass.EarningAdapter;
-import com.example.timotiusek.musikonekteacher.CustomClass.Order;
-import com.example.timotiusek.musikonekteacher.CustomClass.OrderAdapter;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,7 +26,7 @@ public class EarningFragment extends Fragment {
     String status;
     ArrayList<Earning> notFilteredEarnings;
     ArrayList<Earning> filteredEarnings;
-    @BindView(R.id.earning_fragment_list_view)
+    @BindView(R.id.earning_lv____earning_fra)
     ListView listView;
     public EarningFragment() {
         // Required empty public constructor

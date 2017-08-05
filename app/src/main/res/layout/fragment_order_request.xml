@@ -22,7 +22,7 @@
         <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/pending_orders_lv__order_request_page"/>
+            android:id="@+id/pending_orders_lv__order_request_fra"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,7 +41,7 @@
         <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/accepted_orders_lv__order_request_page"/>
+            android:id="@+id/accepted_orders_lv__order_request_fra"/>
     </LinearLayout>
 
 </LinearLayout>

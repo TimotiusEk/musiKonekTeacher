@@ -43,7 +43,7 @@ public class SignUpActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.sign_up_btn)
+    @OnClick(R.id.sign_up_btn__sign_up_act)
     void register(){
         signUpCall();
     }
@@ -120,9 +120,9 @@ public class SignUpActivity extends AppCompatActivity {
             protected Map<String,String> getParams(){
                 Map<String,String> reqBody = new HashMap<String, String>();
 
-                EditText emailText = (EditText) findViewById(R.id.input_email_sign_up);
-                EditText passwordText = (EditText) findViewById(R.id.input_password_sign_up);
-                EditText phoneText = (EditText) findViewById(R.id.input_phone_num);
+                EditText emailText = (EditText) findViewById(R.id.input_email__sign_up_act);
+                EditText passwordText = (EditText) findViewById(R.id.input_password__sign_up_act);
+                EditText phoneText = (EditText) findViewById(R.id.input_phone_num__sign_up_act);
 
 //                EditText usernameText = (EditText) findViewById(R.id.input_username_sign_up);
 //                EditText fullnameText  = (EditText)  findViewById(R.id.input_fullname_signup);

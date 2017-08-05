@@ -118,7 +118,7 @@
         android:textColor="@android:color/white" />
 
     <Button
-        android:id="@+id/save_btn"
+        android:id="@+id/save_btn__add_skill_act"
         android:layout_width="match_parent"
         android:layout_height="33dp"
         android:layout_gravity="center_horizontal|bottom"

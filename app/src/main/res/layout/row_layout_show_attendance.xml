@@ -18,7 +18,7 @@
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:id="@+id/student_image_show_attendance_page"
+                android:id="@+id/student_image__show_attendance_rl"
                 android:layout_gravity="center_vertical"
                 android:layout_marginEnd="10dp"
                 />
@@ -31,20 +31,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Kursus Piano Pemula"
-                    android:id="@+id/course_name_show_attendance_page"
+                    android:id="@+id/course_name__show_attendance_rl"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Pertemuan 1"
-                    android:id="@+id/which_attendance_show_atttendance_page"
+                    android:id="@+id/which_attendance__show_atttendance_rl"
                     android:textColor="#8a929b"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Kursus Piano Pemula"
-                    android:id="@+id/student_name_show_attendance_page"
+                    android:text="Hendra Sulaeman"
+                    android:id="@+id/student_name__show_attendance_rl"
                     android:textColor="#8a929b"
                     />
             </LinearLayout>

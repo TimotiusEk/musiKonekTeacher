@@ -26,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Violin"
-                android:id="@+id/show_skill__skill_course_detail_page"
+                android:id="@+id/show_skill__skill_course_detail_act"
                 android:layout_marginBottom="5dp"
                 android:textSize="20sp"/>
             <TextView
@@ -37,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Violin Elektrik"
-                android:id="@+id/skill_desc__skill_course_detail_page"
+                android:id="@+id/skill_desc__skill_course_detail_act"
                 android:layout_marginBottom="5dp"
                 android:textSize="20sp"/>
 
@@ -50,7 +50,7 @@
         android:text="HAPUS KEAHLIAN"
         android:textColor="@android:color/white"
         android:background="@drawable/blue_round_btn"
-        android:id="@+id/delete_skill_btn__skill_course_detail_page"
+        android:id="@+id/delete_skill_btn__skill_course_detail_act"
         android:layout_marginTop="10dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
@@ -70,8 +70,8 @@
         <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/course_related_lv__skill_course_detail_page"
-            android:layout_above="@+id/add_schedule_btn__skill_course_detail_page"
+            android:id="@+id/course_related_lv__skill_course_detail_act"
+            android:layout_above="@+id/add_schedule_btn__skill_course_detail_act"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             />
@@ -82,7 +82,7 @@
             android:text="Tambah Jadwal"
             android:textColor="@android:color/white"
             android:background="@drawable/round_btn"
-            android:id="@+id/add_schedule_btn__skill_course_detail_page"
+            android:id="@+id/add_schedule_btn__skill_course_detail_act"
             android:layout_alignParentBottom="true"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"

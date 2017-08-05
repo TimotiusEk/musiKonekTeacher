@@ -22,9 +22,9 @@ public class ShowSkillAdapter extends BaseAdapter {
     private ArrayList<Skill> skills;
     private Context mContext;
     private LayoutInflater inflater;
-    @BindView(R.id.instrument)
+    @BindView(R.id.instrument__show_skill_rl)
     TextView instrument;
-    @BindView(R.id.instrument_detail)
+    @BindView(R.id.instrument_detail__show_skill_rl)
     TextView instrumentDetail;
 
     public ShowSkillAdapter(ArrayList<Skill> skills, Context c) {

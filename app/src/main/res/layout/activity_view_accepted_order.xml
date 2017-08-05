@@ -15,7 +15,7 @@
         android:textSize="15sp" />
 
     <TextView
-        android:id="@+id/course_name_view_order_page"
+        android:id="@+id/course_name__view_accepted_order_act"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Kursus Piano Pemula"
@@ -31,7 +31,7 @@
         android:textSize="15sp" />
 
     <TextView
-        android:id="@+id/course_type_view_acc_order_page"
+        android:id="@+id/course_type__view_accepted_order_act"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Paket 6 kali pertemuan"
@@ -47,7 +47,7 @@
         android:textSize="15sp" />
 
     <TextView
-        android:id="@+id/student_name_view_order_page"
+        android:id="@+id/student_name__view_accepted_order_act"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hendra Sulaeman"
@@ -63,7 +63,7 @@
         android:textSize="15sp" />
 
     <TextView
-        android:id="@+id/note_view_order_page"
+        android:id="@+id/note__view_accepted_order_act"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Saya pemula, tidak pernah pegang piano."
@@ -73,7 +73,7 @@
         android:layout_weight="1"/>
 
     <Button
-        android:id="@+id/reject_btn_view_order_page"
+        android:id="@+id/set_schedule_btn__view_accepted_order_act"
         android:layout_width="match_parent"
         android:layout_height="33dp"
         android:background="#3F569A"
@@ -82,7 +82,7 @@
         android:layout_marginBottom="10dp"/>
 
     <Button
-        android:id="@+id/accept_btn_view_order_page"
+        android:id="@+id/close_btn__view_accepted_order_act"
         android:layout_width="match_parent"
         android:layout_height="33dp"
         android:layout_gravity="bottom"

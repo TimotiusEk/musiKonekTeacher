@@ -25,10 +25,10 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
-    @BindView(R.id.nav_view) NavigationView navigationView;
-    @BindView(R.id.drawer_layout)
+    @BindView(R.id.nav_view__main_act) NavigationView navigationView;
+    @BindView(R.id.drawer_layout__main_act)
     DrawerLayout drawer;
-    @BindView(R.id.toolbar)
+    @BindView(R.id.toolbar__app_bar_main)
     Toolbar toolbar;
 
     private FragmentManager mFragmentManager;
@@ -54,15 +54,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         updateNavView();
 
-        NavigationView nv = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView nv = (NavigationView) findViewById(R.id.nav_view__main_act);
         View header = nv.getHeaderView(0);
 
         Log.d("ADSF",username);
 
-        TextView textName = (TextView) header.findViewById(R.id.username);
+        TextView textName = (TextView) header.findViewById(R.id.username__nav_header_main);
         textName.setText(username);
 
-        TextView textEmail = (TextView) header.findViewById(R.id.email_label);
+        TextView textEmail = (TextView) header.findViewById(R.id.email__nav_header_main);
         textEmail.setText(email);
 
         showTheFirstFragment();
@@ -78,13 +78,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     void showTheFirstFragment(){
         mFragmentManager = getSupportFragmentManager();
         mFragmentTransaction = mFragmentManager.beginTransaction();
-        mFragmentTransaction.replace(R.id.fragment_container, new UnderDevelopmentFragment());
+        mFragmentTransaction.replace(R.id.fragment_container__app_bar_main, new UnderDevelopmentFragment());
         mFragmentTransaction.commit();
     }
     public void changeFragment(Fragment newFragment) {
         mFragmentManager = getSupportFragmentManager();
         mFragmentTransaction = mFragmentManager.beginTransaction();
-        mFragmentTransaction.replace(R.id.fragment_container, newFragment);
+        mFragmentTransaction.replace(R.id.fragment_container__app_bar_main, newFragment);
         mFragmentTransaction.addToBackStack(null);
         mFragmentTransaction.commit();
     }
@@ -144,8 +144,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             changeFragment(new OrderLayoutFragment());
         } else if(id == R.id.menu_student){
             changeFragment(new StudentListLayoutFragment());
-        } else if(id == R.id.menu_quit){
-           System.exit(0);
+        } else if(id == R.id.menu_logout){
+            /**
+             * todo : create logout method
+             */
         }
 
         drawer.closeDrawer(GravityCompat.START);

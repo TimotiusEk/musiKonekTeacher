@@ -10,14 +10,14 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/schedule_lv__set_revised_schedule_page"
+        android:id="@+id/schedule_lv__set_revised_schedule_act"
         android:layout_weight="1"
        />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="33dp"
-        android:id="@+id/set_schedule_btn__set_revised_schedule_page"
+        android:id="@+id/set_schedule_btn__set_revised_schedule_act"
         android:text="Tetapkan Jadwal"
         android:layout_gravity="center"
         android:layout_margin="20dp"

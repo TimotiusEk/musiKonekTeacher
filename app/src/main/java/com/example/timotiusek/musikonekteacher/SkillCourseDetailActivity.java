@@ -13,7 +13,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class SkillCourseDetailActivity extends AppCompatActivity {
-    @BindView(R.id.course_related_lv__skill_course_detail_page)
+    @BindView(R.id.course_related_lv__skill_course_detail_act)
     ListView courseRelatedLv;
     ArrayList<Course> courses;
     CourseAdapter courseAdapter;

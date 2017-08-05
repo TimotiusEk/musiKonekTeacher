@@ -30,12 +30,12 @@
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
                     android:text="Pertemuan 1"
-                    android:id="@+id/which_meeting__set_revised_schedule_page"/>
+                    android:id="@+id/which_meeting__schedule_rl"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="28 April 2017, 17:30 WIB"
-                    android:id="@+id/meeting_date__set_revised_schedule_page"/>
+                    android:id="@+id/meeting_date__schedule_rl"/>
             </LinearLayout>
         </LinearLayout>
     </android.support.v7.widget.CardView>

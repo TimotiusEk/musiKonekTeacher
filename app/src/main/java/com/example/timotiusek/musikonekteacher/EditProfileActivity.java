@@ -40,7 +40,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
         callGetMyProfile();
 
-        Button saveButton = (Button) findViewById(R.id.save_btn);
+        Button saveButton = (Button) findViewById(R.id.save_btn__add_skill_act);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -18,7 +18,7 @@
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:id="@+id/student_image__payment_page"
+                android:id="@+id/student_image__payment_rl"
                 android:layout_gravity="center_vertical"
                 android:layout_marginEnd="10dp"
                 />
@@ -31,20 +31,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Kursus Piano Pemula"
-                    android:id="@+id/course_name__payment_page"
+                    android:id="@+id/course_name__payment_rl"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Paket 6 kali pertemuan"
-                    android:id="@+id/course_package__payment_page"
+                    android:id="@+id/course_package__payment_rl"
                     android:textColor="#8a929b"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Kursus Piano Pemula"
-                    android:id="@+id/student_name__payment_page"
+                    android:id="@+id/student_name__payment_rl"
                     android:textColor="#8a929b"
                     />
             </LinearLayout>

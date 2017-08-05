@@ -22,9 +22,9 @@ public class ReportAdapter extends BaseAdapter{
     private ArrayList<Report> reports;
     private Context mContext;
     private LayoutInflater inflater;
-    @BindView(R.id.report_title__show_report_page)
+    @BindView(R.id.report_title__show_report_rl)
     TextView reportTitle;
-    @BindView(R.id.report_date__show_report_page)
+    @BindView(R.id.report_date__show_report_rl)
     TextView reportDate;
 
     public ReportAdapter(ArrayList<Report> reports, Context c) {

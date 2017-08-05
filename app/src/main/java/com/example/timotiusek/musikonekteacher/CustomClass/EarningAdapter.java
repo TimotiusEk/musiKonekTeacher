@@ -23,13 +23,13 @@ public class EarningAdapter extends BaseAdapter {
     private ArrayList<Earning> earnings;
     private Context mContext;
     private LayoutInflater inflater;
-    @BindView(R.id.student_image_earning_page)
+    @BindView(R.id.student_image__earning_rl)
     CircleImageView studentImg;
-    @BindView(R.id.student_name_earning_page)
+    @BindView(R.id.student_name__earning_rl)
     TextView studentName;
-    @BindView(R.id.course_name_earning_page)
+    @BindView(R.id.course_name__earning_rl)
     TextView courseName;
-    @BindView(R.id.course_package_earning_page)
+    @BindView(R.id.course_package__earning_rl)
     TextView coursePackage;
 
     public EarningAdapter(ArrayList<Earning> earnings, Context c) {

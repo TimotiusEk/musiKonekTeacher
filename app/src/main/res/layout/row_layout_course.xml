@@ -30,12 +30,12 @@
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
                     android:text="Kursus Violin Dasar"
-                    android:id="@+id/course_name__course_page"/>
+                    android:id="@+id/course_name__course_rl"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="5 kali pertemuan"
-                    android:id="@+id/how_many_meetings__course_page"/>
+                    android:id="@+id/how_many_meetings__course_rl"/>
             </LinearLayout>
         </LinearLayout>
     </android.support.v7.widget.CardView>

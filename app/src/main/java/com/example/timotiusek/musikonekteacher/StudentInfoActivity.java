@@ -3,7 +3,6 @@ package com.example.timotiusek.musikonekteacher;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.TextView;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -21,12 +20,12 @@ public class StudentInfoActivity extends AppCompatActivity {
         Bundle params = incomingIntent.getExtras();
 
     }
-    @OnClick(R.id.set_schedule_btn_student_info_page)
+    @OnClick(R.id.set_schedule_btn__student_info_act)
     void goToSetSchedulePage(){
         startActivity(new Intent(StudentInfoActivity.this, SetScheduleActivity.class));
     }
 
-    @OnClick(R.id.close_btn_student_info_page)
+    @OnClick(R.id.close_btn__student_info_act)
     void goBack(){
         super.onBackPressed();
     }

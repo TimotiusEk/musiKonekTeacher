@@ -23,7 +23,7 @@ import butterknife.ButterKnife;
 public class OrderRejectedFragment extends Fragment {
     ArrayList<Order> notFilteredOrders;
     ArrayList<Order> filteredOrders;
-    @BindView(R.id.order_fragment_list_view)
+    @BindView(R.id.rejected_orders_lv__order_rejected_fra)
     ListView listView;
 
     public OrderRejectedFragment() {

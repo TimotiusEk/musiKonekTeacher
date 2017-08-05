@@ -50,8 +50,8 @@ public class SignInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_in);
         ButterKnife.bind(this);
 
-        inputEmail = (EditText) findViewById(R.id.input_email_sign_in);
-        inputPassword = (EditText) findViewById(R.id.input_password_sign_in);
+        inputEmail = (EditText) findViewById(R.id.input_email__sign_in_act);
+        inputPassword = (EditText) findViewById(R.id.input_password__sign_in_act);
 
         sharedPreferences = getSharedPreferences("profile", Context.MODE_PRIVATE);
         if(!sharedPreferences.getString("email","").equals("")) {
@@ -64,11 +64,11 @@ public class SignInActivity extends AppCompatActivity {
 
     }
 
-    @OnClick(R.id.sign_in_btn)
+    @OnClick(R.id.sign_in_btn__sign_in_act)
     void signIn(){
         loginCall();
     }
-    @OnClick(R.id.link_to_register)
+    @OnClick(R.id.link_to_register__sign_in_act)
     void clickToRegisterPage(){
         startActivity(new Intent(this, SignUpActivity.class));
     }

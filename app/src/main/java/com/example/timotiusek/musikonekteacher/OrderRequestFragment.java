@@ -43,28 +43,35 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class OrderFragment extends Fragment {
+public class OrderRequestFragment extends Fragment {
     String status;
     ArrayList<Order> notFilteredOrders;
-    ArrayList<Order> filteredOrders;
-    @BindView(R.id.order_fragment_list_view)
-    ListView listView;
-    public OrderFragment() {
+    ArrayList<Order> filteredAcceptedOrders;
+    ArrayList<Order> filteredPendingOrders;
+    @BindView(R.id.accepted_orders_lv__order_request_fra)
+    ListView acceptedOrdersLv;
+
+    @BindView(R.id.pending_orders_lv__order_request_fra)
+    ListView pendingOrdersLv;
+
+    OrderAdapter acceptedOrdersAdapter;
+    OrderAdapter pendingOrdersAdapter;
+
+    public OrderRequestFragment() {
         // Required empty public constructor
     }
 
-    public OrderFragment(String status){
-        this.status = status;
-    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_order, container, false);
+        View v = inflater.inflate(R.layout.fragment_order_request, container, false);
         ButterKnife.bind(this, v);
 
         populateOrders();
-        filteredOrders = new ArrayList<>();
+        filteredAcceptedOrders = new ArrayList<>();
+        filteredPendingOrders = new ArrayList<>();
 
 
         // Inflate the layout for this fragment
@@ -174,19 +181,20 @@ public class OrderFragment extends Fragment {
     }
 
     public void filterOrder(){
-        if(status.equals("PENDING")){
+        //if(status.equals("PENDING")){
             for(Order notFilteredOrder : notFilteredOrders){
                 if(notFilteredOrder.getStatus().equalsIgnoreCase("REQUESTED")){
-                    filteredOrders.add(notFilteredOrder);
+                    filteredPendingOrders.add(notFilteredOrder);
                 }
             }
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            pendingOrdersLv.setAdapter(new OrderAdapter(filteredPendingOrders, getActivity()));
+            pendingOrdersLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     /**
                      * Todo : sent data
                      */
-                    Order selected = filteredOrders.get(position);
+                    Order selected = filteredPendingOrders.get(position);
                     Bundle bundle = new Bundle();
                     bundle.putString("instrument",selected.getCourseName());
                     bundle.putString("package",selected.getCoursePackage());
@@ -200,19 +208,21 @@ public class OrderFragment extends Fragment {
                     startActivity(intent);
                 }
             });
-        } else if(status.equals("ACCEPTED")){
+       // } //else if(status.equals("ACCEPTED")){
             for(Order notFilteredOrder : notFilteredOrders){
                 if(notFilteredOrder.getStatus().equalsIgnoreCase("RUNNING")){
-                    filteredOrders.add(notFilteredOrder);
+                    filteredAcceptedOrders.add(notFilteredOrder);
                 }
             }
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            acceptedOrdersLv.setAdapter(new OrderAdapter(filteredAcceptedOrders, getActivity()));
+            acceptedOrdersLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     /**
                      * Todo : sent data
                      */
-                    Order selected = filteredOrders.get(position);
+                    Order selected = filteredAcceptedOrders.get(position);
 
                     Bundle bundle = new Bundle();
                     bundle.putString("instrument",selected.getCourseName());
@@ -228,16 +238,16 @@ public class OrderFragment extends Fragment {
                     startActivity(intent);
                 }
             });
-        } else if(status.equals("REJECTED")){
-            for(Order notFilteredOrder : notFilteredOrders){
-                if(notFilteredOrder.getStatus().equalsIgnoreCase("REJECTED")){
-                    filteredOrders.add(notFilteredOrder);
-                }
-            }
-        }
+        //}
+//        else if(status.equals("REJECTED")){
+//            for(Order notFilteredOrder : notFilteredOrders){
+//                if(notFilteredOrder.getStatus().equalsIgnoreCase("REJECTED")){
+//                    filteredOrders.add(notFilteredOrder);
+//                }
+//            }
+//        }
 
-        OrderAdapter orderAdapter = new OrderAdapter(filteredOrders, getActivity());
-        listView.setAdapter(orderAdapter);
+
     }
 
 }

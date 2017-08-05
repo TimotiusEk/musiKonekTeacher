@@ -23,13 +23,13 @@ public class PaymentAdapter extends BaseAdapter{
     private ArrayList<Payment> payments;
     private Context mContext;
     private LayoutInflater inflater;
-    @BindView(R.id.student_image__payment_page)
+    @BindView(R.id.student_image__payment_rl)
     CircleImageView studentImg;
-    @BindView(R.id.student_name__payment_page)
+    @BindView(R.id.student_name__payment_rl)
     TextView studentName;
-    @BindView(R.id.course_name__payment_page)
+    @BindView(R.id.course_name__payment_rl)
     TextView courseName;
-    @BindView(R.id.course_package__payment_page)
+    @BindView(R.id.course_package__payment_rl)
     TextView coursePackage;
 
     public PaymentAdapter(ArrayList<Payment> payments, Context c) {

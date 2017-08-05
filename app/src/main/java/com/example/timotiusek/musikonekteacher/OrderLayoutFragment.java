@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,9 +16,9 @@ import butterknife.ButterKnife;
  * A simple {@link Fragment} subclass.
  */
 public class OrderLayoutFragment extends Fragment {
-    @BindView(R.id.tab_layout_order_layout_page)
+    @BindView(R.id.tab_layout__order_layout_fra)
     TabLayout tabLayout;
-    @BindView(R.id.view_pager_order_layout_page)
+    @BindView(R.id.view_pager__order_layout_fra)
     ViewPager viewPager;
     MainActivity ma;
 

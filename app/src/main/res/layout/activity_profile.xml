@@ -6,14 +6,14 @@
     android:fitsSystemWindows="true">
 
     <android.support.design.widget.AppBarLayout
-        android:id="@+id/app_bar_layout"
+        android:id="@+id/app_bar_layout__profile_act"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/collapsing_toolbar"
+            android:id="@+id/collapsing_toolbar__profile_act"
             android:layout_width="match_parent"
             android:layout_height="280dp"
             android:fitsSystemWindows="true"
@@ -24,7 +24,7 @@
             app:expandedTitleMarginTop="195dp">
 
             <ImageView
-                android:id="@+id/header_image"
+                android:id="@+id/header_image__profile_act"
                 android:layout_width="match_parent"
                 android:layout_height="190dp"
                 android:fitsSystemWindows="true"
@@ -41,11 +41,12 @@
                 app:border_color="@android:color/white"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
+                android:id="@+id/profile_image__profile_act"
                 />
 
 
             <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar_earning_detail_page"
+                android:id="@+id/toolbar__profile_act"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:title="Testing"
@@ -53,7 +54,7 @@
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
             <ImageView
-                android:id="@+id/link_to_edit_profile"
+                android:id="@+id/link_to_edit_profile__profile_act"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_edit_black_24dp"
@@ -64,7 +65,7 @@
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.widget.NestedScrollView
-        android:id="@+id/scroll"
+        android:id="@+id/scroll__profile_act"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
@@ -72,7 +73,6 @@
 
         <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/direction_card_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
@@ -94,7 +94,7 @@
                     android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/gender_profile_page"
+                    android:id="@+id/gender__profile_act"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Male"
@@ -110,7 +110,7 @@
                     android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/email_profile_page"
+                    android:id="@+id/email__profile_act"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="jonathan.simananda@gmail.com"
@@ -126,7 +126,7 @@
                     android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/course_completed_profile_page"
+                    android:id="@+id/course_completed__profile_act"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="32"
@@ -142,7 +142,7 @@
                     android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/favourite_instrument_profile_page"
+                    android:id="@+id/favourite_instrument__profile_act"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Guitar, Piano"
@@ -158,7 +158,7 @@
                     android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/address_profile_page"
+                    android:id="@+id/address__profile_act"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Taman Aries"

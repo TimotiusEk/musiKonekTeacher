@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.timotiusek.musikonekteacher.OrderRequestFragment"
+    tools:context="com.example.timotiusek.musikonekteacher.OrderPaymentFragment"
     android:orientation="vertical">
 
     <LinearLayout
@@ -22,7 +22,7 @@
         <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/scheduled_payment_lv__order_payment_page"/>
+            android:id="@+id/scheduled_payment_lv__order_payment_fra"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,7 +41,7 @@
         <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/paid_payment_lv__order_payment_page"/>
+            android:id="@+id/paid_payment_lv__order_payment_fra"/>
     </LinearLayout>
 
 </LinearLayout>

@@ -34,7 +34,7 @@ public class ScheduleFragment extends Fragment {
     RelativeLayout scheduleRL;
     Resources r;
     String day = "";
-    @BindView(R.id.current_date)
+    @BindView(R.id.current_date__schedule_fra)
     TextView currentDate;
 
     public ScheduleFragment() {
@@ -64,7 +64,7 @@ public class ScheduleFragment extends Fragment {
 
         initializeVariableHour();
 
-        scheduleRL = (RelativeLayout) v.findViewById(R.id.schedule_rl);
+        scheduleRL = (RelativeLayout) v.findViewById(R.id.schedule_rl__schedule_fra);
         removeAllCardView(scheduleRL);
 
         if(day.equals("Monday")) {
@@ -106,97 +106,97 @@ public class ScheduleFragment extends Fragment {
     }
 
     private void initializeVariableHour() {
-        hour[0][0] = R.id.line_am_07_00;
+        hour[0][0] = R.id.line_am_07_00__schedule_fra;
         hour[0][1] = 7;
 
-        hour[1][0] = R.id.line_am_07_30;
+        hour[1][0] = R.id.line_am_07_30__schedule_fra;
         hour[1][1] = 730;
 
-        hour[2][0] = R.id.line_am_08_00;
+        hour[2][0] = R.id.line_am_08_00__schedule_fra;
         hour[2][1] = 8;
 
-        hour[3][0] = R.id.line_am_08_30;
+        hour[3][0] = R.id.line_am_08_30__schedule_fra;
         hour[3][1] = 830;
 
-        hour[4][0] = R.id.line_am_09_00;
+        hour[4][0] = R.id.line_am_09_00__schedule_fra;
         hour[4][1] = 9;
 
-        hour[5][0] = R.id.line_am_09_30;
+        hour[5][0] = R.id.line_am_09_30__schedule_fra;
         hour[5][1] = 930;
 
-        hour[6][0] = R.id.line_am_10_00;
+        hour[6][0] = R.id.line_am_10_00__schedule_fra;
         hour[6][1] = 10;
 
-        hour[7][0] = R.id.line_am_10_30;
+        hour[7][0] = R.id.line_am_10_30__schedule_fra;
         hour[7][1] = 1030;
 
-        hour[8][0] = R.id.line_am_11_00;
+        hour[8][0] = R.id.line_am_11_00__schedule_fra;
         hour[8][1] = 11;
 
-        hour[9][0] = R.id.line_am_11_30;
+        hour[9][0] = R.id.line_am_11_30__schedule_fra;
         hour[9][1] = 1130;
 
-        hour[10][0] = R.id.line_pm_12_00;
+        hour[10][0] = R.id.line_pm_12_00__schedule_fra;
         hour[10][1] = 12;
 
-        hour[11][0] = R.id.line_pm_12_30;
+        hour[11][0] = R.id.line_pm_12_30__schedule_fra;
         hour[11][1] = 1230;
 
-        hour[12][0] = R.id.line_pm_13_00;
+        hour[12][0] = R.id.line_pm_13_00__schedule_fra;
         hour[12][1] = 13;
 
-        hour[13][0] = R.id.line_pm_13_30;
+        hour[13][0] = R.id.line_pm_13_30__schedule_fra;
         hour[13][1] = 1330;
 
-        hour[14][0] = R.id.line_pm_14_00;
+        hour[14][0] = R.id.line_pm_14_00__schedule_fra;
         hour[14][1] = 14;
 
-        hour[15][0] = R.id.line_pm_14_30;
+        hour[15][0] = R.id.line_pm_14_30__schedule_fra;
         hour[15][1] = 1430;
 
-        hour[16][0] = R.id.line_pm_15_00;
+        hour[16][0] = R.id.line_pm_15_00__schedule_fra;
         hour[16][1] = 15;
 
-        hour[17][0] = R.id.line_pm_15_30;
+        hour[17][0] = R.id.line_pm_15_30__schedule_fra;
         hour[17][1] = 1530;
 
-        hour[18][0] = R.id.line_pm_16_00;
+        hour[18][0] = R.id.line_pm_16_00__schedule_fra;
         hour[18][1] = 16;
 
-        hour[19][0] = R.id.line_pm_16_30;
+        hour[19][0] = R.id.line_pm_16_30__schedule_fra;
         hour[19][1] = 1630;
 
-        hour[20][0] = R.id.line_pm_17_00;
+        hour[20][0] = R.id.line_pm_17_00__schedule_fra;
         hour[20][1] = 17;
 
-        hour[21][0] = R.id.line_pm_17_30;
+        hour[21][0] = R.id.line_pm_17_30__schedule_fra;
         hour[21][1] = 1730;
 
-        hour[22][0] = R.id.line_pm_18_00;
+        hour[22][0] = R.id.line_pm_18_00__schedule_fra;
         hour[22][1] = 18;
 
-        hour[23][0] = R.id.line_pm_18_30;
+        hour[23][0] = R.id.line_pm_18_30__schedule_fra;
         hour[23][1] = 1830;
 
-        hour[24][0] = R.id.line_pm_19_00;
+        hour[24][0] = R.id.line_pm_19_00__schedule_fra;
         hour[24][1] = 19;
 
-        hour[25][0] = R.id.line_pm_19_30;
+        hour[25][0] = R.id.line_pm_19_30__schedule_fra;
         hour[25][1] = 1930;
 
-        hour[26][0] = R.id.line_pm_20_00;
+        hour[26][0] = R.id.line_pm_20_00__schedule_fra;
         hour[26][1] = 20;
 
-        hour[27][0] = R.id.line_pm_20_30;
+        hour[27][0] = R.id.line_pm_20_30__schedule_fra;
         hour[27][1] = 2030;
 
-        hour[28][0] = R.id.line_pm_21_00;
+        hour[28][0] = R.id.line_pm_21_00__schedule_fra;
         hour[28][1] = 21;
 
-        hour[29][0] = R.id.line_pm_21_30;
+        hour[29][0] = R.id.line_pm_21_30__schedule_fra;
         hour[29][1] = 2130;
 
-        hour[30][0] = R.id.line_pm_22_00;
+        hour[30][0] = R.id.line_pm_22_00__schedule_fra;
         hour[30][1] = 22;
     }
 
@@ -215,7 +215,7 @@ public class ScheduleFragment extends Fragment {
         ); //to convert to -9 dp
 
         params.setMargins(0, px, 0, px); //left, top, right, bottom
-        params.addRule(RelativeLayout.END_OF, R.id.am_07_00);
+        params.addRule(RelativeLayout.END_OF, R.id.am_07_00__schedule_fra);
     }
 
     private void removeAllCardView(ViewGroup viewGroup) {

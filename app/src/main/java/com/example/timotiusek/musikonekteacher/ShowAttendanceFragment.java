@@ -22,7 +22,7 @@ import butterknife.ButterKnife;
  * A simple {@link Fragment} subclass.
  */
 public class ShowAttendanceFragment extends Fragment {
-    @BindView(R.id.show_attendance_list_view)
+    @BindView(R.id.attendances_lv__show_attendance_fra)
     ListView showAttendanceListView;
     ArrayList<Attendance> attendances;
     ShowAttendanceAdapter showAttendanceAdapter;

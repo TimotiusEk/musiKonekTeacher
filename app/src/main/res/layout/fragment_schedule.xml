@@ -8,7 +8,7 @@
     >
 
     <RelativeLayout
-        android:id="@+id/schedule_rl"
+        android:id="@+id/schedule_rl__schedule_fra"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:id="@+id/current_date"
+            android:id="@+id/current_date__schedule_fra"
             android:layout_marginBottom="10dp"
             android:text="Senin, 07 Juli 1997"
             android:textStyle="bold"
@@ -27,35 +27,35 @@
         <!--Start of 7 AM Section-->
 
         <TextView
-            android:id="@+id/am_07_00"
+            android:id="@+id/am_07_00__schedule_fra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
             android:text="07:00"
-            android:layout_below="@+id/current_date"/>
+            android:layout_below="@+id/current_date__schedule_fra"/>
 
         <View
-            android:id="@+id/top_am_07_00"
+            android:id="@+id/top_am_07_00__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignTop="@+id/am_07_00" />
+            android:layout_alignTop="@+id/am_07_00__schedule_fra" />
 
         <View
-            android:id="@+id/bottom_am_07_00"
+            android:id="@+id/bottom_am_07_00__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignBottom="@+id/am_07_00" />
+            android:layout_alignBottom="@+id/am_07_00__schedule_fra" />
 
 
         <View
-            android:id="@+id/line_am_07_00"
+            android:id="@+id/line_am_07_00__schedule_fra"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignBottom="@id/bottom_am_07_00"
-            android:layout_alignTop="@id/top_am_07_00"
+            android:layout_alignBottom="@id/bottom_am_07_00__schedule_fra"
+            android:layout_alignTop="@id/top_am_07_00__schedule_fra"
             android:layout_marginBottom="9dp"
             android:layout_marginTop="9dp"
-            android:layout_toEndOf="@+id/am_07_00"
+            android:layout_toEndOf="@+id/am_07_00__schedule_fra"
             android:background="@color/cardview_dark_background" />
 
         <!--End of 7 AM Section-->
@@ -63,34 +63,34 @@
         <!--Start of 7:30 AM Section-->
 
         <TextView
-            android:id="@+id/am_07_30"
+            android:id="@+id/am_07_30__schedule_fra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/am_07_00"
+            android:layout_below="@+id/am_07_00__schedule_fra"
             android:layout_marginTop="30dp"
             />
 
         <View
-            android:id="@+id/top_am_07_30"
+            android:id="@+id/top_am_07_30__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignTop="@+id/am_07_30" />
+            android:layout_alignTop="@+id/am_07_30__schedule_fra" />
 
         <View
-            android:id="@+id/bottom_am_7_30"
+            android:id="@+id/bottom_am_7_30__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignBottom="@+id/am_07_30" />
+            android:layout_alignBottom="@+id/am_07_30__schedule_fra" />
 
         <View
-            android:id="@+id/line_am_07_30"
+            android:id="@+id/line_am_07_30__schedule_fra"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignBottom="@id/bottom_am_7_30"
-            android:layout_alignTop="@id/top_am_07_30"
+            android:layout_alignBottom="@id/bottom_am_7_30__schedule_fra"
+            android:layout_alignTop="@id/top_am_07_30__schedule_fra"
             android:layout_marginBottom="9dp"
             android:layout_marginTop="9dp"
-            android:layout_toEndOf="@+id/am_07_00"
+            android:layout_toEndOf="@+id/am_07_00__schedule_fra"
             android:background="@color/cardview_dark_background" />
 
         <!--End of 7:30 AM Section-->
@@ -98,35 +98,35 @@
         <!--Start of 8 AM Section-->
 
         <TextView
-            android:id="@+id/am_08_00"
+            android:id="@+id/am_08_00__schedule_fra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/am_07_30"
+            android:layout_below="@+id/am_07_30__schedule_fra"
             android:layout_marginEnd="15dp"
             android:layout_marginTop="30dp"
             android:text="08:00" />
 
         <View
-            android:id="@+id/top_am_08_00"
+            android:id="@+id/top_am_08_00__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignTop="@+id/am_08_00" />
+            android:layout_alignTop="@+id/am_08_00__schedule_fra" />
 
         <View
-            android:id="@+id/bottom_am_08_00"
+            android:id="@+id/bottom_am_08_00__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignBottom="@+id/am_08_00" />
+            android:layout_alignBottom="@+id/am_08_00__schedule_fra" />
 
         <View
-            android:id="@+id/line_am_08_00"
+            android:id="@+id/line_am_08_00__schedule_fra"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignBottom="@id/bottom_am_08_00"
-            android:layout_alignTop="@id/top_am_08_00"
+            android:layout_alignBottom="@id/bottom_am_08_00__schedule_fra"
+            android:layout_alignTop="@id/top_am_08_00__schedule_fra"
             android:layout_marginBottom="9dp"
             android:layout_marginTop="9dp"
-            android:layout_toEndOf="@+id/am_08_00"
+            android:layout_toEndOf="@+id/am_08_00__schedule_fra"
             android:background="@color/cardview_dark_background" />
 
         <!--End of 8 AM Section-->
@@ -134,35 +134,35 @@
         <!--Start of 8:30 AM Section-->
 
         <TextView
-            android:id="@+id/am_08_30"
+            android:id="@+id/am_08_30__schedule_fra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/am_08_00"
+            android:layout_below="@+id/am_08_00__schedule_fra"
             android:layout_marginEnd="15dp"
             android:layout_marginTop="30dp"
             />
 
         <View
-            android:id="@+id/top_am_08_30"
+            android:id="@+id/top_am_08_30__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignTop="@+id/am_08_30" />
+            android:layout_alignTop="@+id/am_08_30__schedule_fra" />
 
         <View
-            android:id="@+id/bottom_am_08_30"
+            android:id="@+id/bottom_am_08_30__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignBottom="@+id/am_08_30" />
+            android:layout_alignBottom="@+id/am_08_30__schedule_fra" />
 
         <View
-            android:id="@+id/line_am_08_30"
+            android:id="@+id/line_am_08_30__schedule_fra"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignBottom="@id/bottom_am_08_30"
-            android:layout_alignTop="@id/top_am_08_30"
+            android:layout_alignBottom="@id/bottom_am_08_30__schedule_fra"
+            android:layout_alignTop="@id/top_am_08_30__schedule_fra"
             android:layout_marginBottom="9dp"
             android:layout_marginTop="9dp"
-            android:layout_toEndOf="@+id/am_08_00"
+            android:layout_toEndOf="@+id/am_08_00__schedule_fra"
             android:background="@color/cardview_dark_background"
             />
         <!--End of 8:30 AM Section-->
@@ -170,35 +170,35 @@
         <!--Start of 9 AM Section-->
 
         <TextView
-            android:id="@+id/am_09_00"
+            android:id="@+id/am_09_00__schedule_fra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/am_08_30"
+            android:layout_below="@+id/am_08_30__schedule_fra"
             android:layout_marginEnd="15dp"
             android:layout_marginTop="30dp"
             android:text="09:00" />
 
         <View
-            android:id="@+id/top_am_09_00"
+            android:id="@+id/top_am_09_00__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignTop="@+id/am_09_00" />
+            android:layout_alignTop="@+id/am_09_00__schedule_fra" />
 
         <View
-            android:id="@+id/bottom_am_09_00"
+            android:id="@+id/bottom_am_09_00__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignBottom="@+id/am_09_00" />
+            android:layout_alignBottom="@+id/am_09_00__schedule_fra" />
 
         <View
-            android:id="@+id/line_am_09_00"
+            android:id="@+id/line_am_09_00__schedule_fra"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignBottom="@id/bottom_am_09_00"
-            android:layout_alignTop="@id/top_am_09_00"
+            android:layout_alignBottom="@id/bottom_am_09_00__schedule_fra"
+            android:layout_alignTop="@id/top_am_09_00__schedule_fra"
             android:layout_marginBottom="9dp"
             android:layout_marginTop="9dp"
-            android:layout_toEndOf="@+id/am_09_00"
+            android:layout_toEndOf="@+id/am_09_00__schedule_fra"
             android:background="@color/cardview_dark_background" />
 
         <!--End of 9 AM Section-->
@@ -206,35 +206,35 @@
         <!--Start of 9:30 AM Section-->
 
         <TextView
-            android:id="@+id/am_09_30"
+            android:id="@+id/am_09_30__schedule_fra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/am_09_00"
+            android:layout_below="@+id/am_09_00__schedule_fra"
             android:layout_marginEnd="15dp"
             android:layout_marginTop="30dp"
             />
 
         <View
-            android:id="@+id/top_am_09_30"
+            android:id="@+id/top_am_09_30__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignTop="@+id/am_09_30" />
+            android:layout_alignTop="@+id/am_09_30__schedule_fra" />
 
         <View
-            android:id="@+id/bottom_am_09_30"
+            android:id="@+id/bottom_am_09_30__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignBottom="@+id/am_09_30" />
+            android:layout_alignBottom="@+id/am_09_30__schedule_fra" />
 
         <View
-            android:id="@+id/line_am_09_30"
+            android:id="@+id/line_am_09_30__schedule_fra"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignBottom="@id/bottom_am_09_30"
-            android:layout_alignTop="@id/top_am_09_30"
+            android:layout_alignBottom="@id/bottom_am_09_30__schedule_fra"
+            android:layout_alignTop="@id/top_am_09_30__schedule_fra"
             android:layout_marginBottom="9dp"
             android:layout_marginTop="9dp"
-            android:layout_toEndOf="@+id/am_09_00"
+            android:layout_toEndOf="@+id/am_09_00__schedule_fra"
             android:background="@color/cardview_dark_background" />
 
         <!--End of 9:30 AM Section-->
@@ -242,35 +242,35 @@
         <!--Start of 10:00 AM Section-->
 
         <TextView
-            android:id="@+id/am_10_00"
+            android:id="@+id/am_10_00__schedule_fra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/am_09_30"
+            android:layout_below="@+id/am_09_30__schedule_fra"
             android:layout_marginEnd="15dp"
             android:layout_marginTop="30dp"
             android:text="10:00" />
 
         <View
-            android:id="@+id/top_am_10_00"
+            android:id="@+id/top_am_10_00__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignTop="@+id/am_10_00" />
+            android:layout_alignTop="@+id/am_10_00__schedule_fra" />
 
         <View
-            android:id="@+id/bottom_am_10_00"
+            android:id="@+id/bottom_am_10_00__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignBottom="@+id/am_10_00" />
+            android:layout_alignBottom="@+id/am_10_00__schedule_fra" />
 
         <View
-            android:id="@+id/line_am_10_00"
+            android:id="@+id/line_am_10_00__schedule_fra"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignBottom="@id/bottom_am_10_00"
-            android:layout_alignTop="@id/top_am_10_00"
+            android:layout_alignBottom="@id/bottom_am_10_00__schedule_fra"
+            android:layout_alignTop="@id/top_am_10_00__schedule_fra"
             android:layout_marginBottom="9dp"
             android:layout_marginTop="9dp"
-            android:layout_toEndOf="@+id/am_10_00"
+            android:layout_toEndOf="@+id/am_10_00__schedule_fra"
             android:background="@color/cardview_dark_background" />
 
         <!--End of 10:00 AM Section-->
@@ -278,35 +278,35 @@
         <!--Start of 10:30 AM Section-->
 
         <TextView
-            android:id="@+id/am_10_30"
+            android:id="@+id/am_10_30__schedule_fra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/am_10_00"
+            android:layout_below="@+id/am_10_00__schedule_fra"
             android:layout_marginEnd="15dp"
             android:layout_marginTop="30dp"
             />
 
         <View
-            android:id="@+id/top_am_10_30"
+            android:id="@+id/top_am_10_30__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignTop="@+id/am_10_30" />
+            android:layout_alignTop="@+id/am_10_30__schedule_fra" />
 
         <View
-            android:id="@+id/bottom_am_10_30"
+            android:id="@+id/bottom_am_10_30__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignBottom="@+id/am_10_30" />
+            android:layout_alignBottom="@+id/am_10_30__schedule_fra" />
 
         <View
-            android:id="@+id/line_am_10_30"
+            android:id="@+id/line_am_10_30__schedule_fra"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignBottom="@id/bottom_am_10_30"
-            android:layout_alignTop="@id/top_am_10_30"
+            android:layout_alignBottom="@id/bottom_am_10_30__schedule_fra"
+            android:layout_alignTop="@id/top_am_10_30__schedule_fra"
             android:layout_marginBottom="9dp"
             android:layout_marginTop="9dp"
-            android:layout_toEndOf="@+id/am_10_00"
+            android:layout_toEndOf="@+id/am_10_00__schedule_fra"
             android:background="@color/cardview_dark_background" />
 
         <!--End of 10:30 AM Section-->
@@ -314,35 +314,35 @@
         <!--Start of 11:00 AM Section-->
 
         <TextView
-            android:id="@+id/am_11_00"
+            android:id="@+id/am_11_00__schedule_fra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/am_10_30"
+            android:layout_below="@+id/am_10_30__schedule_fra"
             android:layout_marginEnd="15dp"
             android:layout_marginTop="30dp"
             android:text="11:00" />
 
         <View
-            android:id="@+id/top_am_11_00"
+            android:id="@+id/top_am_11_00__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignTop="@+id/am_11_00" />
+            android:layout_alignTop="@+id/am_11_00__schedule_fra" />
 
         <View
-            android:id="@+id/bottom_am_11_00"
+            android:id="@+id/bottom_am_11_00__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignBottom="@+id/am_11_00" />
+            android:layout_alignBottom="@+id/am_11_00__schedule_fra" />
 
         <View
-            android:id="@+id/line_am_11_00"
+            android:id="@+id/line_am_11_00__schedule_fra"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignBottom="@id/bottom_am_11_00"
-            android:layout_alignTop="@id/top_am_11_00"
+            android:layout_alignBottom="@id/bottom_am_11_00__schedule_fra"
+            android:layout_alignTop="@id/top_am_11_00__schedule_fra"
             android:layout_marginBottom="9dp"
             android:layout_marginTop="9dp"
-            android:layout_toEndOf="@+id/am_11_00"
+            android:layout_toEndOf="@+id/am_11_00__schedule_fra"
             android:background="@color/cardview_dark_background" />
 
         <!--End of 11:00 AM Section-->
@@ -350,35 +350,35 @@
         <!--Start of 11:30 AM Section-->
 
         <TextView
-            android:id="@+id/am_11_30"
+            android:id="@+id/am_11_30__schedule_fra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/am_11_00"
+            android:layout_below="@+id/am_11_00__schedule_fra"
             android:layout_marginEnd="15dp"
             android:layout_marginTop="30dp"
             />
 
         <View
-            android:id="@+id/top_am_11_30"
+            android:id="@+id/top_am_11_30__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignTop="@+id/am_11_30" />
+            android:layout_alignTop="@+id/am_11_30__schedule_fra" />
 
         <View
-            android:id="@+id/bottom_am_11_30"
+            android:id="@+id/bottom_am_11_30__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignBottom="@+id/am_11_30" />
+            android:layout_alignBottom="@+id/am_11_30__schedule_fra" />
 
         <View
-            android:id="@+id/line_am_11_30"
+            android:id="@+id/line_am_11_30__schedule_fra"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignBottom="@id/bottom_am_11_30"
-            android:layout_alignTop="@id/top_am_11_30"
+            android:layout_alignBottom="@id/bottom_am_11_30__schedule_fra"
+            android:layout_alignTop="@id/top_am_11_30__schedule_fra"
             android:layout_marginBottom="9dp"
             android:layout_marginTop="9dp"
-            android:layout_toEndOf="@+id/am_11_00"
+            android:layout_toEndOf="@+id/am_11_00__schedule_fra"
             android:background="@color/cardview_dark_background" />
 
         <!--End of 11:30 AM Section-->
@@ -386,35 +386,35 @@
         <!--Start of 12:00 PM Section-->
 
         <TextView
-            android:id="@+id/pm_12_00"
+            android:id="@+id/pm_12_00__schedule_fra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/am_11_30"
+            android:layout_below="@+id/am_11_30__schedule_fra"
             android:layout_marginEnd="15dp"
             android:layout_marginTop="30dp"
             android:text="12:00" />
 
         <View
-            android:id="@+id/top_pm_12_00"
+            android:id="@+id/top_pm_12_00__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignTop="@+id/pm_12_00" />
+            android:layout_alignTop="@+id/pm_12_00__schedule_fra" />
 
         <View
-            android:id="@+id/bottom_pm_12_00"
+            android:id="@+id/bottom_pm_12_00__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignBottom="@+id/pm_12_00" />
+            android:layout_alignBottom="@+id/pm_12_00__schedule_fra" />
 
         <View
-            android:id="@+id/line_pm_12_00"
+            android:id="@+id/line_pm_12_00__schedule_fra"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignBottom="@id/bottom_pm_12_00"
-            android:layout_alignTop="@id/top_pm_12_00"
+            android:layout_alignBottom="@id/bottom_pm_12_00__schedule_fra"
+            android:layout_alignTop="@id/top_pm_12_00__schedule_fra"
             android:layout_marginBottom="9dp"
             android:layout_marginTop="9dp"
-            android:layout_toEndOf="@+id/pm_12_00"
+            android:layout_toEndOf="@+id/pm_12_00__schedule_fra"
             android:background="@color/cardview_dark_background" />
 
         <!--End of 12:00 PM Section-->
@@ -422,34 +422,34 @@
         <!--Start of 12:30 PM Section-->
 
         <TextView
-            android:id="@+id/pm_12_30"
+            android:id="@+id/pm_12_30__schedule_fra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/pm_12_00"
+            android:layout_below="@+id/pm_12_00__schedule_fra"
             android:layout_marginEnd="15dp"
             android:layout_marginTop="30dp" />
 
         <View
-            android:id="@+id/top_pm_12_30"
+            android:id="@+id/top_pm_12_30__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignTop="@+id/pm_12_30" />
+            android:layout_alignTop="@+id/pm_12_30__schedule_fra" />
 
         <View
-            android:id="@+id/bottom_pm_12_30"
+            android:id="@+id/bottom_pm_12_30__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignBottom="@+id/pm_12_30" />
+            android:layout_alignBottom="@+id/pm_12_30__schedule_fra" />
 
         <View
-            android:id="@+id/line_pm_12_30"
+            android:id="@+id/line_pm_12_30__schedule_fra"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignBottom="@id/bottom_pm_12_30"
-            android:layout_alignTop="@id/top_pm_12_30"
+            android:layout_alignBottom="@id/bottom_pm_12_30__schedule_fra"
+            android:layout_alignTop="@id/top_pm_12_30__schedule_fra"
             android:layout_marginBottom="9dp"
             android:layout_marginTop="9dp"
-            android:layout_toEndOf="@+id/pm_12_00"
+            android:layout_toEndOf="@+id/pm_12_00__schedule_fra"
             android:background="@color/cardview_dark_background" />
 
         <!--End of 12:30 PM Section-->
@@ -457,35 +457,35 @@
         <!--Start of 13:00 PM Section-->
 
         <TextView
-            android:id="@+id/pm_13_00"
+            android:id="@+id/pm_13_00__schedule_fra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/pm_12_30"
+            android:layout_below="@+id/pm_12_30__schedule_fra"
             android:layout_marginEnd="15dp"
             android:layout_marginTop="30dp"
             android:text="13:00" />
 
         <View
-            android:id="@+id/top_pm_13_00"
+            android:id="@+id/top_pm_13_00__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignTop="@+id/pm_13_00" />
+            android:layout_alignTop="@+id/pm_13_00__schedule_fra" />
 
         <View
-            android:id="@+id/bottom_pm_13_00"
+            android:id="@+id/bottom_pm_13_00__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignBottom="@+id/pm_13_00" />
+            android:layout_alignBottom="@+id/pm_13_00__schedule_fra" />
 
         <View
-            android:id="@+id/line_pm_13_00"
+            android:id="@+id/line_pm_13_00__schedule_fra"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignBottom="@id/bottom_pm_13_00"
-            android:layout_alignTop="@id/top_pm_13_00"
+            android:layout_alignBottom="@id/bottom_pm_13_00__schedule_fra"
+            android:layout_alignTop="@id/top_pm_13_00__schedule_fra"
             android:layout_marginBottom="9dp"
             android:layout_marginTop="9dp"
-            android:layout_toEndOf="@+id/pm_13_00"
+            android:layout_toEndOf="@+id/pm_13_00__schedule_fra"
             android:background="@color/cardview_dark_background" />
 
         <!--End of 13:00 PM Section-->
@@ -493,34 +493,34 @@
         <!--Start of 13:30 PM Section-->
 
         <TextView
-            android:id="@+id/pm_13_30"
+            android:id="@+id/pm_13_30__schedule_fra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/pm_13_00"
+            android:layout_below="@+id/pm_13_00__schedule_fra"
             android:layout_marginEnd="15dp"
             android:layout_marginTop="30dp" />
 
         <View
-            android:id="@+id/top_pm_13_30"
+            android:id="@+id/top_pm_13_30__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignTop="@+id/pm_13_30" />
+            android:layout_alignTop="@+id/pm_13_30__schedule_fra" />
 
         <View
-            android:id="@+id/bottom_pm_13_30"
+            android:id="@+id/bottom_pm_13_30__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignBottom="@+id/pm_13_30" />
+            android:layout_alignBottom="@+id/pm_13_30__schedule_fra" />
 
         <View
-            android:id="@+id/line_pm_13_30"
+            android:id="@+id/line_pm_13_30__schedule_fra"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignBottom="@id/bottom_pm_13_30"
-            android:layout_alignTop="@id/top_pm_13_30"
+            android:layout_alignBottom="@id/bottom_pm_13_30__schedule_fra"
+            android:layout_alignTop="@id/top_pm_13_30__schedule_fra"
             android:layout_marginBottom="9dp"
             android:layout_marginTop="9dp"
-            android:layout_toEndOf="@+id/pm_13_00"
+            android:layout_toEndOf="@+id/pm_13_00__schedule_fra"
             android:background="@color/cardview_dark_background" />
 
         <!--End of 13:30 PM Section-->
@@ -528,35 +528,35 @@
         <!--Start of 14:00 PM Section-->
 
         <TextView
-            android:id="@+id/pm_14_00"
+            android:id="@+id/pm_14_00__schedule_fra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/pm_13_30"
+            android:layout_below="@+id/pm_13_30__schedule_fra"
             android:layout_marginEnd="15dp"
             android:layout_marginTop="30dp"
             android:text="14:00" />
 
         <View
-            android:id="@+id/top_pm_14_00"
+            android:id="@+id/top_pm_14_00__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignTop="@+id/pm_14_00" />
+            android:layout_alignTop="@+id/pm_14_00__schedule_fra" />
 
         <View
-            android:id="@+id/bottom_pm_14_00"
+            android:id="@+id/bottom_pm_14_00__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignBottom="@+id/pm_14_00" />
+            android:layout_alignBottom="@+id/pm_14_00__schedule_fra" />
 
         <View
-            android:id="@+id/line_pm_14_00"
+            android:id="@+id/line_pm_14_00__schedule_fra"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignBottom="@id/bottom_pm_14_00"
-            android:layout_alignTop="@id/top_pm_14_00"
+            android:layout_alignBottom="@id/bottom_pm_14_00__schedule_fra"
+            android:layout_alignTop="@id/top_pm_14_00__schedule_fra"
             android:layout_marginBottom="9dp"
             android:layout_marginTop="9dp"
-            android:layout_toEndOf="@+id/pm_14_00"
+            android:layout_toEndOf="@+id/pm_14_00__schedule_fra"
             android:background="@color/cardview_dark_background" />
 
         <!--End of 14:00 PM Section-->
@@ -564,34 +564,34 @@
         <!--Start of 14:30 PM Section-->
 
         <TextView
-            android:id="@+id/pm_14_30"
+            android:id="@+id/pm_14_30__schedule_fra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/pm_14_00"
+            android:layout_below="@+id/pm_14_00__schedule_fra"
             android:layout_marginEnd="15dp"
             android:layout_marginTop="30dp" />
 
         <View
-            android:id="@+id/top_pm_14_30"
+            android:id="@+id/top_pm_14_30__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignTop="@+id/pm_14_30" />
+            android:layout_alignTop="@+id/pm_14_30__schedule_fra" />
 
         <View
-            android:id="@+id/bottom_pm_14_30"
+            android:id="@+id/bottom_pm_14_30__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignBottom="@+id/pm_14_30" />
+            android:layout_alignBottom="@+id/pm_14_30__schedule_fra" />
 
         <View
-            android:id="@+id/line_pm_14_30"
+            android:id="@+id/line_pm_14_30__schedule_fra"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignBottom="@id/bottom_pm_14_30"
-            android:layout_alignTop="@id/top_pm_14_30"
+            android:layout_alignBottom="@id/bottom_pm_14_30__schedule_fra"
+            android:layout_alignTop="@id/top_pm_14_30__schedule_fra"
             android:layout_marginBottom="9dp"
             android:layout_marginTop="9dp"
-            android:layout_toEndOf="@+id/pm_14_00"
+            android:layout_toEndOf="@+id/pm_14_00__schedule_fra"
             android:background="@color/cardview_dark_background" />
 
         <!--End of 14:30 PM Section-->
@@ -599,35 +599,35 @@
         <!--Start of 15:00 PM Section-->
 
         <TextView
-            android:id="@+id/pm_15_00"
+            android:id="@+id/pm_15_00__schedule_fra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/pm_14_30"
+            android:layout_below="@+id/pm_14_30__schedule_fra"
             android:layout_marginEnd="15dp"
             android:layout_marginTop="30dp"
             android:text="15:00" />
 
         <View
-            android:id="@+id/top_pm_15_00"
+            android:id="@+id/top_pm_15_00__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignTop="@+id/pm_15_00" />
+            android:layout_alignTop="@+id/pm_15_00__schedule_fra" />
 
         <View
-            android:id="@+id/bottom_pm_15_00"
+            android:id="@+id/bottom_pm_15_00__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignBottom="@+id/pm_15_00" />
+            android:layout_alignBottom="@+id/pm_15_00__schedule_fra" />
 
         <View
-            android:id="@+id/line_pm_15_00"
+            android:id="@+id/line_pm_15_00__schedule_fra"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignBottom="@id/bottom_pm_15_00"
-            android:layout_alignTop="@id/top_pm_15_00"
+            android:layout_alignBottom="@id/bottom_pm_15_00__schedule_fra"
+            android:layout_alignTop="@id/top_pm_15_00__schedule_fra"
             android:layout_marginBottom="9dp"
             android:layout_marginTop="9dp"
-            android:layout_toEndOf="@+id/pm_15_00"
+            android:layout_toEndOf="@+id/pm_15_00__schedule_fra"
             android:background="@color/cardview_dark_background" />
 
         <!--End of 15:00 PM Section-->
@@ -635,35 +635,35 @@
         <!--Start of 15:30 PM Section-->
 
         <TextView
-            android:id="@+id/pm_15_30"
+            android:id="@+id/pm_15_30__schedule_fra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/pm_15_00"
+            android:layout_below="@+id/pm_15_00__schedule_fra"
             android:layout_marginEnd="15dp"
             android:layout_marginTop="30dp"
             />
 
         <View
-            android:id="@+id/top_pm_15_30"
+            android:id="@+id/top_pm_15_30__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignTop="@+id/pm_15_30" />
+            android:layout_alignTop="@+id/pm_15_30__schedule_fra" />
 
         <View
-            android:id="@+id/bottom_pm_15_30"
+            android:id="@+id/bottom_pm_15_30__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignBottom="@+id/pm_15_30" />
+            android:layout_alignBottom="@+id/pm_15_30__schedule_fra" />
 
         <View
-            android:id="@+id/line_pm_15_30"
+            android:id="@+id/line_pm_15_30__schedule_fra"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignBottom="@id/bottom_pm_15_30"
-            android:layout_alignTop="@id/top_pm_15_30"
+            android:layout_alignBottom="@id/bottom_pm_15_30__schedule_fra"
+            android:layout_alignTop="@id/top_pm_15_30__schedule_fra"
             android:layout_marginBottom="9dp"
             android:layout_marginTop="9dp"
-            android:layout_toEndOf="@+id/pm_15_00"
+            android:layout_toEndOf="@+id/pm_15_00__schedule_fra"
             android:background="@color/cardview_dark_background" />
 
         <!--End of 15:30 PM Section-->
@@ -671,35 +671,35 @@
         <!--Start of 16:00 PM Section-->
 
         <TextView
-            android:id="@+id/pm_16_00"
+            android:id="@+id/pm_16_00__schedule_fra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/pm_15_30"
+            android:layout_below="@+id/pm_15_30__schedule_fra"
             android:layout_marginEnd="15dp"
             android:layout_marginTop="30dp"
             android:text="16:00" />
 
         <View
-            android:id="@+id/top_pm_16_00"
+            android:id="@+id/top_pm_16_00__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignTop="@+id/pm_16_00" />
+            android:layout_alignTop="@+id/pm_16_00__schedule_fra" />
 
         <View
-            android:id="@+id/bottom_pm_16_00"
+            android:id="@+id/bottom_pm_16_00__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignBottom="@+id/pm_16_00" />
+            android:layout_alignBottom="@+id/pm_16_00__schedule_fra" />
 
         <View
-            android:id="@+id/line_pm_16_00"
+            android:id="@+id/line_pm_16_00__schedule_fra"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignBottom="@id/bottom_pm_16_00"
-            android:layout_alignTop="@id/top_pm_16_00"
+            android:layout_alignBottom="@id/bottom_pm_16_00__schedule_fra"
+            android:layout_alignTop="@id/top_pm_16_00__schedule_fra"
             android:layout_marginBottom="9dp"
             android:layout_marginTop="9dp"
-            android:layout_toEndOf="@+id/pm_16_00"
+            android:layout_toEndOf="@+id/pm_16_00__schedule_fra"
             android:background="@color/cardview_dark_background" />
 
         <!--End of 16:00 PM Section-->
@@ -707,34 +707,34 @@
         <!--Start of 16:30 PM Section-->
 
         <TextView
-            android:id="@+id/pm_16_30"
+            android:id="@+id/pm_16_30__schedule_fra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/pm_16_00"
+            android:layout_below="@+id/pm_16_00__schedule_fra"
             android:layout_marginEnd="15dp"
             android:layout_marginTop="30dp" />
 
         <View
-            android:id="@+id/top_pm_16_30"
+            android:id="@+id/top_pm_16_30__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignTop="@+id/pm_16_30" />
+            android:layout_alignTop="@+id/pm_16_30__schedule_fra" />
 
         <View
-            android:id="@+id/bottom_pm_16_30"
+            android:id="@+id/bottom_pm_16_30__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignBottom="@+id/pm_16_30" />
+            android:layout_alignBottom="@+id/pm_16_30__schedule_fra" />
 
         <View
-            android:id="@+id/line_pm_16_30"
+            android:id="@+id/line_pm_16_30__schedule_fra"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignBottom="@id/bottom_pm_16_30"
-            android:layout_alignTop="@id/top_pm_16_30"
+            android:layout_alignBottom="@id/bottom_pm_16_30__schedule_fra"
+            android:layout_alignTop="@id/top_pm_16_30__schedule_fra"
             android:layout_marginBottom="9dp"
             android:layout_marginTop="9dp"
-            android:layout_toEndOf="@+id/pm_16_00"
+            android:layout_toEndOf="@+id/pm_16_00__schedule_fra"
             android:background="@color/cardview_dark_background" />
 
         <!--End of 16:30 PM Section-->
@@ -742,35 +742,35 @@
         <!--Start of 17:00 PM Section-->
 
         <TextView
-            android:id="@+id/pm_17_00"
+            android:id="@+id/pm_17_00__schedule_fra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/pm_16_30"
+            android:layout_below="@+id/pm_16_30__schedule_fra"
             android:layout_marginEnd="15dp"
             android:layout_marginTop="30dp"
             android:text="17:00" />
 
         <View
-            android:id="@+id/top_pm_17_00"
+            android:id="@+id/top_pm_17_00__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignTop="@+id/pm_17_00" />
+            android:layout_alignTop="@+id/pm_17_00__schedule_fra" />
 
         <View
-            android:id="@+id/bottom_pm_17_00"
+            android:id="@+id/bottom_pm_17_00__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignBottom="@+id/pm_17_00" />
+            android:layout_alignBottom="@+id/pm_17_00__schedule_fra" />
 
         <View
-            android:id="@+id/line_pm_17_00"
+            android:id="@+id/line_pm_17_00__schedule_fra"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignBottom="@id/bottom_pm_17_00"
-            android:layout_alignTop="@id/top_pm_17_00"
+            android:layout_alignBottom="@id/bottom_pm_17_00__schedule_fra"
+            android:layout_alignTop="@id/top_pm_17_00__schedule_fra"
             android:layout_marginBottom="9dp"
             android:layout_marginTop="9dp"
-            android:layout_toEndOf="@+id/pm_17_00"
+            android:layout_toEndOf="@+id/pm_17_00__schedule_fra"
             android:background="@color/cardview_dark_background" />
 
         <!--End of 17:00 PM Section-->
@@ -778,34 +778,34 @@
         <!--Start of 17:30 PM Section-->
 
         <TextView
-            android:id="@+id/pm_17_30"
+            android:id="@+id/pm_17_30__schedule_fra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/pm_17_00"
+            android:layout_below="@+id/pm_17_00__schedule_fra"
             android:layout_marginEnd="15dp"
             android:layout_marginTop="30dp" />
 
         <View
-            android:id="@+id/top_pm_17_30"
+            android:id="@+id/top_pm_17_30__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignTop="@+id/pm_17_30" />
+            android:layout_alignTop="@+id/pm_17_30__schedule_fra" />
 
         <View
-            android:id="@+id/bottom_pm_17_30"
+            android:id="@+id/bottom_pm_17_30__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignBottom="@+id/pm_17_30" />
+            android:layout_alignBottom="@+id/pm_17_30__schedule_fra" />
 
         <View
-            android:id="@+id/line_pm_17_30"
+            android:id="@+id/line_pm_17_30__schedule_fra"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignBottom="@id/bottom_pm_17_30"
-            android:layout_alignTop="@id/top_pm_17_30"
+            android:layout_alignBottom="@id/bottom_pm_17_30__schedule_fra"
+            android:layout_alignTop="@id/top_pm_17_30__schedule_fra"
             android:layout_marginBottom="9dp"
             android:layout_marginTop="9dp"
-            android:layout_toEndOf="@+id/pm_17_00"
+            android:layout_toEndOf="@+id/pm_17_00__schedule_fra"
             android:background="@color/cardview_dark_background" />
 
         <!--End of 17:30 PM Section-->
@@ -813,35 +813,35 @@
         <!--Start of 18:00 PM Section-->
 
         <TextView
-            android:id="@+id/pm_18_00"
+            android:id="@+id/pm_18_00__schedule_fra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/pm_17_30"
+            android:layout_below="@+id/pm_17_30__schedule_fra"
             android:layout_marginEnd="15dp"
             android:layout_marginTop="30dp"
             android:text="18:00" />
 
         <View
-            android:id="@+id/top_pm_18_00"
+            android:id="@+id/top_pm_18_00__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignTop="@+id/pm_18_00" />
+            android:layout_alignTop="@+id/pm_18_00__schedule_fra" />
 
         <View
-            android:id="@+id/bottom_pm_18_00"
+            android:id="@+id/bottom_pm_18_00__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignBottom="@+id/pm_18_00" />
+            android:layout_alignBottom="@+id/pm_18_00__schedule_fra" />
 
         <View
-            android:id="@+id/line_pm_18_00"
+            android:id="@+id/line_pm_18_00__schedule_fra"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignBottom="@id/bottom_pm_18_00"
-            android:layout_alignTop="@id/top_pm_18_00"
+            android:layout_alignBottom="@id/bottom_pm_18_00__schedule_fra"
+            android:layout_alignTop="@id/top_pm_18_00__schedule_fra"
             android:layout_marginBottom="9dp"
             android:layout_marginTop="9dp"
-            android:layout_toEndOf="@+id/pm_18_00"
+            android:layout_toEndOf="@+id/pm_18_00__schedule_fra"
             android:background="@color/cardview_dark_background" />
 
         <!--End of 18:00 PM Section-->
@@ -849,34 +849,34 @@
         <!--Start of 18:30 PM Section-->
 
         <TextView
-            android:id="@+id/pm_18_30"
+            android:id="@+id/pm_18_30__schedule_fra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/pm_18_00"
+            android:layout_below="@+id/pm_18_00__schedule_fra"
             android:layout_marginEnd="15dp"
             android:layout_marginTop="30dp" />
 
         <View
-            android:id="@+id/top_pm_18_30"
+            android:id="@+id/top_pm_18_30__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignTop="@+id/pm_18_30" />
+            android:layout_alignTop="@+id/pm_18_30__schedule_fra" />
 
         <View
-            android:id="@+id/bottom_pm_18_30"
+            android:id="@+id/bottom_pm_18_30__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignBottom="@+id/pm_18_30" />
+            android:layout_alignBottom="@+id/pm_18_30__schedule_fra" />
 
         <View
-            android:id="@+id/line_pm_18_30"
+            android:id="@+id/line_pm_18_30__schedule_fra"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignBottom="@id/bottom_pm_18_30"
-            android:layout_alignTop="@id/top_pm_18_30"
+            android:layout_alignBottom="@id/bottom_pm_18_30__schedule_fra"
+            android:layout_alignTop="@id/top_pm_18_30__schedule_fra"
             android:layout_marginBottom="9dp"
             android:layout_marginTop="9dp"
-            android:layout_toEndOf="@+id/pm_18_00"
+            android:layout_toEndOf="@+id/pm_18_00__schedule_fra"
             android:background="@color/cardview_dark_background" />
 
         <!--End of 18:30 PM Section-->
@@ -884,35 +884,35 @@
         <!--Start of 19:00 PM Section-->
 
         <TextView
-            android:id="@+id/pm_19_00"
+            android:id="@+id/pm_19_00__schedule_fra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/pm_18_30"
+            android:layout_below="@+id/pm_18_30__schedule_fra"
             android:layout_marginEnd="15dp"
             android:layout_marginTop="30dp"
             android:text="19:00" />
 
         <View
-            android:id="@+id/top_pm_19_00"
+            android:id="@+id/top_pm_19_00__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignTop="@+id/pm_19_00" />
+            android:layout_alignTop="@+id/pm_19_00__schedule_fra" />
 
         <View
-            android:id="@+id/bottom_pm_19_00"
+            android:id="@+id/bottom_pm_19_00__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignBottom="@+id/pm_19_00" />
+            android:layout_alignBottom="@+id/pm_19_00__schedule_fra" />
 
         <View
-            android:id="@+id/line_pm_19_00"
+            android:id="@+id/line_pm_19_00__schedule_fra"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignBottom="@id/bottom_pm_19_00"
-            android:layout_alignTop="@id/top_pm_19_00"
+            android:layout_alignBottom="@id/bottom_pm_19_00__schedule_fra"
+            android:layout_alignTop="@id/top_pm_19_00__schedule_fra"
             android:layout_marginBottom="9dp"
             android:layout_marginTop="9dp"
-            android:layout_toEndOf="@+id/pm_19_00"
+            android:layout_toEndOf="@+id/pm_19_00__schedule_fra"
             android:background="@color/cardview_dark_background" />
 
         <!--End of 19:00 PM Section-->
@@ -920,34 +920,34 @@
         <!--Start of 19:30 PM Section-->
 
         <TextView
-            android:id="@+id/pm_19_30"
+            android:id="@+id/pm_19_30__schedule_fra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/pm_19_00"
+            android:layout_below="@+id/pm_19_00__schedule_fra"
             android:layout_marginEnd="15dp"
             android:layout_marginTop="30dp" />
 
         <View
-            android:id="@+id/top_pm_19_30"
+            android:id="@+id/top_pm_19_30__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignTop="@+id/pm_19_30" />
+            android:layout_alignTop="@+id/pm_19_30__schedule_fra" />
 
         <View
-            android:id="@+id/bottom_pm_19_30"
+            android:id="@+id/bottom_pm_19_30__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignBottom="@+id/pm_19_30" />
+            android:layout_alignBottom="@+id/pm_19_30__schedule_fra" />
 
         <View
-            android:id="@+id/line_pm_19_30"
+            android:id="@+id/line_pm_19_30__schedule_fra"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignBottom="@id/bottom_pm_19_30"
-            android:layout_alignTop="@id/top_pm_19_30"
+            android:layout_alignBottom="@id/bottom_pm_19_30__schedule_fra"
+            android:layout_alignTop="@id/top_pm_19_30__schedule_fra"
             android:layout_marginBottom="9dp"
             android:layout_marginTop="9dp"
-            android:layout_toEndOf="@+id/pm_19_00"
+            android:layout_toEndOf="@+id/pm_19_00__schedule_fra"
             android:background="@color/cardview_dark_background" />
 
         <!--End of 19:30 PM Section-->
@@ -955,35 +955,35 @@
         <!--Start of 20:00 PM Section-->
 
         <TextView
-            android:id="@+id/pm_20_00"
+            android:id="@+id/pm_20_00__schedule_fra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/pm_19_30"
+            android:layout_below="@+id/pm_19_30__schedule_fra"
             android:layout_marginEnd="15dp"
             android:layout_marginTop="30dp"
             android:text="20:00" />
 
         <View
-            android:id="@+id/top_pm_20_00"
+            android:id="@+id/top_pm_20_00__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignTop="@+id/pm_20_00" />
+            android:layout_alignTop="@+id/pm_20_00__schedule_fra" />
 
         <View
-            android:id="@+id/bottom_pm_20_00"
+            android:id="@+id/bottom_pm_20_00__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignBottom="@+id/pm_20_00" />
+            android:layout_alignBottom="@+id/pm_20_00__schedule_fra" />
 
         <View
-            android:id="@+id/line_pm_20_00"
+            android:id="@+id/line_pm_20_00__schedule_fra"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignBottom="@id/bottom_pm_20_00"
-            android:layout_alignTop="@id/top_pm_20_00"
+            android:layout_alignBottom="@id/bottom_pm_20_00__schedule_fra"
+            android:layout_alignTop="@id/top_pm_20_00__schedule_fra"
             android:layout_marginBottom="9dp"
             android:layout_marginTop="9dp"
-            android:layout_toEndOf="@+id/pm_20_00"
+            android:layout_toEndOf="@+id/pm_20_00__schedule_fra"
             android:background="@color/cardview_dark_background" />
 
         <!--End of 20:00 PM Section-->
@@ -991,34 +991,34 @@
         <!--Start of 20:30 PM Section-->
 
         <TextView
-            android:id="@+id/pm_20_30"
+            android:id="@+id/pm_20_30__schedule_fra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/pm_20_00"
+            android:layout_below="@+id/pm_20_00__schedule_fra"
             android:layout_marginEnd="15dp"
             android:layout_marginTop="30dp" />
 
         <View
-            android:id="@+id/top_pm_20_30"
+            android:id="@+id/top_pm_20_30__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignTop="@+id/pm_20_30" />
+            android:layout_alignTop="@+id/pm_20_30__schedule_fra" />
 
         <View
-            android:id="@+id/bottom_pm_20_30"
+            android:id="@+id/bottom_pm_20_30__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignBottom="@+id/pm_20_30" />
+            android:layout_alignBottom="@+id/pm_20_30__schedule_fra" />
 
         <View
-            android:id="@+id/line_pm_20_30"
+            android:id="@+id/line_pm_20_30__schedule_fra"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignBottom="@id/bottom_pm_20_30"
-            android:layout_alignTop="@id/top_pm_20_30"
+            android:layout_alignBottom="@id/bottom_pm_20_30__schedule_fra"
+            android:layout_alignTop="@id/top_pm_20_30__schedule_fra"
             android:layout_marginBottom="9dp"
             android:layout_marginTop="9dp"
-            android:layout_toEndOf="@+id/pm_20_00"
+            android:layout_toEndOf="@+id/pm_20_00__schedule_fra"
             android:background="@color/cardview_dark_background" />
 
         <!--End of 20:30 PM Section-->
@@ -1026,35 +1026,35 @@
         <!--Start of 21:00 PM Section-->
 
         <TextView
-            android:id="@+id/pm_21_00"
+            android:id="@+id/pm_21_00__schedule_fra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/pm_20_30"
+            android:layout_below="@+id/pm_20_30__schedule_fra"
             android:layout_marginEnd="15dp"
             android:layout_marginTop="30dp"
             android:text="21:00" />
 
         <View
-            android:id="@+id/top_pm_21_00"
+            android:id="@+id/top_pm_21_00__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignTop="@+id/pm_21_00" />
+            android:layout_alignTop="@+id/pm_21_00__schedule_fra" />
 
         <View
-            android:id="@+id/bottom_pm_21_00"
+            android:id="@+id/bottom_pm_21_00__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignBottom="@+id/pm_21_00" />
+            android:layout_alignBottom="@+id/pm_21_00__schedule_fra" />
 
         <View
-            android:id="@+id/line_pm_21_00"
+            android:id="@+id/line_pm_21_00__schedule_fra"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignBottom="@id/bottom_pm_21_00"
-            android:layout_alignTop="@id/top_pm_21_00"
+            android:layout_alignBottom="@id/bottom_pm_21_00__schedule_fra"
+            android:layout_alignTop="@id/top_pm_21_00__schedule_fra"
             android:layout_marginBottom="9dp"
             android:layout_marginTop="9dp"
-            android:layout_toEndOf="@+id/pm_21_00"
+            android:layout_toEndOf="@+id/pm_21_00__schedule_fra"
             android:background="@color/cardview_dark_background" />
 
         <!--End of 21:00 PM Section-->
@@ -1062,34 +1062,34 @@
         <!--Start of 21:30 PM Section-->
 
         <TextView
-            android:id="@+id/pm_21_30"
+            android:id="@+id/pm_21_30__schedule_fra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/pm_21_00"
+            android:layout_below="@+id/pm_21_00__schedule_fra"
             android:layout_marginEnd="15dp"
             android:layout_marginTop="30dp" />
 
         <View
-            android:id="@+id/top_pm_21_30"
+            android:id="@+id/top_pm_21_30__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignTop="@+id/pm_21_30" />
+            android:layout_alignTop="@+id/pm_21_30__schedule_fra" />
 
         <View
-            android:id="@+id/bottom_pm_21_30"
+            android:id="@+id/bottom_pm_21_30__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignBottom="@+id/pm_21_30" />
+            android:layout_alignBottom="@+id/pm_21_30__schedule_fra" />
 
         <View
-            android:id="@+id/line_pm_21_30"
+            android:id="@+id/line_pm_21_30__schedule_fra"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignBottom="@id/bottom_pm_21_30"
-            android:layout_alignTop="@id/top_pm_21_30"
+            android:layout_alignBottom="@id/bottom_pm_21_30__schedule_fra"
+            android:layout_alignTop="@id/top_pm_21_30__schedule_fra"
             android:layout_marginBottom="9dp"
             android:layout_marginTop="9dp"
-            android:layout_toEndOf="@+id/pm_21_00"
+            android:layout_toEndOf="@+id/pm_21_00__schedule_fra"
             android:background="@color/cardview_dark_background" />
 
         <!--End of 21:30 PM Section-->
@@ -1097,35 +1097,35 @@
         <!--Start of 22:00 PM Section-->
 
         <TextView
-            android:id="@+id/pm_22_00"
+            android:id="@+id/pm_22_00__schedule_fra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/pm_21_30"
+            android:layout_below="@+id/pm_21_30__schedule_fra"
             android:layout_marginEnd="15dp"
             android:layout_marginTop="30dp"
             android:text="22:00" />
 
         <View
-            android:id="@+id/top_pm_22_00"
+            android:id="@+id/top_pm_22_00__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignTop="@+id/pm_22_00" />
+            android:layout_alignTop="@+id/pm_22_00__schedule_fra" />
 
         <View
-            android:id="@+id/bottom_pm_22_00"
+            android:id="@+id/bottom_pm_22_00__schedule_fra"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_alignBottom="@+id/pm_22_00" />
+            android:layout_alignBottom="@+id/pm_22_00__schedule_fra" />
 
         <View
-            android:id="@+id/line_pm_22_00"
+            android:id="@+id/line_pm_22_00__schedule_fra"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignBottom="@id/bottom_pm_22_00"
-            android:layout_alignTop="@id/top_pm_22_00"
+            android:layout_alignBottom="@id/bottom_pm_22_00__schedule_fra"
+            android:layout_alignTop="@id/top_pm_22_00__schedule_fra"
             android:layout_marginBottom="9dp"
             android:layout_marginTop="9dp"
-            android:layout_toEndOf="@+id/pm_22_00"
+            android:layout_toEndOf="@+id/pm_22_00__schedule_fra"
             android:background="@color/cardview_dark_background" />
 
         <!--End of 22:00 PM Section-->

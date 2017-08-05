@@ -21,7 +21,7 @@ import butterknife.ButterKnife;
  * A simple {@link Fragment} subclass.
  */
 public class StudentDetailScheduleFragment extends Fragment {
-    @BindView(R.id.schedule_lv__student_detail_schedule_page)
+    @BindView(R.id.schedules_lv__student_detail_schedule_fra)
     ListView scheduleLv;
     ArrayList<Schedule> schedules;
     ScheduleAdapter scheduleAdapter;

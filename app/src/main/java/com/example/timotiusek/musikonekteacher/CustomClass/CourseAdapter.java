@@ -22,9 +22,9 @@ public class CourseAdapter extends BaseAdapter{
     private ArrayList<Course> courses;
     private Context mContext;
     private LayoutInflater inflater;
-    @BindView(R.id.course_name__course_page)
+    @BindView(R.id.course_name__course_rl)
     TextView courseName;
-    @BindView(R.id.how_many_meetings__course_page)
+    @BindView(R.id.how_many_meetings__course_rl)
     TextView howManyMeetings;
 
     public CourseAdapter(ArrayList<Course> courses, Context c) {

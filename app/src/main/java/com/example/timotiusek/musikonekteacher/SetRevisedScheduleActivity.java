@@ -24,10 +24,10 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class SetRevisedScheduleActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
-    @BindView(R.id.schedule_lv__set_revised_schedule_page)
+    @BindView(R.id.schedule_lv__set_revised_schedule_act)
     ListView scheduleLv;
 
-    @BindView(R.id.set_schedule_btn__set_revised_schedule_page)
+    @BindView(R.id.set_schedule_btn__set_revised_schedule_act)
     Button setScheduleBtn;
 
     private ArrayList<Schedule> schedules;
@@ -53,7 +53,7 @@ public class SetRevisedScheduleActivity extends AppCompatActivity implements Dat
         scheduleLv.setAdapter(scheduleAdapter);
     }
 
-    @OnClick(R.id.set_schedule_btn__set_revised_schedule_page)
+    @OnClick(R.id.set_schedule_btn__set_revised_schedule_act)
     void showCalendar(){
         LayoutInflater inflater = this.getLayoutInflater();
         View titleView = inflater.inflate(R.layout.custom_datepicker_title, null);

@@ -1,13 +1,11 @@
 package com.example.timotiusek.musikonekteacher;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.timotiusek.musikonekteacher.CustomClass.Payment;
@@ -27,10 +25,10 @@ public class OrderPaymentFragment extends Fragment {
     private ArrayList<Payment> scheduledPayments;
     private ArrayList<Payment> paidPayments;
 
-    @BindView(R.id.paid_payment_lv__order_payment_page)
+    @BindView(R.id.paid_payment_lv__order_payment_fra)
     ListView paidPaymentsLv;
 
-    @BindView(R.id.scheduled_payment_lv__order_payment_page)
+    @BindView(R.id.scheduled_payment_lv__order_payment_fra)
     ListView scheduledPaymentsLv;
 
     private PaymentAdapter scheduledPaymentAdapter;

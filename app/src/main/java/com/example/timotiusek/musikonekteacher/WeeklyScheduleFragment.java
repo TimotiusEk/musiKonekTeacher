@@ -13,7 +13,6 @@ import android.view.ViewGroup;
  */
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 
 import butterknife.BindView;
@@ -24,9 +23,9 @@ import butterknife.ButterKnife;
  * A simple {@link Fragment} subclass.
  */
 public class WeeklyScheduleFragment extends Fragment {
-    @BindView(R.id.tab_layout_weekly_schedule_page)
+    @BindView(R.id.tab_layout__weekly_schedule_fra)
     TabLayout tabLayout;
-    @BindView(R.id.view_pager_weekly_schedule_page)
+    @BindView(R.id.view_pager__weekly_schedule_fra)
     ViewPager viewPager;
     MainActivity ma;
 

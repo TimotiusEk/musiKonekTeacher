@@ -8,7 +8,7 @@
     >
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbar__app_bar_main"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
@@ -16,9 +16,9 @@
         app:titleTextColor="@android:color/white"/>
 
     <FrameLayout
-        android:id="@+id/fragment_container"
+        android:id="@+id/fragment_container__app_bar_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbar"/>
+        android:layout_below="@id/toolbar__app_bar_main"/>
 
 </RelativeLayout>

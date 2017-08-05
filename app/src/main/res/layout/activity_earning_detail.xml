@@ -6,14 +6,14 @@
     android:fitsSystemWindows="true">
 
     <android.support.design.widget.AppBarLayout
-        android:id="@+id/app_bar_layout"
+        android:id="@+id/app_bar_layout__earning_detail_act"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/collapsing_toolbar"
+            android:id="@+id/collapsing_toolbar__earning_detail_act"
             android:layout_width="match_parent"
             android:layout_height="350dp"
             android:fitsSystemWindows="true"
@@ -24,7 +24,7 @@
 
 
             <ImageView
-                android:id="@+id/header_image"
+                android:id="@+id/header_image__earning_detail_act"
                 android:layout_width="match_parent"
                 android:layout_height="350dp"
                 android:contentDescription="asdasd"
@@ -35,7 +35,7 @@
 
 
             <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar_earning_detail_page"
+                android:id="@+id/toolbar__earning_detail_act"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:title="Testing"
@@ -45,7 +45,7 @@
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.widget.NestedScrollView
-        android:id="@+id/scroll"
+        android:id="@+id/scroll__earning_detail_act"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
@@ -74,7 +74,7 @@
                     >
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/student_image_earning_detail_page"
+                        android:id="@+id/student_image__earning_detail_act"
                         android:layout_width="45dp"
                         android:layout_height="45dp"
                         android:src="@drawable/avatar" />
@@ -87,7 +87,7 @@
                         >
 
                         <TextView
-                            android:id="@+id/student_name_earning_detail_page"
+                            android:id="@+id/student_name__earning_detail_act"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Dhanny Kusuma"
@@ -118,7 +118,7 @@
                         android:layout_height="wrap_content"
                         android:text="Kursus ini cocok bagi mereka yang sedang ingin belajar piano tanpa memiliki konsep dasar tentang musik. Kursus dibagi dalam enam pertemuan singkat. "
                         android:layout_marginStart="10dp"
-                        android:id="@+id/course_description_earning_detail_page"/>
+                        android:id="@+id/course_description__earning_detail_act"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -137,7 +137,7 @@
                         android:layout_height="wrap_content"
                         android:text="4 DARI 6 KALI PERTEMUAN"
                         android:layout_marginStart="10dp"
-                        android:id="@+id/meeting_progress_earning_detail_page"/>
+                        android:id="@+id/meeting_progress__earning_detail_act"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -158,7 +158,7 @@
                         android:text="Rp 468.000"
                         android:layout_marginStart="10dp"
                         android:textSize="22sp"
-                        android:id="@+id/total_earning_earning_detail_page"/>
+                        android:id="@+id/total_earning__earning_detail_act"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -179,7 +179,7 @@
                         android:text="Rp 312.000"
                         android:layout_marginStart="10dp"
                         android:textSize="27sp"
-                        android:id="@+id/earning_progress_earning_page"/>
+                        android:id="@+id/earning_progress__earning_detail_act"/>
                 </LinearLayout>
 
 

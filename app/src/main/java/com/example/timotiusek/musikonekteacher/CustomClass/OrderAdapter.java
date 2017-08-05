@@ -23,13 +23,13 @@ public class OrderAdapter extends BaseAdapter{
     private ArrayList<Order> orders;
     private Context mContext;
     private LayoutInflater inflater;
-    @BindView(R.id.student_image_order_page)
+    @BindView(R.id.student_image__order_rl)
     CircleImageView studentImg;
-    @BindView(R.id.student_name_order_page)
+    @BindView(R.id.student_name__order_rl)
     TextView studentName;
-    @BindView(R.id.course_name_order_page)
+    @BindView(R.id.course_name__order_rl)
     TextView courseName;
-    @BindView(R.id.course_package_order_page)
+    @BindView(R.id.course_package__order_rl)
     TextView coursePackage;
 
     public OrderAdapter(ArrayList<Order> orders, Context c) {

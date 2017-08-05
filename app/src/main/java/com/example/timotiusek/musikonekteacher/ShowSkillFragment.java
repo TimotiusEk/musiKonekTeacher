@@ -22,7 +22,7 @@ import butterknife.OnClick;
  * A simple {@link Fragment} subclass.
  */
 public class ShowSkillFragment extends Fragment {
-    @BindView(R.id.show_skill_list_view)
+    @BindView(R.id.skills_lv__show_skill_fra)
     ListView showSkillListView;
     ArrayList<Skill> skills;
     ShowSkillAdapter showSkillAdapter;
@@ -51,7 +51,7 @@ public class ShowSkillFragment extends Fragment {
         // Inflate the layout for this fragment
         return view;
     }
-    @OnClick(R.id.add_skill_fab)
+    @OnClick(R.id.add_skill_btn__show_skill_fra)
     void addSkill(){
         startActivity(new Intent(getActivity(), AddSkillActivity.class));
         /**

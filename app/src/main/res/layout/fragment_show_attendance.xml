@@ -8,6 +8,6 @@
    <ListView
        android:layout_width="match_parent"
        android:layout_height="match_parent"
-       android:id="@+id/show_attendance_list_view"/>
+       android:id="@+id/attendances_lv__show_attendance_fra"/>
 
 </FrameLayout>
