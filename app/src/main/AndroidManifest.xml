@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.timotiusek.musikonekteacher">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,22 +24,19 @@
             android:noHistory="true"
             android:theme="@style/NoActionBarTheme" />
         <activity android:name=".EditProfileActivity" />
-        <activity
-            android:name=".ViewOrderActivity"
-            android:noHistory="true" />
+
+        <activity android:name=".ViewOrderActivity"
+            android:noHistory="true"/>
         <activity android:name=".CreateTestimonialActivity" />
         <activity android:name=".ReasonRejectActivity" />
         <activity android:name=".CreateReportActivity" />
         <activity
             android:name=".EarningDetailActivity"
             android:theme="@style/NoActionBarTheme" />
-        <activity android:name=".StudentInfoActivity" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/NoActionBarTheme" />
-        <activity android:name=".SetScheduleActivity" />
-        <activity android:name=".SkillCourseDetailActivity" />
-        <activity android:name=".SetRevisedScheduleActivity"/>
+            android:theme="@style/NoActionBarTheme"/>
+        <activity android:name=".StudentInfoActivity" />
         <activity
             android:name=".SplashScreen"
             android:noHistory="true"
@@ -54,6 +53,7 @@
             android:name=".ProfileActivity"
             android:theme="@style/NoActionBarTheme" />
 
+        <activity android:name=".SetScheduleActivity"></activity>
     </application>
 
 </manifest>

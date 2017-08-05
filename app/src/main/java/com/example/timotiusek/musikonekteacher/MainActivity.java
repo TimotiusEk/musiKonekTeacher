@@ -1,7 +1,10 @@
 package com.example.timotiusek.musikonekteacher;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -11,7 +14,11 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,6 +35,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private FragmentTransaction mFragmentTransaction;
     ActionBarDrawerToggle toggle;
 
+    private String email;
+    private String username;
+
+    SharedPreferences sharedPreferences;
+    private boolean doubleBackToExitPressedOnce = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +47,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         toolbar.setTitle("Beranda");
+
         setChecked(R.id.menu_home);
+
+        sharedPreferences = getSharedPreferences("profile", Context.MODE_PRIVATE);
+
+        updateNavView();
+
+        NavigationView nv = (NavigationView) findViewById(R.id.nav_view);
+        View header = nv.getHeaderView(0);
+
+        Log.d("ADSF",username);
+
+        TextView textName = (TextView) header.findViewById(R.id.username);
+        textName.setText(username);
+
+        TextView textEmail = (TextView) header.findViewById(R.id.email_label);
+        textEmail.setText(email);
+
         showTheFirstFragment();
         setSupportActionBar(toolbar);
         toggle = new ActionBarDrawerToggle(
@@ -66,9 +95,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            if (doubleBackToExitPressedOnce) {
+                super.onBackPressed();
+                return;
+            }
+
+            this.doubleBackToExitPressedOnce = true;
+            Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+            new Handler().postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    doubleBackToExitPressedOnce=false;
+                }
+            }, 2000);
         }
     }
+
+
 
 
 
@@ -117,6 +162,42 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             navigationView.getMenu().getItem(i).setChecked(false);
         }
     }
+
+    private void updateNavView(){
+        if(!sharedPreferences.getString("email","").equals("")) {
+            email = sharedPreferences.getString("email","");
+        }
+
+        if(!sharedPreferences.getString("username","").equals("")) {
+            username = sharedPreferences.getString("username","");
+        }else{
+            username = "username";
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //Log.d("ASDF","called");
+        updateNavView();
+    }
+
+    private void logout(){
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("token","");
+        editor.putString("username","");
+
+        editor.apply();
+
+        Intent intent = new Intent(this, SignInActivity.class);
+        startActivity(intent);
+
+        finish();
+
+    }
+
+
 
 
 }
