@@ -14,7 +14,7 @@
         android:textSize="15sp" />
 
     <TextView
-        android:id="@+id/student_name__student_info_act"
+        android:id="@+id/student_name__accepted_student_info_act"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
@@ -31,7 +31,7 @@
         />
 
     <TextView
-        android:id="@+id/student_email__student_info_act"
+        android:id="@+id/student_email__accepted_student_info_act"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
@@ -47,7 +47,7 @@
         android:textSize="15sp" />
 
     <TextView
-        android:id="@+id/student_address__student_info_act"
+        android:id="@+id/student_address__accepted_student_info_act"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
@@ -63,7 +63,7 @@
         android:textSize="15sp" />
 
     <TextView
-        android:id="@+id/student_phone__student_info_act"
+        android:id="@+id/student_phone__accepted_student_info_act"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
@@ -73,21 +73,13 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/set_schedule_btn__student_info_act"
+        android:id="@+id/open_schedule_btn__accepted_student_info_act"
         android:layout_width="match_parent"
         android:layout_height="33dp"
         android:layout_gravity="bottom"
-        android:layout_marginBottom="10dp"
-        android:background="@color/colorPrimary"
-        android:text="Pasang Jadwal"
+        android:background="@drawable/round_btn"
+        android:text="Lihat Jadwal"
         android:textColor="@android:color/white" />
 
-    <Button
-        android:id="@+id/close_btn__student_info_act"
-        android:layout_width="match_parent"
-        android:layout_height="33dp"
-        android:layout_gravity="bottom"
-        android:background="#3F569A"
-        android:text="Tutup"
-        android:textColor="@android:color/white" />
+
 </LinearLayout>

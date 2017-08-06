@@ -8,7 +8,8 @@
     android:orientation="vertical"
     android:padding="15dp"
     android:focusable="true"
-    android:focusableInTouchMode="true">
+    android:focusableInTouchMode="true"
+    android:id="@+id/ll_reason_reject_act">
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
@@ -18,8 +19,8 @@
         android:textColorHint="#b7b7b7"
         app:hintTextAppearance="@style/TextLabelGray"
         android:layout_weight="1"
-        android:nextFocusUp="@id/send_btn__reason_reject_act"
-        android:nextFocusLeft="@id/send_btn__reason_reject_act"
+       android:nextFocusUp="@id/ll_reason_reject_act"
+        android:nextFocusLeft="@id/ll_reason_reject_act"
         >
 
         <EditText

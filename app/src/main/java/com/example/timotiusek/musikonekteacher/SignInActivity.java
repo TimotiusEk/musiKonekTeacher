@@ -43,7 +43,6 @@ public class SignInActivity extends AppCompatActivity {
     EditText inputEmail;
     EditText inputPassword;
 
-    TextView linkToRegister;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

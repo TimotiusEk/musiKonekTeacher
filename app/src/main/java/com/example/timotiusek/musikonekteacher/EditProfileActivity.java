@@ -40,7 +40,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
         callGetMyProfile();
 
-        Button saveButton = (Button) findViewById(R.id.save_btn__add_skill_act);
+        Button saveButton = (Button) findViewById(R.id.save_btn__edit_profile_act);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,11 +88,15 @@ public class EditProfileActivity extends AppCompatActivity {
                             String x = location.getString("x");
                             String y  = location.getString("y");
 
-                            EditText fullnameEdit = (EditText) findViewById(R.id.edit_fullname);
-                            fullnameEdit.setText(fullname);
+                            EditText firstnameInput = (EditText) findViewById(R.id.firstname_input__edit_profile_act);
+                            firstnameInput.setText(fullname);
 
-                            EditText usernameEdit = (EditText) findViewById(R.id.edit_username);
-                            usernameEdit.setText(username);
+                            EditText lastnameInput = (EditText) findViewById(R.id.lastname_input__edit_profile_act);
+                            lastnameInput.setText(username);
+
+                            /**
+                             * todo : ini harusnya bukan fullname dan username
+                             */
 
                             Log.d("ASDF",res.toString());
 
@@ -176,13 +180,17 @@ public class EditProfileActivity extends AppCompatActivity {
 
                             SharedPreferences sharedPreferences = getSharedPreferences("profile", Context.MODE_PRIVATE);
 
-                            EditText usernameEdit = (EditText) findViewById(R.id.edit_username);
 
 
+                            EditText firstNameInput = (EditText) findViewById(R.id.firstname_input__edit_profile_act);
 
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.putString("username",usernameEdit.getText().toString());
-                            editor.apply();
+                            /**
+                             * todo : disini ga ada username
+                             */
+
+//                            SharedPreferences.Editor editor = sharedPreferences.edit();
+//                            editor.putString("username",usernameEdit.getText().toString());
+//                            editor.apply();
 
 
                             finish();
@@ -227,21 +235,27 @@ public class EditProfileActivity extends AppCompatActivity {
             protected Map<String,String> getParams(){
                 Map<String,String> reqBody = new HashMap<String, String>();
 
-                EditText fullnameEdit = (EditText) findViewById(R.id.edit_fullname);
 
-                EditText usernameEdit = (EditText) findViewById(R.id.edit_username);
+
+                EditText firstNameInput = (EditText) findViewById(R.id.firstname_input__edit_profile_act);
+
+                EditText lastNameInput = (EditText) findViewById(R.id.lastname_input__edit_profile_act);
 
 //                EditText usernameText = (EditText) findViewById(R.id.input_username_sign_up);
 //                EditText fullnameText  = (EditText)  findViewById(R.id.input_fullname_signup);
 
-                String fullname = fullnameEdit.getText().toString();
-                String username = usernameEdit.getText().toString();
+                String firstname = firstNameInput.getText().toString();
+                String lastname = lastNameInput.getText().toString();
 
 //                String username = usernameText.getText().toString();
 //                String fullname = fullnameText.getText().toString();
 
-                reqBody.put("fullname", fullname);
-                reqBody.put("username", username);
+                /**
+                 * todo : ini harusnya bukan fullnama sama username tp first name & last name
+                 */
+
+//                reqBody.put("fullname", fullname);
+//                reqBody.put("username", username);
 
                 String token = "";
                 SharedPreferences sharedPreferences = getSharedPreferences("profile", Context.MODE_PRIVATE);

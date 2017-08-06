@@ -1,7 +1,10 @@
 package com.example.timotiusek.musikonekteacher;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.timotiusek.musikonekteacher.CustomClass.Course;
@@ -23,6 +26,7 @@ public class SkillCourseDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_skill_course_detail);
         ButterKnife.bind(this);
+        getSupportActionBar().setTitle("Daftar Kursus Keahlian");
 
         courses = new ArrayList<>();
         courses.add(new Course("Kursus Violin Dasar","12 kali pertemuan"));
@@ -34,5 +38,18 @@ public class SkillCourseDetailActivity extends AppCompatActivity {
 
         courseAdapter = new CourseAdapter(courses, this);
         courseRelatedLv.setAdapter(courseAdapter);
+
+        courseRelatedLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Course courseToSend = (Course) courseAdapter.getItem(position);
+
+                /**
+                 * todo : send data
+                 */
+
+                startActivity(new Intent(SkillCourseDetailActivity.this, CourseDetailActivity.class));
+            }
+        });
     }
 }

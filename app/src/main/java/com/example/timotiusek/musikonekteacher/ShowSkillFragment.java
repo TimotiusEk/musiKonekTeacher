@@ -4,10 +4,13 @@ package com.example.timotiusek.musikonekteacher;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.timotiusek.musikonekteacher.CustomClass.Skill;
 
@@ -48,6 +51,19 @@ public class ShowSkillFragment extends Fragment {
 
         showSkillAdapter = new ShowSkillAdapter(skills, getActivity());
         showSkillListView.setAdapter(showSkillAdapter);
+
+        showSkillListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Skill skill = (Skill) showSkillAdapter.getItem(position);
+
+                /**
+                 * todo : receive and send data
+                 */
+
+                startActivity(new Intent(getActivity(), SkillCourseDetailActivity.class));
+            }
+        });
         // Inflate the layout for this fragment
         return view;
     }

@@ -27,8 +27,8 @@ import com.android.volley.toolbox.HurlStack;
 import com.android.volley.toolbox.StringRequest;
 import com.example.timotiusek.musikonekteacher.CustomClass.Order;
 import com.example.timotiusek.musikonekteacher.CustomClass.OrderAdapter;
-import com.example.timotiusek.musikonekteacher.Helper.TextFormater;
 import com.example.timotiusek.musikonekteacher.Helper.Connector;
+import com.example.timotiusek.musikonekteacher.Helper.TextFormater;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -62,18 +62,20 @@ public class OrderRequestFragment extends Fragment {
     }
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_order_request, container, false);
         ButterKnife.bind(this, v);
+        filteredAcceptedOrders = new ArrayList<>();
 
         populateOrders();
         filteredAcceptedOrders = new ArrayList<>();
         filteredPendingOrders = new ArrayList<>();
+        filteredAcceptedOrders = new ArrayList<>();
 
 
+        filterOrder();
         // Inflate the layout for this fragment
         return v;
     }
@@ -84,10 +86,10 @@ public class OrderRequestFragment extends Fragment {
 //
         SharedPreferences sharedPreferences = getContext().getSharedPreferences("profile", Context.MODE_PRIVATE);
 
-        String token ="";
+        String token = "";
 
-        if(!sharedPreferences.getString("token","").equals("")) {
-            token = sharedPreferences.getString("token","");
+        if (!sharedPreferences.getString("token", "").equals("")) {
+            token = sharedPreferences.getString("token", "");
         }
 
 
@@ -96,7 +98,7 @@ public class OrderRequestFragment extends Fragment {
         final Network network = new BasicNetwork(new HurlStack());
         requestQueue = new RequestQueue(cache, network);
         requestQueue.start();
-        String url = Connector.getURL() +"/api/v1/course/getCourseByTeacherId?token="+token;
+        String url = Connector.getURL() + "/api/v1/course/getCourseByTeacherId?token=" + token;
 
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -106,18 +108,18 @@ public class OrderRequestFragment extends Fragment {
 
                         try {
                             JSONObject res = new JSONObject(response);
-                            Log.d("ASDF",res.toString());
+                            Log.d("ASDF", res.toString());
                             JSONArray arr = res.getJSONArray("data");
 
-                            for(int i=0;i<arr.length();i++){
-                                JSONObject jo =  arr.getJSONObject(i);
+                            for (int i = 0; i < arr.length(); i++) {
+                                JSONObject jo = arr.getJSONObject(i);
 
                                 String instrument = jo.getString("instrument");
                                 String student_name = jo.getString("student_name");
                                 String appointment = jo.getString("appointments");
                                 String status = jo.getString("status_name");
 
-                                notFilteredOrders.add(new Order(R.drawable.avatar, TextFormater.formatCourse(instrument), TextFormater.format(Integer.valueOf(appointment)),student_name, status));
+                                notFilteredOrders.add(new Order(R.drawable.avatar, TextFormater.formatCourse(instrument), TextFormater.format(Integer.valueOf(appointment)), student_name, status));
 //
 
                             }
@@ -126,7 +128,7 @@ public class OrderRequestFragment extends Fragment {
 
 
                         } catch (JSONException e) {
-                            Log.d("ASDF","Fail");
+                            Log.d("ASDF", "Fail");
                             e.printStackTrace();
                         }
 
@@ -140,33 +142,32 @@ public class OrderRequestFragment extends Fragment {
 
                         NetworkResponse networkResponse = error.networkResponse;
 
-                        if(networkResponse == null){
+                        if (networkResponse == null) {
 
-                            Toast.makeText(getContext(), "Connection Error",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), "Connection Error", Toast.LENGTH_SHORT).show();
 
-                        }else{
+                        } else {
                             int a = networkResponse.statusCode;
-                            if(networkResponse.statusCode == 403){
-                                Toast.makeText(getContext(), "TOKEN INVALID, PLEASE RE LOG",Toast.LENGTH_SHORT).show();
+                            if (networkResponse.statusCode == 403) {
+                                Toast.makeText(getContext(), "TOKEN INVALID, PLEASE RE LOG", Toast.LENGTH_SHORT).show();
 
                             }
 
-                            if(networkResponse.statusCode == 500){
-                                Toast.makeText(getContext(), "INVALID CREDENTIALS",Toast.LENGTH_SHORT).show();
+                            if (networkResponse.statusCode == 500) {
+                                Toast.makeText(getContext(), "INVALID CREDENTIALS", Toast.LENGTH_SHORT).show();
                             }
 
-                            if(networkResponse.statusCode != 401){
+                            if (networkResponse.statusCode != 401) {
 
-                                Log.d("ASDF","SHIT");
+                                Log.d("ASDF", "SHIT");
 
                             }
 
                         }
 
 
-
                     }
-                }){
+                }) {
 
             @Override
             protected Response<String> parseNetworkResponse(NetworkResponse response) {
@@ -180,65 +181,65 @@ public class OrderRequestFragment extends Fragment {
 
     }
 
-    public void filterOrder(){
+    public void filterOrder() {
         //if(status.equals("PENDING")){
-            for(Order notFilteredOrder : notFilteredOrders){
-                if(notFilteredOrder.getStatus().equalsIgnoreCase("REQUESTED")){
-                    filteredPendingOrders.add(notFilteredOrder);
-                }
+        for (Order notFilteredOrder : notFilteredOrders) {
+            if (notFilteredOrder.getStatus().equalsIgnoreCase("REQUESTED")) {
+                filteredPendingOrders.add(notFilteredOrder);
             }
-            pendingOrdersLv.setAdapter(new OrderAdapter(filteredPendingOrders, getActivity()));
-            pendingOrdersLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    /**
-                     * Todo : sent data
-                     */
-                    Order selected = filteredPendingOrders.get(position);
-                    Bundle bundle = new Bundle();
-                    bundle.putString("instrument",selected.getCourseName());
-                    bundle.putString("package",selected.getCoursePackage());
-                    bundle.putString("student",selected.getStudentName());
+        }
+        pendingOrdersLv.setAdapter(new OrderAdapter(filteredPendingOrders, getActivity()));
+        pendingOrdersLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                /**
+                 * Todo : sent data
+                 */
+                Order selected = filteredPendingOrders.get(position);
+                Bundle bundle = new Bundle();
+                bundle.putString("instrument", selected.getCourseName());
+                bundle.putString("package", selected.getCoursePackage());
+                bundle.putString("student", selected.getStudentName());
 
 //                    Toast.makeText(getContext(),selected.getStudentName(),Toast.LENGTH_SHORT).show();
 
-                    Intent intent= new Intent(getActivity(), ViewOrderActivity.class);
-                    intent.putExtras(bundle);
+                Intent intent = new Intent(getActivity(), ViewOrderActivity.class);
+                intent.putExtras(bundle);
 
-                    startActivity(intent);
-                }
-            });
-       // } //else if(status.equals("ACCEPTED")){
-            for(Order notFilteredOrder : notFilteredOrders){
-                if(notFilteredOrder.getStatus().equalsIgnoreCase("RUNNING")){
-                    filteredAcceptedOrders.add(notFilteredOrder);
-                }
+                startActivity(intent);
             }
+        });
+        // } //else if(status.equals("ACCEPTED")){
+        for (Order notFilteredOrder : notFilteredOrders) {
+            if (notFilteredOrder.getStatus().equalsIgnoreCase("RUNNING")) {
+                filteredAcceptedOrders.add(notFilteredOrder);
+            }
+        }
 
-            acceptedOrdersLv.setAdapter(new OrderAdapter(filteredAcceptedOrders, getActivity()));
-            acceptedOrdersLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    /**
-                     * Todo : sent data
-                     */
-                    Order selected = filteredAcceptedOrders.get(position);
+        acceptedOrdersLv.setAdapter(new OrderAdapter(filteredAcceptedOrders, getActivity()));
+        acceptedOrdersLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                /**
+                 * Todo : sent data
+                 */
+                Order selected = filteredAcceptedOrders.get(position);
 
-                    Bundle bundle = new Bundle();
-                    bundle.putString("instrument",selected.getCourseName());
-                    bundle.putString("package",selected.getCoursePackage());
-                    bundle.putString("student",selected.getStudentName());
+                Bundle bundle = new Bundle();
+                bundle.putString("instrument", selected.getCourseName());
+                bundle.putString("package", selected.getCoursePackage());
+                bundle.putString("student", selected.getStudentName());
 
 //                    Toast.makeText(getContext(),selected.getStudentName(),Toast.LENGTH_SHORT).show();
 
 //                    Intent intent= new Intent(getActivity(), ViewAcceptedOrderActivity.class);
-                    Intent intent= new Intent(getActivity(), StudentInfoActivity.class);
-                    intent.putExtras(bundle);
+                Intent intent = new Intent(getActivity(), AcceptedStudentInfoActivity.class);
+                intent.putExtras(bundle);
 
-                    startActivity(intent);
-                }
-            });
-        //}
+                startActivity(intent);
+            }
+        });
+    }
 //        else if(status.equals("REJECTED")){
 //            for(Order notFilteredOrder : notFilteredOrders){
 //                if(notFilteredOrder.getStatus().equalsIgnoreCase("REJECTED")){
@@ -248,6 +249,35 @@ public class OrderRequestFragment extends Fragment {
 //        }
 
 
-    }
-
 }
+//    void filterOrder(){
+//        for(Order unfilteredOrder : unfilteredOrders){
+//            if(unfilteredOrder.getStatus().equalsIgnoreCase("PENDING")){
+//                filteredPendingOrders.add(unfilteredOrder);
+//            }
+//        }
+//        pendingOrdersAdapter = new OrderAdapter(filteredPendingOrders, getActivity());
+//        pendingOrdersLv.setAdapter(pendingOrdersAdapter);
+//        pendingOrdersLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                startActivity(new Intent(getActivity(), ViewOrderActivity.class));
+//            }
+//        });
+//
+//        for(Order unfilteredOrder : unfilteredOrders){
+//            if(unfilteredOrder.getStatus().equalsIgnoreCase("ACCEPTED")){
+//                filteredAcceptedOrders.add(unfilteredOrder);
+//            }
+//        }
+//        acceptedOrdersAdapter = new OrderAdapter(filteredAcceptedOrders, getActivity());
+//        acceptedOrdersLv.setAdapter(acceptedOrdersAdapter);
+//        acceptedOrdersLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                startActivity(new Intent(getActivity(), AcceptedStudentInfoActivity.class));
+//            }
+//        });
+//    }
+
+//}

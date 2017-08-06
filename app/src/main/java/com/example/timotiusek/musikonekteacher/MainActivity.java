@@ -144,6 +144,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             changeFragment(new OrderLayoutFragment());
         } else if(id == R.id.menu_student){
             changeFragment(new StudentListLayoutFragment());
+        } else if(id == R.id.menu_earning){
+            changeFragment(new EarningLayoutFragment());
         } else if(id == R.id.menu_logout){
             /**
              * todo : create logout method

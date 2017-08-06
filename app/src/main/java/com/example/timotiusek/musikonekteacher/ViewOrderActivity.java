@@ -15,17 +15,17 @@ public class ViewOrderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_order);
 
-        Intent incomingIntent = getIntent();
-        Bundle params = incomingIntent.getExtras();
-
-        TextView courseNameText = (TextView) findViewById(R.id.course_name__view_order_act);
-        courseNameText.setText(params.getString("instrument"));
-
-        TextView courseTypeText = (TextView) findViewById(R.id.course_type__view_order_act);
-        courseTypeText.setText(params.getString("package"));
-
-        TextView studentNameText = (TextView) findViewById(R.id.student_name__view_order_act);
-        studentNameText.setText(params.getString("student"));
+//        Intent incomingIntent = getIntent();
+//        Bundle params = incomingIntent.getExtras();
+//
+//        TextView courseNameText = (TextView) findViewById(R.id.course_name__view_order_act);
+//        courseNameText.setText(params.getString("instrument"));
+//
+//        TextView courseTypeText = (TextView) findViewById(R.id.course_type__view_order_act);
+//        courseTypeText.setText(params.getString("package"));
+//
+//        TextView studentNameText = (TextView) findViewById(R.id.student_name__view_order_act);
+//        studentNameText.setText(params.getString("student"));
 
         getSupportActionBar().setTitle("Lihat Order");
         ButterKnife.bind(this);
@@ -37,7 +37,7 @@ public class ViewOrderActivity extends AppCompatActivity {
 
     @OnClick(R.id.accept_btn__view_order_act)
     void goToStudentInfoPage(){
-        startActivity(new Intent(this, StudentInfoActivity.class));
+        startActivity(new Intent(this, AcceptedStudentInfoActivity.class));
     }
 
 }

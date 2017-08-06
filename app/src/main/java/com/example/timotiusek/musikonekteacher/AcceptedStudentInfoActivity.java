@@ -7,12 +7,12 @@ import android.os.Bundle;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class StudentInfoActivity extends AppCompatActivity {
+public class AcceptedStudentInfoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.student_info_activity);
+        setContentView(R.layout.accepted_student_info_activity);
         getSupportActionBar().setTitle("Info Murid");
         ButterKnife.bind(this);
 
@@ -20,13 +20,9 @@ public class StudentInfoActivity extends AppCompatActivity {
         Bundle params = incomingIntent.getExtras();
 
     }
-    @OnClick(R.id.set_schedule_btn__student_info_act)
+    @OnClick(R.id.open_schedule_btn__accepted_student_info_act)
     void goToSetSchedulePage(){
-        startActivity(new Intent(StudentInfoActivity.this, SetScheduleActivity.class));
+        startActivity(new Intent(AcceptedStudentInfoActivity.this, SetRevisedScheduleActivity.class));
     }
 
-    @OnClick(R.id.close_btn__student_info_act)
-    void goBack(){
-        super.onBackPressed();
-    }
 }
