@@ -18,18 +18,18 @@ public class ViewAcceptedOrderActivity extends AppCompatActivity {
         Intent incomingIntent = getIntent();
         Bundle params = incomingIntent.getExtras();
 
-//        TextView textView = (TextView) findViewById(R.id.course_type_view_acc_order_page);
+//        TextView textView = (TextView) findViewById(R.id.course_type__view_accepted_order_act);
 //        Log.d("ASDF", String.valueOf(textView.getText()));
 
-        TextView courseNameText = (TextView) findViewById(R.id.course_name_view_order_page);
+        TextView courseNameText = (TextView) findViewById(R.id.course_name__view_accepted_order_act);
         courseNameText.setText(params.getString("instrument"));
 
         Log.d("ASDF", String.valueOf(courseNameText.getText()));
 
-        TextView courseTypeText = (TextView) findViewById(R.id.course_type_view_acc_order_page);
+        TextView courseTypeText = (TextView) findViewById(R.id.course_type__view_accepted_order_act);
         courseTypeText.setText(params.getString("package"));
 
-        TextView studentNameText = (TextView) findViewById(R.id.student_name_view_order_page);
+        TextView studentNameText = (TextView) findViewById(R.id.student_name__view_accepted_order_act);
         studentNameText.setText(params.getString("student"));
 
         Log.d("ASDF","LIHAT ORDER BROU");

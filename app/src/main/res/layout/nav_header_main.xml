@@ -10,7 +10,7 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/profile_image"
+        android:id="@+id/profile_image__nav_header_main"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:src="@drawable/avatar"
@@ -25,22 +25,22 @@
         android:textColor="#fff"
         android:textStyle="bold"
         android:gravity="start"
-        android:id="@+id/username"
-        android:layout_above="@+id/email_label"
-        android:layout_alignStart="@+id/profile_image"
-        android:layout_below="@id/profile_image"
+        android:id="@+id/username__nav_header_main"
+        android:layout_above="@+id/email__nav_header_main"
+        android:layout_alignStart="@+id/profile_image__nav_header_main"
+        android:layout_below="@id/profile_image__nav_header_main"
         android:text="Jonathan Simananda"
         android:layout_marginTop="5dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/email_label"
+        android:id="@+id/email__nav_header_main"
         android:gravity="start"
         android:layout_marginBottom="15dp"
         android:textColor="#fff"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/username"
+        android:layout_alignStart="@+id/username__nav_header_main"
         android:text="jonathan.simananda@gmail.com"
 
         />

@@ -23,13 +23,13 @@ public class StudentAdapter extends BaseAdapter{
     private ArrayList<Student> students;
     private Context mContext;
     private LayoutInflater inflater;
-    @BindView(R.id.student_image_student_list_page)
+    @BindView(R.id.student_image__student_list_rl)
     CircleImageView studentImg;
-    @BindView(R.id.student_name_student_list_page)
+    @BindView(R.id.student_name__student_list_rl)
     TextView studentName;
-    @BindView(R.id.course_name_student_list_page)
+    @BindView(R.id.course_name__student_list_rl)
     TextView courseName;
-    @BindView(R.id.course_package_student_list_page)
+    @BindView(R.id.course_package__student_list_rl)
     TextView coursePackage;
 
     public StudentAdapter(ArrayList<Student> students, Context c) {

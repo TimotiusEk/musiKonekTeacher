@@ -12,6 +12,7 @@
         <item name="colorControlNormal">#ede8e8</item>
         <item name="colorControlActivated">@color/colorPrimary</item>
         <item name="colorControlHighlight">@color/colorPrimary</item>
+
     </style>
 
     <style name="SignTheme" parent="NoActionBarTheme">
@@ -61,4 +62,9 @@
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">23sp</item>
     </style>
+
+    <style name="datepicker" parent="@android:style/Theme.DeviceDefault.Light.Dialog">
+        <item name="android:headerBackground">@color/colorPrimary</item>
+    </style>
+
 </resources>

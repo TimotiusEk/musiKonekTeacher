@@ -13,7 +13,6 @@
     >
 
     <ImageView
-        android:id="@+id/imageView"
         android:layout_width="200dp"
         android:layout_height="150dp"
         android:layout_gravity="center_horizontal"
@@ -26,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         >
-        <EditText android:id="@+id/input_email_sign_up"
+        <EditText android:id="@+id/input_email__sign_up_act"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
@@ -39,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         >
-        <EditText android:id="@+id/input_password_sign_up"
+        <EditText android:id="@+id/input_password__sign_up_act"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
@@ -52,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         >
-        <EditText android:id="@+id/input_phone_num"
+        <EditText android:id="@+id/input_phone_num__sign_up_act"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="phone"
@@ -67,7 +66,7 @@
         android:textColor="@android:color/white"
         android:background="#3F569A"
         android:layout_marginTop="60dp"
-        android:id="@+id/sign_up_btn"
+        android:id="@+id/sign_up_btn__sign_up_act"
         />
 
 

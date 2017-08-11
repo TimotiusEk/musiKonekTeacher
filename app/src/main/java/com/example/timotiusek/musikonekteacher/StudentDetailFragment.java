@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,9 +20,9 @@ import butterknife.ButterKnife;
  * A simple {@link Fragment} subclass.
  */
 public class StudentDetailFragment extends Fragment {
-    @BindView(R.id.tab_layout_student_detail_page)
+    @BindView(R.id.tab_layout__student_detail_fra)
     TabLayout tabLayout;
-    @BindView(R.id.view_pager_student_detail_page)
+    @BindView(R.id.view_pager__student_detail_fra)
     ViewPager viewPager;
     StudentListActivity ma;
 
@@ -65,7 +64,7 @@ public class StudentDetailFragment extends Fragment {
          */
 
 
-        viewPager.setAdapter(new StudentDetailFragment.MyAdapter(getActivity().getSupportFragmentManager()));
+        viewPager.setAdapter(new StudentDetailFragment.MyAdapter(getChildFragmentManager()));
         tabLayout.setupWithViewPager(viewPager);
 
         viewPager.setCurrentItem(0);
@@ -73,7 +72,7 @@ public class StudentDetailFragment extends Fragment {
         return view;
     }
 
-    class MyAdapter extends FragmentStatePagerAdapter {
+    class MyAdapter extends android.support.v4.app.FragmentStatePagerAdapter {
 
         public MyAdapter(FragmentManager fm) {
             super(fm);
@@ -85,7 +84,7 @@ public class StudentDetailFragment extends Fragment {
             switch (position){
                 case 0 : return ShowAttendanceFragment.newInstance(student);
                 case 1 : return new ShortTestimonialFragment();
-                case 2 :  return new ScheduleFragment();
+                case 2 :  return new StudentDetailScheduleFragment();
             }
             return null;
         }

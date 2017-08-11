@@ -10,7 +10,6 @@
     android:padding="10dp">
 
     <ImageView
-        android:id="@+id/imageView"
         android:layout_width="200dp"
         android:layout_height="150dp"
         android:layout_gravity="center_horizontal"
@@ -45,6 +44,6 @@
         android:background="#3F569A"
         android:padding="20dp"
         android:layout_marginTop="180dp"
-        android:id="@+id/ok_btn"
+        android:id="@+id/ok_btn__confirmation_screen_act"
         />
 </LinearLayout>

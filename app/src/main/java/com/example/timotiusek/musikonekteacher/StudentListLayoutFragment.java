@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,9 +18,9 @@ import butterknife.ButterKnife;
  * A simple {@link Fragment} subclass.
  */
 public class StudentListLayoutFragment extends Fragment {
-    @BindView(R.id.tab_layout_student_list_page)
+    @BindView(R.id.tab_layout__student_list_fra)
     TabLayout tabLayout;
-    @BindView(R.id.view_pager_student_list_page)
+    @BindView(R.id.view_pager__student_list_fra)
     ViewPager viewPager;
     MainActivity ma;
 
@@ -44,7 +43,7 @@ public class StudentListLayoutFragment extends Fragment {
 //         */
 
 
-        viewPager.setAdapter(new StudentListLayoutFragment.MyAdapter(getActivity().getSupportFragmentManager()));
+        viewPager.setAdapter(new StudentListLayoutFragment.MyAdapter(getChildFragmentManager()));
         tabLayout.setupWithViewPager(viewPager);
 
         viewPager.setCurrentItem(0);
@@ -52,7 +51,7 @@ public class StudentListLayoutFragment extends Fragment {
         return view;
     }
 
-    private class MyAdapter extends FragmentStatePagerAdapter {
+    private class MyAdapter extends android.support.v4.app.FragmentStatePagerAdapter {
 
         MyAdapter(FragmentManager fm) {
             super(fm);

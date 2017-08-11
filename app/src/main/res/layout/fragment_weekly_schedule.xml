@@ -8,7 +8,7 @@
     tools:context="com.example.timotiusek.musikonekteacher.WeeklyScheduleFragment">
 
     <android.support.design.widget.TabLayout
-        android:id="@+id/tab_layout_weekly_schedule_page"
+        android:id="@+id/tab_layout__weekly_schedule_fra"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
@@ -21,7 +21,7 @@
         />
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/view_pager_weekly_schedule_page"
+        android:id="@+id/view_pager__weekly_schedule_fra"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>

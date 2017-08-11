@@ -4,10 +4,13 @@ package com.example.timotiusek.musikonekteacher;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.timotiusek.musikonekteacher.CustomClass.Skill;
 
@@ -22,7 +25,7 @@ import butterknife.OnClick;
  * A simple {@link Fragment} subclass.
  */
 public class ShowSkillFragment extends Fragment {
-    @BindView(R.id.show_skill_list_view)
+    @BindView(R.id.skills_lv__show_skill_fra)
     ListView showSkillListView;
     ArrayList<Skill> skills;
     ShowSkillAdapter showSkillAdapter;
@@ -40,6 +43,7 @@ public class ShowSkillFragment extends Fragment {
         ButterKnife.bind(this,view);
         ma = (MainActivity) getActivity();
         ma.getSupportActionBar().setTitle("Keahlian");
+        ma.setChecked(R.id.menu_skill);
 
         skills = new ArrayList<>();
         skills.add(new Skill("Gitar", "Gitar Akustik"));
@@ -47,10 +51,23 @@ public class ShowSkillFragment extends Fragment {
 
         showSkillAdapter = new ShowSkillAdapter(skills, getActivity());
         showSkillListView.setAdapter(showSkillAdapter);
+
+        showSkillListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Skill skill = (Skill) showSkillAdapter.getItem(position);
+
+                /**
+                 * todo : receive and send data
+                 */
+
+                startActivity(new Intent(getActivity(), SkillCourseDetailActivity.class));
+            }
+        });
         // Inflate the layout for this fragment
         return view;
     }
-    @OnClick(R.id.add_skill_fab)
+    @OnClick(R.id.add_skill_btn__show_skill_fra)
     void addSkill(){
         startActivity(new Intent(getActivity(), AddSkillActivity.class));
         /**

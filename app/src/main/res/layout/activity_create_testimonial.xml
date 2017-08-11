@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="10dp"
-        android:id="@+id/rating_bar_testimonial_page"
+        android:id="@+id/rating_bar__create_testimonial_act"
         />
 
     <android.support.design.widget.TextInputLayout
@@ -34,12 +34,12 @@
         android:textColorHint="#b7b7b7"
         app:hintTextAppearance="@style/TextLabelGray"
         android:layout_weight="1"
-        android:nextFocusUp="@id/rating_bar_testimonial_page"
-        android:nextFocusLeft="@id/rating_bar_testimonial_page"
+        android:nextFocusUp="@id/rating_bar__create_testimonial_act"
+        android:nextFocusLeft="@id/rating_bar__create_testimonial_act"
         >
 
         <EditText
-            android:id="@+id/comment_testimonial_page"
+            android:id="@+id/comment__create_testimonial_act"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Komentar"
@@ -49,7 +49,7 @@
     </android.support.design.widget.TextInputLayout>
 
     <Button
-        android:id="@+id/save_btn"
+        android:id="@+id/save_btn__create_testimonial_act"
         android:layout_width="match_parent"
         android:layout_height="33dp"
         android:layout_gravity="center_horizontal|bottom"

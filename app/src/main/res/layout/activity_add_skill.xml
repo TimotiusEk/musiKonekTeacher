@@ -16,12 +16,12 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="10dp"
-        android:id="@+id/first_name"
         android:textColorHint="#b7b7b7"
         app:hintTextAppearance="@style/TextLabel"
         >
 
         <EditText
+            android:id="@+id/first_name__add_skill_act"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nama Keahlian"
@@ -43,7 +43,7 @@
         >
 
         <EditText
-            android:id="@+id/last_name"
+            android:id="@+id/last_name__add_skill_act"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Keterangan Keahlian"
@@ -56,7 +56,7 @@
 
 
     <Button
-        android:id="@+id/save_btn"
+        android:id="@+id/save_btn__add_skill_act"
         android:layout_width="match_parent"
         android:layout_height="33dp"
         android:layout_gravity="center_horizontal|bottom"

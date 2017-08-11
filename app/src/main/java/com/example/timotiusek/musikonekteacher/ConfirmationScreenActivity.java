@@ -16,7 +16,7 @@ public class ConfirmationScreenActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.ok_btn)
+    @OnClick(R.id.ok_btn__confirmation_screen_act)
     void signIn(){
         startActivity(new Intent(this, SignInActivity.class));
     }

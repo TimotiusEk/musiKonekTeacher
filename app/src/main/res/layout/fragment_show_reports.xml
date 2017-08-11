@@ -1,0 +1,24 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.timotiusek.musikonekteacher.ShowReportsFragment">
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/reports_lv__show_reports_fra"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/ic_add_white_18dp"
+        android:backgroundTint="#3F569A"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:padding="100dp"
+        android:id="@+id/add_report_btn__show_reports_fra"
+        />
+
+</RelativeLayout>

@@ -13,7 +13,7 @@ import android.view.ViewGroup;
  */
 public class UnderDevelopmentFragment extends Fragment {
 
-
+    MainActivity ma;
     public UnderDevelopmentFragment() {
         // Required empty public constructor
     }
@@ -22,8 +22,12 @@ public class UnderDevelopmentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_under_development, container, false);
+        ma = (MainActivity) getActivity();
+        ma.setChecked(R.id.menu_home);
+        ma.getSupportActionBar().setTitle("Beranda");
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_under_development, container, false);
+        return v;
     }
 
 }

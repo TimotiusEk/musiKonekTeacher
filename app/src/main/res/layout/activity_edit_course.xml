@@ -1,0 +1,115 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="15dp"
+    >
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="10dp"
+        android:textColorHint="#b7b7b7"
+        app:hintTextAppearance="@style/TextLabel"
+        >
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/course_name__edit_course_act"
+            android:hint="Nama Kursus"
+            android:inputType="textPersonName"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:theme="@style/PrimaryLine"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Banyak Pertemuan"
+        android:textColor="#cecece"
+        android:textSize="17sp" />
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <Spinner
+        android:id="@+id/how_many_meetings__edit_course_act"
+        style="@style/Widget.AppCompat.Spinner.Underlined"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/how_many_meetings_arrays"
+        android:popupBackground="#fff"
+        android:spinnerMode="dropdown"
+        android:theme="@style/PrimaryLine"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" kali pertemuan"
+        android:textSize="16sp"/>
+</LinearLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="10dp"
+        android:textColorHint="#b7b7b7"
+        app:hintTextAppearance="@style/TextLabel"
+        >
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Deskripsi Kursus"
+            android:id="@+id/course_desc_input__edit_course_act"
+            android:inputType="textPersonName"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:theme="@style/PrimaryLine"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="10dp"
+        android:textColorHint="#c5c5c5"
+        app:hintTextAppearance="@style/TextLabel"
+        android:layout_weight="1"
+        >
+
+        <EditText
+            android:id="@+id/course_price__edit_course_act"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Harga Kursus"
+            android:inputType="number"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:theme="@style/PrimaryLine"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/save_btn__add_skill_act"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/round_btn"
+        android:text="Simpan"
+        android:textColor="@android:color/white" />
+</LinearLayout>

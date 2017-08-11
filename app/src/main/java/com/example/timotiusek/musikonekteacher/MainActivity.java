@@ -25,10 +25,10 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
-    @BindView(R.id.nav_view) NavigationView navigationView;
-    @BindView(R.id.drawer_layout)
+    @BindView(R.id.nav_view__main_act) NavigationView navigationView;
+    @BindView(R.id.drawer_layout__main_act)
     DrawerLayout drawer;
-    @BindView(R.id.toolbar)
+    @BindView(R.id.toolbar__app_bar_main)
     Toolbar toolbar;
 
     private FragmentManager mFragmentManager;
@@ -47,24 +47,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         toolbar.setTitle("Beranda");
-        changeFragment(new UnderDevelopmentFragment());
+
         setChecked(R.id.menu_home);
 
         sharedPreferences = getSharedPreferences("profile", Context.MODE_PRIVATE);
 
         updateNavView();
 
-        NavigationView nv = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView nv = (NavigationView) findViewById(R.id.nav_view__main_act);
         View header = nv.getHeaderView(0);
 
         Log.d("ADSF",username);
 
-        TextView textName = (TextView) header.findViewById(R.id.username);
+        TextView textName = (TextView) header.findViewById(R.id.username__nav_header_main);
         textName.setText(username);
 
-        TextView textEmail = (TextView) header.findViewById(R.id.email_label);
+        TextView textEmail = (TextView) header.findViewById(R.id.email__nav_header_main);
         textEmail.setText(email);
 
+        showTheFirstFragment();
         setSupportActionBar(toolbar);
         toggle = new ActionBarDrawerToggle(
                 MainActivity.this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -74,15 +75,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(MainActivity.this);
     }
 
+    void showTheFirstFragment(){
+        mFragmentManager = getSupportFragmentManager();
+        mFragmentTransaction = mFragmentManager.beginTransaction();
+        mFragmentTransaction.replace(R.id.fragment_container__app_bar_main, new UnderDevelopmentFragment());
+        mFragmentTransaction.commit();
+    }
     public void changeFragment(Fragment newFragment) {
         mFragmentManager = getSupportFragmentManager();
         mFragmentTransaction = mFragmentManager.beginTransaction();
-        mFragmentTransaction.replace(R.id.fragment_container, newFragment);
+        mFragmentTransaction.replace(R.id.fragment_container__app_bar_main, newFragment);
+        mFragmentTransaction.addToBackStack(null);
         mFragmentTransaction.commit();
     }
 
     @Override
     public void onBackPressed() {
+
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -115,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.menu_home) {
             toolbar.setTitle("Beranda");
-            changeFragment(new UnderDevelopmentFragment());
+            changeFragment(new ShowReportsFragment());
             /**
              * Todo: add menu_home behaviour
              */
@@ -135,8 +144,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             changeFragment(new OrderLayoutFragment());
         } else if(id == R.id.menu_student){
             changeFragment(new StudentListLayoutFragment());
+        } else if(id == R.id.menu_earning){
+            changeFragment(new EarningLayoutFragment());
         } else if(id == R.id.menu_logout){
-           logout();
+            /**
+             * todo : create logout method
+             */
         }
 
         drawer.closeDrawer(GravityCompat.START);

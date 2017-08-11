@@ -22,13 +22,13 @@ public class ShowAttendanceAdapter extends BaseAdapter {
     private ArrayList<Attendance> attendances;
     private Context mContext;
     private LayoutInflater inflater;
-    @BindView(R.id.student_image_show_attendance_page)
+    @BindView(R.id.student_image__show_attendance_rl)
     CircleImageView studentImg;
-    @BindView(R.id.student_name_show_attendance_page)
+    @BindView(R.id.student_name__show_attendance_rl)
     TextView studentName;
-    @BindView(R.id.course_name_show_attendance_page)
+    @BindView(R.id.course_name__show_attendance_rl)
     TextView courseName;
-    @BindView(R.id.which_attendance_show_atttendance_page)
+    @BindView(R.id.which_attendance__show_atttendance_rl)
     TextView whichAttendance;
 
     public ShowAttendanceAdapter(ArrayList<Attendance> attendances, Context c) {

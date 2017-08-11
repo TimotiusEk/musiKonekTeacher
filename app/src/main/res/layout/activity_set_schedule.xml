@@ -10,7 +10,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/show_scheduled_date"
+        android:id="@+id/show_scheduled_date__set_schedule_act"
         android:layout_centerInParent="true"
         android:textColor="@android:color/black"
         android:textSize="24sp"
@@ -21,10 +21,11 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="33dp"
-        android:text="KIRIM"
+        android:text="PASANG"
+        android:textColor="@android:color/white"
         android:background="@drawable/round_btn"
         android:layout_alignParentBottom="true"
-        android:id="@+id/send_btn_set_schedule_page"
+        android:id="@+id/send_btn__set_schedule_act"
 
         />
 

@@ -26,7 +26,7 @@
                 android:orientation="horizontal">
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/student_image_short_testimonial_page"
+                    android:id="@+id/student_image__short_testimonial_fra"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_gravity="center_vertical"
@@ -40,13 +40,13 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/course_name_short_testimonial_page"
+                        android:id="@+id/course_name__short_testimonial_fra"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Kursus Piano Pemula" />
 
                     <TextView
-                        android:id="@+id/student_name_short_testimonial_page"
+                        android:id="@+id/student_name__short_testimonial_fra"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Hendra Sulaeman"
@@ -56,7 +56,7 @@
             <RatingBar
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/rating_bar_short_testimonial_page"
+                android:id="@+id/rating_bar__short_testimonial_fra"
                 android:layout_gravity="center"
                 android:isIndicator="true"
                 android:layout_marginTop="20dp"
@@ -70,12 +70,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/comment_short_testimonial_fragment"
-                android:text="- Kurangi berkonsentrasi\n- Jangan terlalu sedikit instirahat"
+                android:id="@+id/comment__short_testimonial_fra"
+                android:text="- Kurangi berkonsentrasi\n- Jangan terlalu sedikit istirahat"
                 android:textSize="18sp"
                 />
             <Button
-                android:id="@+id/open_btn_short_testimonial_page"
+                android:id="@+id/open_btn__short_testimonial_fra"
                 android:layout_width="match_parent"
                 android:layout_height="33dp"
                 android:layout_gravity="center_horizontal|bottom"

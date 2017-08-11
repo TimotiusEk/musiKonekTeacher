@@ -8,7 +8,7 @@
     <!-- TODO: Update blank fragment layout -->
 
     <ListView
-        android:id="@+id/show_skill_list_view"
+        android:id="@+id/skills_lv__show_skill_fra"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
@@ -20,6 +20,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_margin="15dp"
-        android:id="@+id/add_skill_fab"/>
+        android:id="@+id/add_skill_btn__show_skill_fra"/>
 
 </RelativeLayout>
