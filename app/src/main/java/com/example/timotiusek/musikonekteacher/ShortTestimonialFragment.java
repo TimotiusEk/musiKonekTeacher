@@ -20,7 +20,7 @@ import butterknife.OnClick;
  */
 
 public class ShortTestimonialFragment extends Fragment {
-MainActivity ma;
+//MainActivity ma;
 
     public ShortTestimonialFragment() {
         // Required empty public constructor
@@ -33,7 +33,7 @@ MainActivity ma;
 
         View v = inflater.inflate(R.layout.fragment_short_testimonial, container, false);
         ButterKnife.bind(this, v);
-        ma = (MainActivity) getActivity();
+//        ma = (MainActivity) getActivity();
         //ma.clearCheckedItems();
         // Inflate the layout for this fragment
         return v;
@@ -41,7 +41,7 @@ MainActivity ma;
 
     @OnClick(R.id.open_btn__short_testimonial_fra)
     void openTestimonialInputPage(){
-        Toast.makeText(ma, "getPressed", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), "getPressed", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(getActivity(), CreateTestimonialActivity.class));
     }
 

@@ -22,7 +22,7 @@ public class StudentListActivity extends AppCompatActivity {
         Intent incoming = getIntent();
         Bundle params = incoming.getExtras();
 
-        Student student = new Student(R.id.profile_image, params.getString("courseName"), params.getString("coursePackage"),params.getString("studentName"),"",params.getString("courseID"));
+        Student student = new Student(R.id.profile_image__profile_act, params.getString("courseName"), params.getString("coursePackage"),params.getString("studentName"),"",params.getString("courseID"));
 
         changeFragment(StudentDetailFragment.newInstance(student));
     }

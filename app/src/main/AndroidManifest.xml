@@ -18,7 +18,13 @@
         <activity
             android:name=".SignInActivity"
             android:noHistory="true"
-            android:theme="@style/SignTheme" />
+            android:theme="@style/SignTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ConfirmationScreenActivity"
             android:noHistory="true"
@@ -46,11 +52,7 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/NoActionBarTheme" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".AddSkillActivity" />
         <activity android:name=".EditSkillActivity" />

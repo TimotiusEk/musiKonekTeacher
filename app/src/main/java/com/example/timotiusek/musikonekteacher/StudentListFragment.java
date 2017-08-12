@@ -49,7 +49,7 @@ public class StudentListFragment extends Fragment {
     String status = "";
     ArrayList<Student> filteredStudents;
 
-    @BindView(R.id.student_list_list_view)
+    @BindView(R.id.students_lv__student_list_fra)
     ListView listView;
 
     MainActivity ma;

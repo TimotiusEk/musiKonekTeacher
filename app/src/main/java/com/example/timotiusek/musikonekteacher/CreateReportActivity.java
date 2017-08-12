@@ -53,7 +53,7 @@ public class CreateReportActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_report);
         getSupportActionBar().setTitle("Buat Laporan");
 
-        Button submitButton = (Button) findViewById(R.id.checkin_btn_create_report_page);
+        Button submitButton = (Button) findViewById(R.id.save_btn__create_report_act);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -127,9 +127,9 @@ public class CreateReportActivity extends AppCompatActivity {
                     token = sharedPreferences.getString("token","");
                 }
 
-                EditText homeworkEdit = (EditText) findViewById(R.id.homework_report_page);
-                EditText practiceEdit = (EditText) findViewById(R.id.exercise_create_report_page);
-                EditText teacherRemarkEdit = (EditText) findViewById(R.id.comment_create_report_page);
+                EditText homeworkEdit = (EditText) findViewById(R.id.homework__create_report_act);
+                EditText practiceEdit = (EditText) findViewById(R.id.exercise__create_report_act);
+                EditText teacherRemarkEdit = (EditText) findViewById(R.id.comment__create_report_act);
 
 //                EditText usernameText = (EditText) findViewById(R.id.input_username_sign_up);
 //                EditText fullnameText  = (EditText)  findViewById(R.id.input_fullname_signup);
