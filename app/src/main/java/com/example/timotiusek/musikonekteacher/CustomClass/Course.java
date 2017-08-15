@@ -7,10 +7,20 @@ package com.example.timotiusek.musikonekteacher.CustomClass;
 public class Course {
     private String name;
     private String howManyMeetings;
+    private String id;
 
-    public Course(String name, String howManyMeetings) {
+    public Course(String name, String howManyMeetings, String id) {
         this.name = name;
         this.howManyMeetings = howManyMeetings;
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {

@@ -1,13 +1,27 @@
 package com.example.timotiusek.musikonekteacher;
 
+import android.annotation.TargetApi;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Cache;
@@ -21,52 +35,95 @@ import com.android.volley.toolbox.BasicNetwork;
 import com.android.volley.toolbox.DiskBasedCache;
 import com.android.volley.toolbox.HurlStack;
 import com.android.volley.toolbox.StringRequest;
+import com.example.timotiusek.musikonekteacher.CustomClass.Skill;
 import com.example.timotiusek.musikonekteacher.Helper.Connector;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class EditProfileActivity extends AppCompatActivity {
+/**
+ * Created by wilbe on 15/08/2017.
+ */
+
+public class SkillPickerDialogFragment extends DialogFragment {
+
+    View view;
+    ListView skillsListView;
+    ArrayList<Skill> skills;
+    SkillPickerAdapter skillPickerAdapter;
+
+    interface OnSkillPickerListener{
+        void onSkillPicked();
+    }
+
+    OnSkillPickerListener onSkillPickerListener;
+
+    @Nullable
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+
+
+        view = getActivity().getLayoutInflater().inflate(R.layout.fragment_skill_picker_dialog, null);
+        builder.setView(view);
+
+
+
+
+        return builder.create();
+    }
+
+    public void attachSkillPickerListener(OnSkillPickerListener ospl){
+        this.onSkillPickerListener = ospl;
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_profile);
-        getSupportActionBar().setTitle("Edit Profile");
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 
-        callGetMyProfile();
 
-        Button saveButton = (Button) findViewById(R.id.save_btn__edit_profile_act);
-        saveButton.setOnClickListener(new View.OnClickListener() {
+        skills= new ArrayList<>();
+        skillsListView = (ListView) view.findViewById(R.id.skill_list_view);
+
+        skillPickerAdapter = new SkillPickerAdapter(skills, getActivity());
+        skillsListView.setAdapter(skillPickerAdapter);
+
+        loadSkill();
+
+        skillsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View view) {
-                callUpdateProfile();
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                addSkill(skills.get(i).getId());
             }
         });
 
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
-    public void callGetMyProfile(){
+    void loadSkill(){
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("profile", Context.MODE_PRIVATE);
 
-        RequestQueue requestQueue;
-        Cache cache = new DiskBasedCache(getCacheDir(), 1024 * 1024); // 1MB cap
-        final Network network = new BasicNetwork(new HurlStack());
-        requestQueue = new RequestQueue(cache, network);
-        requestQueue.start();
-
-        String token = "";
-        SharedPreferences sharedPreferences = getSharedPreferences("profile", Context.MODE_PRIVATE);
+        String token ="";
 
         if(!sharedPreferences.getString("token","").equals("")) {
             token = sharedPreferences.getString("token","");
         }
-        String url = Connector.getURL() +"/api/v1/teacher/getProfileData?token="+token;
 
 
+        RequestQueue requestQueue;
+        Cache cache = new DiskBasedCache(getActivity().getCacheDir(), 1024 * 1024); // 1MB cap
+        final Network network = new BasicNetwork(new HurlStack());
+        requestQueue = new RequestQueue(cache, network);
+        requestQueue.start();
+        String url = Connector.getURL() +"/api/v1/skill/notmyskill?token="+token;
 
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -76,35 +133,26 @@ public class EditProfileActivity extends AppCompatActivity {
 
                         try {
                             JSONObject res = new JSONObject(response);
-//                            String name = String.valueOf(res.get("name"));
-
-                            JSONObject data = res.getJSONObject("data");
-
-                            String fullname = data.getString("fullname");
-                            String username = data.getString("username");
-
-                            JSONObject location = data.getJSONObject("address");
-
-                            String x = location.getString("x");
-                            String y  = location.getString("y");
-
-                            EditText firstnameInput = (EditText) findViewById(R.id.firstname_input__edit_profile_act);
-                            firstnameInput.setText(fullname);
-
-                            EditText lastnameInput = (EditText) findViewById(R.id.lastname_input__edit_profile_act);
-                            lastnameInput.setText(username);
-
-                            /**
-                             * todo : ini harusnya bukan fullname dan username
-                             */
-
                             Log.d("ASDF",res.toString());
+                            JSONArray arr = res.getJSONArray("data");
 
+                            for(int i=0;i<arr.length();i++){
+                                JSONObject jo =  arr.getJSONObject(i);
+
+                                String name = jo.getString("name");
+                                String id = jo.getString("skill_id");
+
+                                skills.add(new Skill(name, "yes", id));
+//
+
+                                skillPickerAdapter.notifyDataSetChanged();
+                            }
 
                         } catch (JSONException e) {
-                            Log.d("ASDF","ELEH");
+                            Log.d("ASDF","Fail");
                             e.printStackTrace();
                         }
+
 
                     }
                 },
@@ -116,17 +164,17 @@ public class EditProfileActivity extends AppCompatActivity {
 
                         if(networkResponse == null){
 
-                            Toast.makeText(EditProfileActivity.this, "Connection Error",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "Connection Error",Toast.LENGTH_SHORT).show();
 
                         }else{
                             int a = networkResponse.statusCode;
                             if(networkResponse.statusCode == 403){
-                                Toast.makeText(EditProfileActivity.this, "TOKEN INVALID, PLEASE RE LOG",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), "TOKEN INVALID, PLEASE RE LOG",Toast.LENGTH_SHORT).show();
 
                             }
 
                             if(networkResponse.statusCode == 500){
-                                Toast.makeText(EditProfileActivity.this, "INVALID CREDENTIALS",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), "INVALID CREDENTIALS",Toast.LENGTH_SHORT).show();
                             }
 
                             if(networkResponse.statusCode != 401){
@@ -150,54 +198,29 @@ public class EditProfileActivity extends AppCompatActivity {
 
         };
 
-//        RequestQueue requestQueue = Volley.newRequestQueue(this);
-//        requestQueue.add(stringRequest);
-
         requestQueue.add(stringRequest);
-
     }
 
-    private void callUpdateProfile(){
+    void addSkill(final String skillId){
 
         RequestQueue requestQueue;
-        Cache cache = new DiskBasedCache(getCacheDir(), 1024 * 1024); // 1MB cap
+        Cache cache = new DiskBasedCache(getActivity().getCacheDir(), 1024 * 1024); // 1MB cap
         final Network network = new BasicNetwork(new HurlStack());
         requestQueue = new RequestQueue(cache, network);
         requestQueue.start();
 
 
-        String url = Connector.getURL() +"/api/v1/teacher/update";
+        String url = Connector.getURL() +"/api/v1/skill_teacher/attach";
 
         StringRequest stringRequest = new StringRequest(Request.Method.PUT, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
 
-                        try {
-                            JSONObject res = new JSONObject(response);
-//                            String name = String.valueOf(res.get("name"));
-                            Log.d("ASDF", "YOSAH + \n"+res.toString() );
+                        Toast.makeText(getActivity(), "Skill Added",Toast.LENGTH_SHORT).show();
+                        onSkillPickerListener.onSkillPicked();
+                        dismiss();
 
-                            SharedPreferences sharedPreferences = getSharedPreferences("profile", Context.MODE_PRIVATE);
-
-
-
-                            EditText firstNameInput = (EditText) findViewById(R.id.firstname_input__edit_profile_act);
-
-                            /**
-                             * todo : disini ga ada username
-                             */
-
-//                            SharedPreferences.Editor editor = sharedPreferences.edit();
-//                            editor.putString("username",usernameEdit.getText().toString());
-//                            editor.apply();
-
-
-                            finish();
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
 
                     }
                 },
@@ -209,7 +232,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
                         if(networkResponse == null){
 
-                            Toast.makeText(EditProfileActivity.this, "Connection Error",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "Connection Error",Toast.LENGTH_SHORT).show();
 
                         }else{
                             int a = networkResponse.statusCode;
@@ -217,7 +240,7 @@ public class EditProfileActivity extends AppCompatActivity {
                             }
 
                             if(networkResponse.statusCode == 500){
-                                Toast.makeText(EditProfileActivity.this, "ERROR",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), "ERROR",Toast.LENGTH_SHORT).show();
                             }
 
                             if(networkResponse.statusCode != 401){
@@ -235,36 +258,15 @@ public class EditProfileActivity extends AppCompatActivity {
             protected Map<String,String> getParams(){
                 Map<String,String> reqBody = new HashMap<String, String>();
 
-
-
-                EditText firstNameInput = (EditText) findViewById(R.id.firstname_input__edit_profile_act);
-
-                EditText lastNameInput = (EditText) findViewById(R.id.lastname_input__edit_profile_act);
-
-//                EditText usernameText = (EditText) findViewById(R.id.input_username_sign_up);
-//                EditText fullnameText  = (EditText)  findViewById(R.id.input_fullname_signup);
-
-                String firstname = firstNameInput.getText().toString();
-                String lastname = lastNameInput.getText().toString();
-
-//                String username = usernameText.getText().toString();
-//                String fullname = fullnameText.getText().toString();
-
-                /**
-                 * todo : ini harusnya bukan fullnama sama username tp first name & last name
-                 */
-
-//                reqBody.put("fullname", fullname);
-//                reqBody.put("username", username);
-
                 String token = "";
-                SharedPreferences sharedPreferences = getSharedPreferences("profile", Context.MODE_PRIVATE);
+                SharedPreferences sharedPreferences = getActivity().getSharedPreferences("profile", Context.MODE_PRIVATE);
 
                 if(!sharedPreferences.getString("token","").equals("")) {
                     token = sharedPreferences.getString("token","");
                 }
 
                 reqBody.put("token",token);
+                reqBody.put("skill_id",skillId);
 
                 return checkParams(reqBody);
             }
@@ -295,4 +297,8 @@ public class EditProfileActivity extends AppCompatActivity {
         requestQueue.add(stringRequest);
 
     }
+
+
+
+
 }

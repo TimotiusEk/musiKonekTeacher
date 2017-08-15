@@ -147,9 +147,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if(id == R.id.menu_earning){
             changeFragment(new EarningLayoutFragment());
         } else if(id == R.id.menu_logout){
-            /**
-             * todo : create logout method
-             */
+            logout();
         }
 
         drawer.closeDrawer(GravityCompat.START);

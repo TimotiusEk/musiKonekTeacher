@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -82,14 +83,46 @@ public class SkillCourseDetailActivity extends AppCompatActivity {
                 /**
                  * todo : send data
                  */
+                Bundle extras = new Bundle();
+                Intent intent = new Intent(SkillCourseDetailActivity.this, CourseDetailActivity.class);
 
-                startActivity(new Intent(SkillCourseDetailActivity.this, CourseDetailActivity.class));
+                extras.putString("id",courseToSend.getId());
+                extras.putString("name",courseToSend.getName());
+                extras.putString("appointments",courseToSend.getHowManyMeetings());
+
+                intent.putExtras(extras);
+
+
+                startActivity(intent);
             }
         });
+//        loadProgram();
+
+        Button button = (Button) findViewById(R.id.add_schedule_btn__skill_course_detail_act);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SkillCourseDetailActivity.this, NewCourseActivity.class);
+
+                Bundle extras = new Bundle();
+                extras.putString("skill_id",skillId);
+
+                intent.putExtras(extras);
+
+                startActivity(intent);
+
+            }
+        });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         loadProgram();
     }
 
     private void loadProgram(){
+
 
         SharedPreferences sharedPreferences = getSharedPreferences("profile", Context.MODE_PRIVATE);
 
@@ -118,18 +151,27 @@ public class SkillCourseDetailActivity extends AppCompatActivity {
                             Log.d("ASDF",res.toString());
                             JSONArray arr = res.getJSONArray("data");
 
+                            courses.clear();
+
+
                             for(int i=0;i<arr.length();i++){
                                 JSONObject jo =  arr.getJSONObject(i);
 
                                 String name = jo.getString("name");
                                 String appointments = jo.getString("appointments");
+                                String id = jo.getString("program_id");
 
-                                courses.add(new Course(name, appointments+" pertemuan"));
+                                courses.add(new Course(name, appointments+" pertemuan", id));
 //
 
                             }
 
-                            courseAdapter.notifyDataSetChanged();
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    courseAdapter.notifyDataSetChanged();
+                                }
+                            });
 
 
                         } catch (JSONException e) {

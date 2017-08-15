@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Cache;
@@ -25,74 +24,48 @@ import com.android.volley.toolbox.HurlStack;
 import com.android.volley.toolbox.StringRequest;
 import com.example.timotiusek.musikonekteacher.Helper.Connector;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
-public class EditCourseActivity extends AppCompatActivity {
-    @BindView(R.id.how_many_meetings__edit_course_act) Spinner howManyMeetings;
+public class NewCourseActivity extends AppCompatActivity {
+
+    @BindView(R.id.how_many_meetings__edit_course_act)
+    Spinner howManyMeetings;
 
     EditText nameText;
     EditText descText;
     EditText priceText;
+    String skillId = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_course);
-        ButterKnife.bind(this);
-        getSupportActionBar().setTitle("Ubah Kursus");
+        setContentView(R.layout.activity_new_course);
 
         Bundle params = getIntent().getExtras();
+        params.getString("skill_id");
 
         nameText = (EditText) findViewById(R.id.course_name__edit_course_act);
-        nameText.setText(params.getString("name"));
-
-
-
-        howManyMeetings.setSelection(getIndex(howManyMeetings, params.getString("appointments").replaceAll("[^0-9]", "")));
-//        Log.d("ASDF",params.getString("appointments").replaceAll("[^0-9]", "")); // returns 123);
-
-
         descText = (EditText) findViewById(R.id.course_desc_input__edit_course_act);
-        descText.setText(params.getString("description"));
-
         priceText = (EditText) findViewById(R.id.course_price__edit_course_act);
-        priceText.setText(String.valueOf(params.getInt("price")));
-        Log.d("ASDF","price is "+params.getInt("price"));
 
-        Button submitButton = (Button) findViewById(R.id.save_btn__add_skill_act);
-        submitButton.setOnClickListener(new View.OnClickListener() {
+        setTitle("New Course");
+
+        Button button = (Button) findViewById(R.id.save_btn__add_skill_act);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                updateProgram();
+                createProgram();
             }
         });
 
     }
 
 
-    //to get index of the spinner based on string value
-    private int getIndex(Spinner spinner, String myString)
-    {
-        int index = 0;
-
-        for (int i=0;i<spinner.getCount();i++){
-            if (spinner.getItemAtPosition(i).toString().equalsIgnoreCase(myString)){
-                index = i;
-                break;
-            }
-        }
-        return index;
-    }
-
-    void updateProgram(){
+    void createProgram(){
 
         RequestQueue requestQueue;
         Cache cache = new DiskBasedCache(getCacheDir(), 1024 * 1024); // 1MB cap
@@ -101,14 +74,14 @@ public class EditCourseActivity extends AppCompatActivity {
         requestQueue.start();
 
 
-        String url = Connector.getURL() +"/api/v1/program/update";
+        String url = Connector.getURL() +"/api/v1/createProgram";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
 
-                        Toast.makeText(EditCourseActivity.this, "Update Successful",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(NewCourseActivity.this, "Program Created",Toast.LENGTH_SHORT).show();
                         finish();
 
 
@@ -122,7 +95,7 @@ public class EditCourseActivity extends AppCompatActivity {
 
                         if(networkResponse == null){
 
-                            Toast.makeText(EditCourseActivity.this, "Connection Error",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(NewCourseActivity.this, "Connection Error",Toast.LENGTH_SHORT).show();
 
                         }else{
                             int a = networkResponse.statusCode;
@@ -130,7 +103,7 @@ public class EditCourseActivity extends AppCompatActivity {
                             }
 
                             if(networkResponse.statusCode == 500){
-                                Toast.makeText(EditCourseActivity.this, "ERROR",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(NewCourseActivity.this, "ERROR",Toast.LENGTH_SHORT).show();
                             }
 
                             if(networkResponse.statusCode != 401){
@@ -156,7 +129,16 @@ public class EditCourseActivity extends AppCompatActivity {
 //                reqBody.put("fullname", fullname);
 //                reqBody.put("username", username);
 
+                howManyMeetings = (Spinner) findViewById(R.id.how_many_meetings__edit_course_act);
+
+                if(howManyMeetings==null){
+                    Log.d("ASDF","RIP");
+                }else{
+                    Log.d("ASDF","Ada kok");
+                }
+
                 String appointments = String.valueOf(howManyMeetings.getSelectedItem());
+
 
                 String token = "";
                 SharedPreferences sharedPreferences = getSharedPreferences("profile", Context.MODE_PRIVATE);
@@ -173,7 +155,7 @@ public class EditCourseActivity extends AppCompatActivity {
 
                 Bundle params = getIntent().getExtras();
 
-                reqBody.put("program_id",params.getString("id"));
+                reqBody.put("skill_id",params.getString("skill_id"));
 
                 Log.d("ASDF","appointment is "+appointments);
 
@@ -206,6 +188,4 @@ public class EditCourseActivity extends AppCompatActivity {
         requestQueue.add(stringRequest);
 
     }
-
-
 }

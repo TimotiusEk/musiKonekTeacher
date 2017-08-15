@@ -7,10 +7,21 @@ package com.example.timotiusek.musikonekteacher.CustomClass;
 public class Skill {
     String instrument;
     String detail;
+    String id;
 
-    public Skill(String instrument, String detail) {
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Skill(String instrument, String detail, String id) {
         this.instrument = instrument;
+
         this.detail = detail;
+        this.id = id;
     }
 
     public String getInstrument() {

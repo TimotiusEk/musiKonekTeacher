@@ -18,7 +18,7 @@
         <activity
             android:name=".SignInActivity"
             android:noHistory="true"
-            android:theme="@style/SignTheme" >
+            android:theme="@style/SignTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -44,16 +44,13 @@
             android:name=".SplashScreen"
             android:noHistory="true"
             android:theme="@style/SplashScreenTheme" />
-
         <activity
             android:name=".CourseDetailActivity"
-            android:theme="@style/NoActionBarTheme"/>
-        <activity android:name=".EditCourseActivity"/>
+            android:theme="@style/NoActionBarTheme" />
+        <activity android:name=".EditCourseActivity" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/NoActionBarTheme" >
-
-        </activity>
+            android:theme="@style/NoActionBarTheme"></activity>
         <activity android:name=".AddSkillActivity" />
         <activity android:name=".EditSkillActivity" />
         <activity
@@ -62,10 +59,10 @@
         <activity android:name=".SetScheduleActivity" />
         <activity android:name=".ViewAcceptedOrderActivity" />
         <activity android:name=".StudentListActivity" />
-        <activity android:name=".ShowReportActivity"></activity>
+        <activity android:name=".ShowReportActivity" />
         <activity android:name=".SkillCourseDetailActivity" />
-        <activity android:name=".SetRevisedScheduleActivity"/>
-
+        <activity android:name=".SetRevisedScheduleActivity" />
+        <activity android:name=".NewCourseActivity"></activity>
     </application>
 
 </manifest>
