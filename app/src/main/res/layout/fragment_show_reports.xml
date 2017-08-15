@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.timotiusek.musikonekteacher.ShowReportsFragment">
 
     <ListView
@@ -13,7 +14,7 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:src="@drawable/ic_add_white_18dp"
-        android:backgroundTint="#3F569A"
+        app:backgroundTint="#3F569A"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="20dp"

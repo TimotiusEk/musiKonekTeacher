@@ -57,6 +57,8 @@ public class OrderRequestFragment extends Fragment {
     OrderAdapter acceptedOrdersAdapter;
     OrderAdapter pendingOrdersAdapter;
 
+    MainActivity ma;
+
     public OrderRequestFragment() {
         // Required empty public constructor
     }
@@ -76,6 +78,8 @@ public class OrderRequestFragment extends Fragment {
 
 
         filterOrder();
+
+        ma = (MainActivity) getActivity();
         // Inflate the layout for this fragment
         return v;
     }
@@ -144,17 +148,17 @@ public class OrderRequestFragment extends Fragment {
 
                         if (networkResponse == null) {
 
-                            Toast.makeText(getContext(), "Connection Error", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ma, "Connection Error", Toast.LENGTH_SHORT).show();
 
                         } else {
                             int a = networkResponse.statusCode;
                             if (networkResponse.statusCode == 403) {
-                                Toast.makeText(getContext(), "TOKEN INVALID, PLEASE RE LOG", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ma, "TOKEN INVALID, PLEASE RE LOG", Toast.LENGTH_SHORT).show();
 
                             }
 
                             if (networkResponse.statusCode == 500) {
-                                Toast.makeText(getContext(), "INVALID CREDENTIALS", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ma, "INVALID CREDENTIALS", Toast.LENGTH_SHORT).show();
                             }
 
                             if (networkResponse.statusCode != 401) {
