@@ -104,6 +104,7 @@ public class OrderRequestFragment extends Fragment {
         requestQueue.start();
         String url = Connector.getURL() + "/api/v1/course/getCourseByTeacherId?token=" + token;
 
+        Log.d("ASDF",url);
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
@@ -215,7 +216,7 @@ public class OrderRequestFragment extends Fragment {
         });
         // } //else if(status.equals("ACCEPTED")){
         for (Order notFilteredOrder : notFilteredOrders) {
-            if (notFilteredOrder.getStatus().equalsIgnoreCase("RUNNING")) {
+            if (notFilteredOrder.getStatus().equalsIgnoreCase("ACKNOWLEDGED")) {
                 filteredAcceptedOrders.add(notFilteredOrder);
             }
         }

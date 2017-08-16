@@ -9,14 +9,25 @@ public class Earning {
     private String courseName;
     private String coursePackage;
     private String studentName;
-    private String status;
 
-    public Earning(int studentImage, String courseName, String coursePackage, String studentName, String status) {
+    public String getCourseID() {
+        return courseID;
+    }
+
+    public void setCourseID(String courseID) {
+        this.courseID = courseID;
+    }
+
+    private String status;
+    private String courseID;
+
+    public Earning(int studentImage, String courseName, String coursePackage, String studentName, String status, String courseID) {
         this.studentImage = studentImage;
         this.courseName = courseName;
         this.coursePackage = coursePackage;
         this.studentName = studentName;
         this.status = status;
+        this.courseID = courseID;
     }
 
     public int getStudentImage() {

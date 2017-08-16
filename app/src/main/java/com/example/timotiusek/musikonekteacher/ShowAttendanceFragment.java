@@ -145,7 +145,7 @@ public class ShowAttendanceFragment extends Fragment {
         final Network network = new BasicNetwork(new HurlStack());
         requestQueue = new RequestQueue(cache, network);
         requestQueue.start();
-        String url = Connector.getURL() +"/api/v1/appointment/getAppointments?token="+token+"&course_id="+student.getCourseID();
+        String url = Connector.getURL() +"/api/v1/appointment/getAppointments?done=true&token="+token+"&course_id="+student.getCourseID();
 
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -159,6 +159,9 @@ public class ShowAttendanceFragment extends Fragment {
                             JSONArray arr = res.getJSONArray("data");
 
                             for(int i=0;i<arr.length();i++){
+
+
+                                attendances.clear();
 
                                 JSONObject jo =  arr.getJSONObject(i);
 

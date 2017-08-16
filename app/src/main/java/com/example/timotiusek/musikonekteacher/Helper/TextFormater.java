@@ -63,4 +63,25 @@ public class TextFormater {
 
     }
 
+    public static String priceFormatter(double priceDouble){
+
+        int price = (int)priceDouble;
+
+        String pric = String.valueOf(price);
+
+        int count = 0;
+        for(int i = pric.length(); i >= 0;i--){
+
+            count++;
+            if(count%3 == 0 && i-1 > 0){
+                pric = pric.substring(0,i-1)+"."+pric.substring(i-1);
+            }
+
+        }
+
+
+        return pric;
+
+    }
+
 }

@@ -57,7 +57,7 @@ public class StudentDetailFragment extends Fragment {
         ButterKnife.bind(this, view);
 
         ma = (StudentListActivity) getActivity();
-        ma.setTitle("Student Detail");
+        ma.setTitle(student.getStudentName());
 //        ma.clearCheckedItems();
         /**
          * todo : tentuin set checknya
@@ -84,7 +84,7 @@ public class StudentDetailFragment extends Fragment {
             switch (position){
                 case 0 : return ShowAttendanceFragment.newInstance(student);
                 case 1 : return new ShortTestimonialFragment();
-                case 2 :  return new StudentDetailScheduleFragment();
+                case 2 :  return StudentDetailScheduleFragment.newInstance(student);
             }
             return null;
         }
