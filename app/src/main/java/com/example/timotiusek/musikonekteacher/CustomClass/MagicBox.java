@@ -11,33 +11,20 @@ import java.util.regex.Pattern;
 import java.util.zip.DataFormatException;
 
 /**
- * Created by MOTI on 04/07/2017.
+ * Created by USER on 15/08/2017.
  */
 
 public class MagicBox {
 
     private static final int INT_LENGTH = 32;
     private static final int NUMBER_OF_DAYS = 7;
-    /**
-     * Use these variables to detect wether a teacher is unavailable, available or already assigned to an appointment
-     * Used to avoid a hard coded int to make a comparison
-     */
-    public static final int UNAVAILABLE = 0;
-    public static final int AVAILABLE = 1;
-    public static final int OCCUPIED = 2;
-    /**
-     * This field can be used outside the class to generate the JSONObject with a correct key
-     * Call MagicBox.days[x]
-     */
-    public static final String[] days =
-            new String[] {"Monday", "Tuesday", "Wednessday", "Thursday", "Friday", "Saturday", "Sunday"};
 
     /**
      * Use this method to generate string needed in JsonArray inside JsonObject appointment
-     * when calling mehod MagicBox.abrakadabra. Example how to use this mehod can be seen at abrakadabra documentation
+     * when calling mehod ScheduleController.decodeDateFromServer. Example how to use this mehod can be seen at decodeDateFromServer documentation
      * @param start time then the appintment started
      * @param end time when the appointment finished
-     * @return String in a certain format needed to generate correct JsonObject to pass to method MagicBox.abrakadabra
+     * @return String in a certain format needed to generate correct JsonObject to pass to method ScheduleController.decodeDateFromServer
      */
     public static String dateStartEndFormatter(Date start, Date end) {
         return "\"" + start.getHours() + "." + start.getMinutes() + " - " + end.getHours() + "." + end.getMinutes() + "\"";
@@ -90,7 +77,7 @@ public class MagicBox {
             if(appointment[i] == 1 && schedule[i] == 0) {
                 throw new DataFormatException("Unmatched schedule appointment. Assigning an appointment to unavailable time");
             }
-            output[i] = appointment[i] == 1 ? OCCUPIED : schedule[i] == 1 ? AVAILABLE : UNAVAILABLE;
+            output[i] = appointment[i] == 1 ? ScheduleController.OCCUPIED : schedule[i] == 1 ? ScheduleController.AVAILABLE : ScheduleController.UNAVAILABLE;
         }
         return output;
     }
@@ -103,36 +90,37 @@ public class MagicBox {
      * @throws Exception
      *
      * How to call this method example:
-     try {
-        //Make your own method to generate the needed int[7]
-        int[] scheduleFromServer = new int[]{1431655765, 1431655765, 1431655765, 1431655765, 1431655765, 1431655765, 1431655765};
+    try {
+    //Make your own method to generate the needed int[7]
+    int[] scheduleFromServer = new int[]{1431655765, 1431655765, 1431655765, 1431655765, 1431655765, 1431655765, 1431655765};
 
-        //Make your own method to generate the needed JSON containing appointment data
-        //USE MagicBox.dateStartEndFormatter(Date, Date) to get a correct string format inside the JSON
-        JSONObject appointmentFromServer = new JSONObject("{" + "\"" + MagicBox.days[0] +  "\":[" + MagicBox.dateStartEndFormatter(new Date(0,0,0,10,0,0), new Date(0,0,0,13,0,0)) + ", " + MagicBox.dateStartEndFormatter(new Date(0,0,0,17,30,0), new Date(0,0,0,20,0,0)) + "]"
-                + "," + "\"" + MagicBox.days[1] +  "\":[" + MagicBox.dateStartEndFormatter(new Date(0,0,0,10,0,0), new Date(0,0,0,13,0,0)) + ", " + MagicBox.dateStartEndFormatter(new Date(0,0,0,17,30,0), new Date(0,0,0,20,0,0)) + "]"
-                + "," + "\"" + MagicBox.days[2] +  "\":[" + MagicBox.dateStartEndFormatter(new Date(0,0,0,10,0,0), new Date(0,0,0,13,0,0)) + ", " + MagicBox.dateStartEndFormatter(new Date(0,0,0,17,30,0), new Date(0,0,0,20,0,0)) + "]"
-                + "," + "\"" + MagicBox.days[3] +  "\":[" + MagicBox.dateStartEndFormatter(new Date(0,0,0,10,0,0), new Date(0,0,0,13,0,0)) + ", " + MagicBox.dateStartEndFormatter(new Date(0,0,0,17,30,0), new Date(0,0,0,20,0,0)) + "]"
-                + "," + "\"" + MagicBox.days[4] +  "\":[" + MagicBox.dateStartEndFormatter(new Date(0,0,0,10,0,0), new Date(0,0,0,13,0,0)) + ", " + MagicBox.dateStartEndFormatter(new Date(0,0,0,17,30,0), new Date(0,0,0,20,0,0)) + "]"
-                + "," + "\"" + MagicBox.days[5] +  "\":[" + MagicBox.dateStartEndFormatter(new Date(0,0,0,10,0,0), new Date(0,0,0,13,0,0)) + ", " + MagicBox.dateStartEndFormatter(new Date(0,0,0,17,30,0), new Date(0,0,0,20,0,0)) + "]"
-                + "," + "\"" + MagicBox.days[6] +  "\":[" + MagicBox.dateStartEndFormatter(new Date(0,0,0,10,0,0), new Date(0,0,0,13,0,0)) + ", " + MagicBox.dateStartEndFormatter(new Date(0,0,0,17,30,0), new Date(0,0,0,20,0,0)) + "]}");
+    //Make your own method to generate the needed JSON containing appointment data
+    //USE ScheduleController.dateStartEndFormatter(Date, Date) to get a correct string format inside the JSON
+    JSONObject appointmentFromServer = new JSONObject("{" + "\"" + ScheduleController.days[0] +  "\":[" + ScheduleController.dateStartEndFormatter(new Date(0,0,0,10,0,0), new Date(0,0,0,13,0,0)) + ", " + ScheduleController.dateStartEndFormatter(new Date(0,0,0,17,30,0), new Date(0,0,0,20,0,0)) + "]"
+    + "," + "\"" + ScheduleController.days[1] +  "\":[" + ScheduleController.dateStartEndFormatter(new Date(0,0,0,10,0,0), new Date(0,0,0,13,0,0)) + ", " + ScheduleController.dateStartEndFormatter(new Date(0,0,0,17,30,0), new Date(0,0,0,20,0,0)) + "]"
+    + "," + "\"" + ScheduleController.days[2] +  "\":[" + ScheduleController.dateStartEndFormatter(new Date(0,0,0,10,0,0), new Date(0,0,0,13,0,0)) + ", " + ScheduleController.dateStartEndFormatter(new Date(0,0,0,17,30,0), new Date(0,0,0,20,0,0)) + "]"
+    + "," + "\"" + ScheduleController.days[3] +  "\":[" + ScheduleController.dateStartEndFormatter(new Date(0,0,0,10,0,0), new Date(0,0,0,13,0,0)) + ", " + ScheduleController.dateStartEndFormatter(new Date(0,0,0,17,30,0), new Date(0,0,0,20,0,0)) + "]"
+    + "," + "\"" + ScheduleController.days[4] +  "\":[" + ScheduleController.dateStartEndFormatter(new Date(0,0,0,10,0,0), new Date(0,0,0,13,0,0)) + ", " + ScheduleController.dateStartEndFormatter(new Date(0,0,0,17,30,0), new Date(0,0,0,20,0,0)) + "]"
+    + "," + "\"" + ScheduleController.days[5] +  "\":[" + ScheduleController.dateStartEndFormatter(new Date(0,0,0,10,0,0), new Date(0,0,0,13,0,0)) + ", " + ScheduleController.dateStartEndFormatter(new Date(0,0,0,17,30,0), new Date(0,0,0,20,0,0)) + "]"
+    + "," + "\"" + ScheduleController.days[6] +  "\":[" + ScheduleController.dateStartEndFormatter(new Date(0,0,0,10,0,0), new Date(0,0,0,13,0,0)) + ", " + ScheduleController.dateStartEndFormatter(new Date(0,0,0,17,30,0), new Date(0,0,0,20,0,0)) + "]}");
 
-        JSONObject schedule = MagicBox.abrakadabra(scheduleFromServer, appointmentFromServer);
-        Log.d("DEBUG", schedule.toString());
+    JSONObject schedule = ScheduleController.decodeDateFromServer(scheduleFromServer, appointmentFromServer);
+    Log.d("DEBUG", schedule.toString());
     } catch (Exception e) {
-        e.printStackTrace();
+    e.printStackTrace();
     }
      */
-    public static JSONObject abrakadabra(int[] schedule, JSONObject appointment) throws Exception {
+    public static JSONObject decodeDataFromServer(int[] schedule, JSONObject appointment) throws Exception {
+        Log.d("DEBUG", "Magician " + schedule[0] + " " + appointment.toString());
         if(schedule.length != NUMBER_OF_DAYS) {
             throw new DataFormatException("Passed parameter int[] must have exactly 7 elements inside");
         }
         JSONObject output = new JSONObject();
         for(int i = 0; i < schedule.length; i++) {
-            if(!appointment.has(days[i])) {
-                throw new DataFormatException("Passed JsonObject does not contain field \"" + days[i] + "\"");
+            if(!appointment.has(ScheduleController.days[i])) {
+                throw new DataFormatException("Passed JsonObject does not contain field \"" + ScheduleController.days[i] + "\"");
             }
-            output.put(days[i], new JSONArray(overlap(decodeIntCode(schedule[i]), decodeJson(appointment.optJSONArray(days[i])))));
+            output.put(ScheduleController.days[i], new JSONArray(overlap(decodeIntCode(schedule[i]), decodeJson(appointment.optJSONArray(ScheduleController.days[i])))));
         }
         return output;
     }
@@ -153,35 +141,35 @@ public class MagicBox {
      * @throws Exception
      *
      * How to call this method example:
-     try {
-        //Make your own method to generate the needed JSONOBject
-        JSONObject dataFromClient = new JSONObject("{\"" + MagicBox.days[0] + "\":[1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0]," +
-                "\"" + MagicBox.days[1] + "\":[1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0]," +
-                "\"" + MagicBox.days[2] + "\":[1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0]," +
-                "\"" + MagicBox.days[3] + "\":[1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0]," +
-                "\"" + MagicBox.days[4] + "\":[1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0]," +
-                "\"" + MagicBox.days[5] + "\":[1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0]," +
-                "\"" + MagicBox.days[6] + "\":[1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0]}");
-        int[] schedule = MagicBox.alakazam(dataFromClient);
-        for(int i = 0; i < schedule.length; i++) {
-            Log.d("DEBUG", schedule[i] + "");
-        }
+    try {
+    //Make your own method to generate the needed JSONOBject
+    JSONObject dataFromClient = new JSONObject("{\"" + ScheduleController.days[0] + "\":[1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0]," +
+    "\"" + ScheduleController.days[1] + "\":[1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0]," +
+    "\"" + ScheduleController.days[2] + "\":[1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0]," +
+    "\"" + ScheduleController.days[3] + "\":[1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0]," +
+    "\"" + ScheduleController.days[4] + "\":[1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0]," +
+    "\"" + ScheduleController.days[5] + "\":[1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0]," +
+    "\"" + ScheduleController.days[6] + "\":[1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0]}");
+    int[] schedule = ScheduleController.encodeScheduleData(dataFromClient);
+    for(int i = 0; i < schedule.length; i++) {
+    Log.d("DEBUG", schedule[i] + "");
+    }
     } catch (Exception e) {
-        e.printStackTrace();
+    e.printStackTrace();
     }
      */
-    public static int[] alakazam(JSONObject input) throws Exception {
-        for(String day : days) {
+    public static int[] encodeScheduleData(JSONObject input) throws Exception {
+        for(String day : ScheduleController.days) {
             if(!input.has(day)) {
                 throw new DataFormatException("Passed JsonObject does not contain field \"" + day + "\"");
             }
         }
         int[] output = new int[NUMBER_OF_DAYS];
         for(int i = 0; i < NUMBER_OF_DAYS; i++) {
-            JSONArray jsonArray = input.optJSONArray(days[i]);
+            JSONArray jsonArray = input.optJSONArray(ScheduleController.days[i]);
             int[] code = new int[jsonArray.length()];
             for(int j = 0; j < code.length; j++) {
-                if(jsonArray.optInt(j) != UNAVAILABLE && jsonArray.optInt(j) != AVAILABLE) {
+                if(jsonArray.optInt(j) != ScheduleController.UNAVAILABLE && jsonArray.optInt(j) != ScheduleController.AVAILABLE) {
                     throw new DataFormatException("Passed JsonArray contain unexpected value \"" + jsonArray.optInt(j) + "\"");
                 }
                 code[j] = jsonArray.optInt(j);

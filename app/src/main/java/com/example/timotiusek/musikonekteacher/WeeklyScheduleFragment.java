@@ -1,8 +1,10 @@
 package com.example.timotiusek.musikonekteacher;
 
-
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,87 +17,86 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 
+import com.example.timotiusek.musikonekteacher.CustomClass.Schedule;
+import com.example.timotiusek.musikonekteacher.CustomClass.ScheduleController;
+
+import org.json.JSONObject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class WeeklyScheduleFragment extends Fragment {
-    @BindView(R.id.tab_layout__weekly_schedule_fra)
-    TabLayout tabLayout;
-    @BindView(R.id.view_pager__weekly_schedule_fra)
-    ViewPager viewPager;
-    MainActivity ma;
+
+    private static final String TAG = "Jadwal";
+    private final ScheduleFragment[] scheduleFragments = {
+            new ScheduleFragment(ScheduleController.days[0]),
+            new ScheduleFragment(ScheduleController.days[1]),
+            new ScheduleFragment(ScheduleController.days[2]),
+            new ScheduleFragment(ScheduleController.days[3]),
+            new ScheduleFragment(ScheduleController.days[4]),
+            new ScheduleFragment(ScheduleController.days[5]),
+            new ScheduleFragment(ScheduleController.days[6])};
+
+    @BindView(R.id.tab_layout__weekly_schedule_fra) TabLayout tabLayout;
+    @BindView(R.id.view_pager__weekly_schedule_fra) ViewPager viewPager;
+
+    private class MyAdapter extends android.support.v4.app.FragmentStatePagerAdapter {
+
+        MyAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return scheduleFragments[position];
+        }
+
+        @Override
+        public int getCount() {
+            return 7;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            switch (position){
+                case 0 : return ScheduleController.days[0];
+                case 1 : return ScheduleController.days[1];
+                case 2 : return ScheduleController.days[2];
+                case 3 : return ScheduleController.days[3];
+                case 4 : return ScheduleController.days[4];
+                case 5 : return ScheduleController.days[5];
+                case 6 : return ScheduleController.days[6];
+            }
+            return null;
+        }
+    }
 
     public WeeklyScheduleFragment() {
         // Required empty public constructor
     }
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_weekly_schedule, container, false);
         ButterKnife.bind(this, view);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(TAG);
 
-        ma = (MainActivity) getActivity();
-        ma.getSupportActionBar().setTitle("Jadwal");
-        ma.setChecked(R.id.menu_schedule);
-
-
+//        JSONObject teacherSchedule = ScheduleController.getSchedule(getContext());
+        new ScheduleController().getDataAsync(WeeklyScheduleFragment.this);
 
         viewPager.setAdapter(new MyAdapter(getChildFragmentManager()));
         tabLayout.setupWithViewPager(viewPager);
-
         viewPager.setCurrentItem(0);
 
-        // Inflate the layout for this fragment
         return view;
     }
 
-
-    class MyAdapter extends android.support.v4.app.FragmentStatePagerAdapter {
-
-        public MyAdapter(FragmentManager fm) {
-            super(fm);
+    public void onDataReady(JSONObject data) {
+        Log.d("DEBUG", data.toString());
+        for(int i = 0; i < ScheduleController.days.length; i++) {
+            scheduleFragments[i].setData(data.optJSONArray(ScheduleController.days[i]));
         }
-
-        @Override
-        public Fragment getItem(int position)
-        {
-            switch (position){
-                case 0 : return new ScheduleFragment("Monday");
-                case 1 : return new ScheduleFragment("Tuesday");
-                case 2 :  return new ScheduleFragment("Wednesday");
-                case 3 :  return new ScheduleFragment("Thursday");
-                case 4 :  return new ScheduleFragment("Friday");
-                case 5 :  return new ScheduleFragment("Saturday");
-            }
-            return null;
-        }
-
-        @Override
-        public int getCount() {
-            return 6;
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            switch (position){
-                case 0 : return "Senin";
-                case 1 : return "Selasa";
-                case 2 : return "Rabu";
-                case 3 : return "Kamis";
-                case 4 : return "Jumat";
-                case 5 : return "Sabtu";
-            }
-            return null;
-        }
-
     }
-
 }
 

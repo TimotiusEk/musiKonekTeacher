@@ -1,6 +1,5 @@
 package com.example.timotiusek.musikonekteacher;
 
-
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -17,28 +16,67 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.timotiusek.musikonekteacher.CustomClass.Schedule;
+import com.example.timotiusek.musikonekteacher.CustomClass.ScheduleController;
+
+import org.json.JSONArray;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class ScheduleFragment extends Fragment {
 
+    private static final int hour[][] = {
+            {R.id.line_am_07_00__schedule_fra, 7},
+            {R.id.line_am_07_30__schedule_fra, 730},
+            {R.id.line_am_08_00__schedule_fra, 8},
+            {R.id.line_am_08_30__schedule_fra, 830},
+            {R.id.line_am_09_00__schedule_fra, 9},
+            {R.id.line_am_09_30__schedule_fra, 930},
+            {R.id.line_am_10_00__schedule_fra, 10},
+            {R.id.line_am_10_30__schedule_fra, 1030},
+            {R.id.line_am_11_00__schedule_fra, 11},
+            {R.id.line_am_11_30__schedule_fra, 1130},
+            {R.id.line_pm_12_00__schedule_fra, 12},
+            {R.id.line_pm_12_30__schedule_fra, 1230},
+            {R.id.line_pm_13_00__schedule_fra, 13},
+            {R.id.line_pm_13_30__schedule_fra, 1330},
+            {R.id.line_pm_14_00__schedule_fra, 14},
+            {R.id.line_pm_14_30__schedule_fra, 1430},
+            {R.id.line_pm_15_00__schedule_fra, 15},
+            {R.id.line_pm_15_30__schedule_fra, 1530},
+            {R.id.line_pm_16_00__schedule_fra, 16},
+            {R.id.line_pm_16_30__schedule_fra, 1630},
+            {R.id.line_pm_17_00__schedule_fra, 17},
+            {R.id.line_pm_17_30__schedule_fra, 1730},
+            {R.id.line_pm_18_00__schedule_fra, 18},
+            {R.id.line_pm_18_30__schedule_fra, 1830},
+            {R.id.line_pm_19_00__schedule_fra, 19},
+            {R.id.line_pm_19_30__schedule_fra, 1930},
+            {R.id.line_pm_20_00__schedule_fra, 20},
+            {R.id.line_pm_20_30__schedule_fra, 2030},
+            {R.id.line_pm_21_00__schedule_fra, 21},
+            {R.id.line_pm_21_30__schedule_fra, 2130},
+            {R.id.line_pm_22_00__schedule_fra, 22}};
+
+    @BindView(R.id.current_date__schedule_fra) TextView currentDate;
+
     private Context mContext;
-    private int hour[][] = new int[31][2];
     private CardView card;
     private RelativeLayout.LayoutParams params;
-    RelativeLayout scheduleRL;
-    Resources r;
-    String day = "";
-    @BindView(R.id.current_date__schedule_fra)
-    TextView currentDate;
+    private RelativeLayout scheduleRL;
+    private Resources r;
+    private String day = "";
+    private JSONArray data = null;
 
     public ScheduleFragment() {
         // Required empty public constructor
+    }
+
+    public void setData(JSONArray data) {
+        this.data = data;
+        updateView(data);
     }
 
     public ScheduleFragment(String day){
@@ -52,152 +90,60 @@ public class ScheduleFragment extends Fragment {
 
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         View v = inflater.inflate(R.layout.fragment_schedule, container, false);
         ButterKnife.bind(this, v);
 
         mContext = getActivity().getApplicationContext();
 
-        initializeVariableHour();
-
         scheduleRL = (RelativeLayout) v.findViewById(R.id.schedule_rl__schedule_fra);
         removeAllCardView(scheduleRL);
 
-        if(day.equals("Monday")) {
-            setAvailability(7, 10, true);
-            setAvailability(1030, 12, false);
-            setCourseSchedule(13, 1730);
-        } else if(day.equals("Tuesday")){
-            setAvailability(10, 11, true);
-            setAvailability(1130, 13, false);
-            setCourseSchedule(20, 22);
-        } else if(day.equals("Wednesday")){
-            setAvailability(10, 11, true);
-            setAvailability(1130, 13, false);
-            setCourseSchedule(20, 22);
-        } else if(day.equals("Thursday")){
-            setAvailability(10, 11, true);
-            setAvailability(1130, 13, false);
-            setCourseSchedule(20, 22);
-        } else if(day.equals("Friday")){
-            setAvailability(10, 11, true);
-            setAvailability(1130, 13, false);
-            setCourseSchedule(20, 22);
-        } else if(day.equals("Saturday")){
-            setAvailability(10, 11, true);
-            setAvailability(1130, 13, false);
-            setCourseSchedule(20, 22);
-        } else{
-            /**
-             * Not for weekly schedule fragment
-             */
-            setAvailability(7, 9, false);
-            setCourseSchedule(9, 11);
-            setAvailability(11, 22, false);
-            currentDate.setVisibility(View.GONE);
+        try {
+            updateView(data);
+        } catch(NullPointerException e) {
+            e.printStackTrace();
         }
+
+//        if(day.equals(ScheduleController.days[0])) {
+//            setAvailability(7, 8, true);
+//            setAvailability(8, 10, true);
+//            setAvailability(1030, 12, false);
+//            setCourseSchedule(13, 1730);
+//        } else if(day.equals(ScheduleController.days[1])) {
+//            setAvailability(10, 11, true);
+//            setAvailability(1130, 13, false);
+//            setCourseSchedule(20, 22);
+//        } else if(day.equals(ScheduleController.days[2])) {
+//            setAvailability(10, 11, true);
+//            setAvailability(1130, 13, false);
+//            setCourseSchedule(20, 22);
+//        } else if(day.equals(ScheduleController.days[3])) {
+//            setAvailability(10, 11, true);
+//            setAvailability(1130, 13, false);
+//            setCourseSchedule(20, 22);
+//        } else if(day.equals(ScheduleController.days[4])) {
+//            setAvailability(10, 11, true);
+//            setAvailability(1130, 13, false);
+//            setCourseSchedule(20, 22);
+//        } else if(day.equals(ScheduleController.days[5])) {
+//            setAvailability(10, 11, true);
+//            setAvailability(1130, 13, false);
+//            setCourseSchedule(20, 22);
+//        } else{
+//            /**
+//             * Not for weekly schedule fragment
+//             */
+//            setAvailability(7, 9, false);
+//            setCourseSchedule(9, 11);
+//            setAvailability(11, 22, false);
+//            currentDate.setVisibility(View.GONE);
+//        }
 
         // Inflate the layout for this fragment
         return v;
-    }
-
-    private void initializeVariableHour() {
-        hour[0][0] = R.id.line_am_07_00__schedule_fra;
-        hour[0][1] = 7;
-
-        hour[1][0] = R.id.line_am_07_30__schedule_fra;
-        hour[1][1] = 730;
-
-        hour[2][0] = R.id.line_am_08_00__schedule_fra;
-        hour[2][1] = 8;
-
-        hour[3][0] = R.id.line_am_08_30__schedule_fra;
-        hour[3][1] = 830;
-
-        hour[4][0] = R.id.line_am_09_00__schedule_fra;
-        hour[4][1] = 9;
-
-        hour[5][0] = R.id.line_am_09_30__schedule_fra;
-        hour[5][1] = 930;
-
-        hour[6][0] = R.id.line_am_10_00__schedule_fra;
-        hour[6][1] = 10;
-
-        hour[7][0] = R.id.line_am_10_30__schedule_fra;
-        hour[7][1] = 1030;
-
-        hour[8][0] = R.id.line_am_11_00__schedule_fra;
-        hour[8][1] = 11;
-
-        hour[9][0] = R.id.line_am_11_30__schedule_fra;
-        hour[9][1] = 1130;
-
-        hour[10][0] = R.id.line_pm_12_00__schedule_fra;
-        hour[10][1] = 12;
-
-        hour[11][0] = R.id.line_pm_12_30__schedule_fra;
-        hour[11][1] = 1230;
-
-        hour[12][0] = R.id.line_pm_13_00__schedule_fra;
-        hour[12][1] = 13;
-
-        hour[13][0] = R.id.line_pm_13_30__schedule_fra;
-        hour[13][1] = 1330;
-
-        hour[14][0] = R.id.line_pm_14_00__schedule_fra;
-        hour[14][1] = 14;
-
-        hour[15][0] = R.id.line_pm_14_30__schedule_fra;
-        hour[15][1] = 1430;
-
-        hour[16][0] = R.id.line_pm_15_00__schedule_fra;
-        hour[16][1] = 15;
-
-        hour[17][0] = R.id.line_pm_15_30__schedule_fra;
-        hour[17][1] = 1530;
-
-        hour[18][0] = R.id.line_pm_16_00__schedule_fra;
-        hour[18][1] = 16;
-
-        hour[19][0] = R.id.line_pm_16_30__schedule_fra;
-        hour[19][1] = 1630;
-
-        hour[20][0] = R.id.line_pm_17_00__schedule_fra;
-        hour[20][1] = 17;
-
-        hour[21][0] = R.id.line_pm_17_30__schedule_fra;
-        hour[21][1] = 1730;
-
-        hour[22][0] = R.id.line_pm_18_00__schedule_fra;
-        hour[22][1] = 18;
-
-        hour[23][0] = R.id.line_pm_18_30__schedule_fra;
-        hour[23][1] = 1830;
-
-        hour[24][0] = R.id.line_pm_19_00__schedule_fra;
-        hour[24][1] = 19;
-
-        hour[25][0] = R.id.line_pm_19_30__schedule_fra;
-        hour[25][1] = 1930;
-
-        hour[26][0] = R.id.line_pm_20_00__schedule_fra;
-        hour[26][1] = 20;
-
-        hour[27][0] = R.id.line_pm_20_30__schedule_fra;
-        hour[27][1] = 2030;
-
-        hour[28][0] = R.id.line_pm_21_00__schedule_fra;
-        hour[28][1] = 21;
-
-        hour[29][0] = R.id.line_pm_21_30__schedule_fra;
-        hour[29][1] = 2130;
-
-        hour[30][0] = R.id.line_pm_22_00__schedule_fra;
-        hour[30][1] = 22;
     }
 
     private void initializeCard(){
@@ -231,8 +177,6 @@ public class ScheduleFragment extends Fragment {
         }
 
     }
-
-
 
     private void setAvailability(int start, int end, boolean isAvailable){
         initializeCard();
@@ -376,4 +320,33 @@ public class ScheduleFragment extends Fragment {
         scheduleRL.addView(card);
     }
 
+    private void setCard(int code, int start, int end) {
+        if(code == ScheduleController.AVAILABLE) {
+            setAvailability(start, end, true);
+        } else if(code == ScheduleController.UNAVAILABLE) {
+            setAvailability(start, end, false);
+        } else if(code == ScheduleController.OCCUPIED) {
+            setCourseSchedule(start, end);
+        }
+    }
+
+    private void updateView(JSONArray data) {
+        int start = 0, end = 0;
+        for(int i = 1; i < data.length(); i++) {
+            if(i + 1 == data.length()) {
+                if(data.optInt(i - 1) == data.optInt(i)) {
+                    end = i;
+                } else {
+                    setCard(data.optInt(i), i, i);
+                }
+                setCard(data.optInt(i - 1), start, end);
+            }
+            if(data.optInt(i - 1) != data.optInt(i)) {
+                setCard(data.optInt(i - 1), start, end);
+                start = i;
+            }
+            end = i;
+        }
+        Log.d("DEBUG", "Data: " + data.toString());
+    }
 }
