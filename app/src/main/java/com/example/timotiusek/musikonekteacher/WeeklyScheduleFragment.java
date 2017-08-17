@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
+import android.widget.ProgressBar;
 
 import com.example.timotiusek.musikonekteacher.CustomClass.Schedule;
 import com.example.timotiusek.musikonekteacher.CustomClass.ScheduleController;
@@ -39,6 +40,7 @@ public class WeeklyScheduleFragment extends Fragment {
 
     @BindView(R.id.tab_layout__weekly_schedule_fra) TabLayout tabLayout;
     @BindView(R.id.view_pager__weekly_schedule_fra) ViewPager viewPager;
+    @BindView(R.id.loading_weekly_schedule) ProgressBar loading;
 
     private class MyAdapter extends android.support.v4.app.FragmentStatePagerAdapter {
 
@@ -82,21 +84,28 @@ public class WeeklyScheduleFragment extends Fragment {
         ButterKnife.bind(this, view);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(TAG);
 
+        viewPager.setVisibility(View.GONE);
+        tabLayout.setVisibility(View.GONE);
 //        JSONObject teacherSchedule = ScheduleController.getSchedule(getContext());
         new ScheduleController().getDataAsync(WeeklyScheduleFragment.this);
 
-        viewPager.setAdapter(new MyAdapter(getChildFragmentManager()));
-        tabLayout.setupWithViewPager(viewPager);
-        viewPager.setCurrentItem(0);
+
 
         return view;
     }
 
     public void onDataReady(JSONObject data) {
-        Log.d("DEBUG", data.toString());
+        Log.d("DEBUG", "Fetched: " + data.toString());
         for(int i = 0; i < ScheduleController.days.length; i++) {
             scheduleFragments[i].setData(data.optJSONArray(ScheduleController.days[i]));
         }
+
+        loading.setVisibility(View.GONE);
+        viewPager.setVisibility(View.VISIBLE);
+        tabLayout.setVisibility(View.VISIBLE);
+        viewPager.setAdapter(new MyAdapter(getChildFragmentManager()));
+        tabLayout.setupWithViewPager(viewPager);
+        viewPager.setCurrentItem(0);
     }
 }
 

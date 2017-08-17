@@ -111,7 +111,6 @@ public class MagicBox {
     }
      */
     public static JSONObject decodeDataFromServer(int[] schedule, JSONObject appointment) throws Exception {
-        Log.d("DEBUG", "Magician " + schedule[0] + " " + appointment.toString());
         if(schedule.length != NUMBER_OF_DAYS) {
             throw new DataFormatException("Passed parameter int[] must have exactly 7 elements inside");
         }

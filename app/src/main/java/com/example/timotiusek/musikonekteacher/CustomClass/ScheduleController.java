@@ -1,10 +1,7 @@
 package com.example.timotiusek.musikonekteacher.CustomClass;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.android.volley.Cache;
@@ -18,9 +15,7 @@ import com.android.volley.toolbox.BasicNetwork;
 import com.android.volley.toolbox.DiskBasedCache;
 import com.android.volley.toolbox.HurlStack;
 import com.android.volley.toolbox.StringRequest;
-import com.example.timotiusek.musikonekteacher.EditProfileActivity;
 import com.example.timotiusek.musikonekteacher.Helper.Connector;
-import com.example.timotiusek.musikonekteacher.R;
 import com.example.timotiusek.musikonekteacher.WeeklyScheduleFragment;
 
 import org.json.JSONArray;
@@ -34,9 +29,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.zip.DataFormatException;
 
 /**
  * Created by MOTI on 04/07/2017.
@@ -102,7 +94,6 @@ public class ScheduleController {
 
                     @Override
                     public void onResponse(String response) {
-                        Log.d("DEBUG", "Appointment: " + response);
                         try {
                             JSONObject responseJSON = new JSONObject(response);
                             JSONArray data = responseJSON.optJSONArray("data");
@@ -135,7 +126,6 @@ public class ScheduleController {
                                 }
                                 appointment.put(days[i], appointmentForTheDay);
                             }
-                            Log.d("DEBUG", "Appointment: " + appointment.toString());
                             setAppointment(appointment);
                             activity.onDataReady(MagicBox.decodeDataFromServer(schedule, ScheduleController.this.appointment));
                         } catch (Exception e) {
@@ -181,7 +171,6 @@ public class ScheduleController {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.d("DEBUG", "Schedule: " + response);
                         try {
                             JSONObject responseJSON = new JSONObject(response);
                             JSONArray data = responseJSON.optJSONArray("data");
@@ -190,7 +179,6 @@ public class ScheduleController {
                                 return;
                             } else {
                                 responseJSON = (JSONObject) data.get(0);
-                                Log.d("DEBUG", responseJSON.toString());
                             }
                             int[] schedule = new int[7];
                             for(int i = 0; i < days.length; i++) {

@@ -58,11 +58,12 @@ public class ScheduleFragment extends Fragment {
             {R.id.line_pm_20_30__schedule_fra, 2030},
             {R.id.line_pm_21_00__schedule_fra, 21},
             {R.id.line_pm_21_30__schedule_fra, 2130},
-            {R.id.line_pm_22_00__schedule_fra, 22}};
+            {R.id.line_pm_22_00__schedule_fra, 22},
+            {R.id.line_pm_22_30__schedule_fra, 2230}
+    };
 
     @BindView(R.id.current_date__schedule_fra) TextView currentDate;
 
-    private Context mContext;
     private CardView card;
     private RelativeLayout.LayoutParams params;
     private RelativeLayout scheduleRL;
@@ -76,7 +77,7 @@ public class ScheduleFragment extends Fragment {
 
     public void setData(JSONArray data) {
         this.data = data;
-        updateView(data);
+//        updateView(data);
     }
 
     public ScheduleFragment(String day){
@@ -96,64 +97,26 @@ public class ScheduleFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_schedule, container, false);
         ButterKnife.bind(this, v);
 
-        mContext = getActivity().getApplicationContext();
-
         scheduleRL = (RelativeLayout) v.findViewById(R.id.schedule_rl__schedule_fra);
         removeAllCardView(scheduleRL);
 
         try {
             updateView(data);
         } catch(NullPointerException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
 
-//        if(day.equals(ScheduleController.days[0])) {
-//            setAvailability(7, 8, true);
-//            setAvailability(8, 10, true);
-//            setAvailability(1030, 12, false);
-//            setCourseSchedule(13, 1730);
-//        } else if(day.equals(ScheduleController.days[1])) {
-//            setAvailability(10, 11, true);
-//            setAvailability(1130, 13, false);
-//            setCourseSchedule(20, 22);
-//        } else if(day.equals(ScheduleController.days[2])) {
-//            setAvailability(10, 11, true);
-//            setAvailability(1130, 13, false);
-//            setCourseSchedule(20, 22);
-//        } else if(day.equals(ScheduleController.days[3])) {
-//            setAvailability(10, 11, true);
-//            setAvailability(1130, 13, false);
-//            setCourseSchedule(20, 22);
-//        } else if(day.equals(ScheduleController.days[4])) {
-//            setAvailability(10, 11, true);
-//            setAvailability(1130, 13, false);
-//            setCourseSchedule(20, 22);
-//        } else if(day.equals(ScheduleController.days[5])) {
-//            setAvailability(10, 11, true);
-//            setAvailability(1130, 13, false);
-//            setCourseSchedule(20, 22);
-//        } else{
-//            /**
-//             * Not for weekly schedule fragment
-//             */
-//            setAvailability(7, 9, false);
-//            setCourseSchedule(9, 11);
-//            setAvailability(11, 22, false);
-//            currentDate.setVisibility(View.GONE);
-//        }
-
-        // Inflate the layout for this fragment
         return v;
     }
 
     private void initializeCard(){
-        card = new CardView(mContext);
+        card = new CardView(getActivity().getApplicationContext());
 
         params = new RelativeLayout.LayoutParams(
                 RelativeLayout.LayoutParams.MATCH_PARENT,
                 RelativeLayout.LayoutParams.WRAP_CONTENT
         );
-        r = mContext.getResources();
+        r = getActivity().getApplicationContext().getResources();
         int px = (int) TypedValue.applyDimension(
                 TypedValue.COMPLEX_UNIT_DIP,
                 -9,
@@ -182,7 +145,7 @@ public class ScheduleFragment extends Fragment {
         initializeCard();
         int startId = 0;
         int endId = 0;
-        for(int a = 0 ; a < 31 ; a++){
+        for(int a = 0 ; a < hour.length ; a++){
             if(hour[a][1] == start){
                 startId = hour[a][0];
             } else if(hour[a][1] == end){
@@ -195,7 +158,7 @@ public class ScheduleFragment extends Fragment {
 
         card.setLayoutParams(params);
 
-        TextView tv = new TextView(mContext);
+        TextView tv = new TextView(getActivity().getApplicationContext());
         if(isAvailable) {
             card.setCardBackgroundColor(Color.parseColor("#62f199")); //medium aquamarine
             tv.setText("AVAILABLE");
@@ -216,7 +179,7 @@ public class ScheduleFragment extends Fragment {
         initializeCard();
         int startId = 0;
         int endId = 0;
-        for(int a = 0 ; a < 31 ; a++){
+        for(int a = 0 ; a < hour.length ; a++){
             if(hour[a][1] == start){
                 startId = hour[a][0];
             } else if(hour[a][1] == end){
@@ -274,31 +237,31 @@ public class ScheduleFragment extends Fragment {
                 dp1
         );
 
-        RelativeLayout cardViewRL = new RelativeLayout(mContext);
+        RelativeLayout cardViewRL = new RelativeLayout(getActivity().getApplicationContext());
         cardViewRL.setLayoutParams(paramsRelativeLayout);
         card.addView(cardViewRL);
 
         paramsStudentImg.addRule(RelativeLayout.CENTER_VERTICAL);
         paramsStudentImg.setMargins(leftMargin, 0, 0, 0); //left, top, right, bottom
-        CircleImageView studentImg = new CircleImageView(mContext);
+        CircleImageView studentImg = new CircleImageView(getActivity().getApplicationContext());
         studentImg.setImageResource(R.drawable.avatar);
         studentImg.setLayoutParams(paramsStudentImg);
         studentImg.setId(View.generateViewId());
 
-        View topImageView = new View(mContext);
+        View topImageView = new View(getActivity().getApplicationContext());
         topImageView.setBackgroundColor(getResources().getColor(android.R.color.black));
         paramsTopImageView.addRule(RelativeLayout.ABOVE, studentImg.getId());
         topImageView.setLayoutParams(paramsTopImageView);
         topImageView.setId(View.generateViewId());
 
-        TextView courseName = new TextView(mContext);
+        TextView courseName = new TextView(getActivity().getApplicationContext());
         paramsCourseName.addRule(RelativeLayout.RIGHT_OF, studentImg.getId());
         paramsCourseName.setMargins(leftMargin, dp1*5, 0, 0); //left, top, right, bottom
         paramsCourseName.addRule(RelativeLayout.BELOW, topImageView.getId());
         courseName.setLayoutParams(paramsCourseName);
         courseName.setId(View.generateViewId());
 
-        TextView courseDescription = new TextView(mContext);
+        TextView courseDescription = new TextView(getActivity().getApplicationContext());
         paramsCourseDescription.addRule(RelativeLayout.BELOW, courseName.getId());
         paramsCourseDescription.addRule(RelativeLayout.RIGHT_OF, studentImg.getId());
         paramsCourseDescription.setMargins(leftMargin, 0, 0, 0); //left, top, right, bottom
@@ -322,11 +285,11 @@ public class ScheduleFragment extends Fragment {
 
     private void setCard(int code, int start, int end) {
         if(code == ScheduleController.AVAILABLE) {
-            setAvailability(start, end, true);
+            setAvailability(hour[start][1], hour[end][1], true);
         } else if(code == ScheduleController.UNAVAILABLE) {
-            setAvailability(start, end, false);
+            setAvailability(hour[start][1], hour[end][1], false);
         } else if(code == ScheduleController.OCCUPIED) {
-            setCourseSchedule(start, end);
+            setCourseSchedule(hour[start][1], hour[end][1]);
         }
     }
 
@@ -347,6 +310,6 @@ public class ScheduleFragment extends Fragment {
             }
             end = i;
         }
-        Log.d("DEBUG", "Data: " + data.toString());
+        Log.d("DEBUG", day + ": " + data.toString());
     }
 }
