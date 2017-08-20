@@ -1129,5 +1129,40 @@
             android:background="@color/cardview_dark_background" />
 
         <!--End of 22:00 PM Section-->
+
+        <!--Start of 22:30 PM Section-->
+
+        <TextView
+            android:id="@+id/pm_22_30__schedule_fra"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pm_22_00__schedule_fra"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="30dp"/>
+
+        <View
+            android:id="@+id/top_pm_22_30__schedule_fra"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:layout_alignTop="@+id/pm_22_30__schedule_fra" />
+
+        <View
+            android:id="@+id/bottom_pm_22_30__schedule_fra"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:layout_alignBottom="@+id/pm_22_30__schedule_fra" />
+
+        <View
+            android:id="@+id/line_pm_22_30__schedule_fra"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignBottom="@id/bottom_pm_22_30__schedule_fra"
+            android:layout_alignTop="@id/top_pm_22_30__schedule_fra"
+            android:layout_marginBottom="9dp"
+            android:layout_marginTop="9dp"
+            android:layout_toEndOf="@+id/pm_22_30__schedule_fra"
+            android:background="@color/cardview_dark_background" />
+
+        <!--End of 22:30 PM Section-->
     </RelativeLayout>
 </ScrollView>

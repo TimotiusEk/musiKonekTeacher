@@ -73,6 +73,10 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     void loginCall(){
+        /**
+         * [MOTI]
+         * Enter nya boros amat mas :)
+         */
 
 //        Log.d("ASDF","Called");
 
@@ -84,6 +88,7 @@ public class SignInActivity extends AppCompatActivity {
         String url = Connector.getURL() +"/api/v1/teacherLogin";
 
 
+
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
                     @Override
@@ -93,6 +98,7 @@ public class SignInActivity extends AppCompatActivity {
                             JSONObject res = new JSONObject(response);
 //                            String name = String.valueOf(res.get("name"));
                             Log.d("ASDF", "YOSAH + \n"+res.toString() );
+
 
                             if(res.getString("token")!=null){
 
@@ -119,6 +125,7 @@ public class SignInActivity extends AppCompatActivity {
                             }else{
                                 Toast.makeText(SignInActivity.this, "YOU NEED TO ACTIVATE YOUR ACCOUNT",Toast.LENGTH_SHORT);
                             }
+
 
 
 

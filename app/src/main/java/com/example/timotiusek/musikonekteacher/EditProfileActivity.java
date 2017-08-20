@@ -66,9 +66,6 @@ public class EditProfileActivity extends AppCompatActivity {
         }
         String url = Connector.getURL() +"/api/v1/teacher/getProfileData?token="+token;
 
-
-
-
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
