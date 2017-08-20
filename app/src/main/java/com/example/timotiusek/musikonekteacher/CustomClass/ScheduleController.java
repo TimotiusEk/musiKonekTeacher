@@ -82,7 +82,7 @@ public class ScheduleController {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     private Date parse(String timestamp) {
-                        DateFormat format = DateFormat.getDateTimeInstance();
+                        DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
                         Date date = null;
                         try {
                             date = format.parse(timestamp);
