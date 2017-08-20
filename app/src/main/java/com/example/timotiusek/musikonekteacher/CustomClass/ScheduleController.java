@@ -104,6 +104,8 @@ public class ScheduleController {
                                 appointmentList[i] = new ArrayList<>();
                             }
 
+                            Log.d("ASDF",response);
+
                             for(int i = 0; i < data.length(); i++) {
                                 JSONObject row = (JSONObject) data.get(i);
                                 time[i][0] = parse(row.getString("time_start"));
