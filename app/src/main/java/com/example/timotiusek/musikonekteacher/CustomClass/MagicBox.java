@@ -41,7 +41,7 @@ public class MagicBox {
     private static boolean valid(int h1, int m1, int h2, int m2) {
         return m1 % 30 == 0 && m2 % 30 == 0 &&
                 h1 * 60 + m1 >= 7 * 60 && h2 * 60 + m2 <= 23 * 60 &&
-                h1 * 60 + m2 < h2 * 60 + m2;
+                h1 * 60 + m1 < h2 * 60 + m2;
     }
 
     private static int d(int h1, int m1, int h2, int m2) {

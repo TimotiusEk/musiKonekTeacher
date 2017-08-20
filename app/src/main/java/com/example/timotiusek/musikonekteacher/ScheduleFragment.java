@@ -103,7 +103,7 @@ public class ScheduleFragment extends Fragment {
         try {
             updateView(data);
         } catch(NullPointerException e) {
-//            e.printStackTrace();
+            e.printStackTrace();
         }
 
         return v;
