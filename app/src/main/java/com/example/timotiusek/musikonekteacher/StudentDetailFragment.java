@@ -57,7 +57,7 @@ public class StudentDetailFragment extends Fragment {
         ButterKnife.bind(this, view);
 
         ma = (StudentListActivity) getActivity();
-        ma.setTitle(student.getStudentName());
+        ma.getSupportActionBar().setTitle(student.getStudentName());
 //        ma.clearCheckedItems();
         /**
          * todo : tentuin set checknya

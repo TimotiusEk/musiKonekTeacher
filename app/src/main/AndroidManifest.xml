@@ -62,6 +62,7 @@
         <activity android:name=".ShowReportActivity" />
         <activity android:name=".SkillCourseDetailActivity" />
         <activity android:name=".SetRevisedScheduleActivity" />
+        <activity android:name=".ShowReportDetailActivity"></activity>
         <activity android:name=".NewCourseActivity"></activity>
     </application>
 

@@ -1,11 +1,13 @@
 package com.example.timotiusek.musikonekteacher;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.timotiusek.musikonekteacher.CustomClass.Report;
@@ -44,6 +46,16 @@ public class ShowReportsFragment extends Fragment {
         reports.add(new Report("Laporan Minggu 2" , "8 Mei 1951, 12:39 WIB"));
         reportAdapter = new ReportAdapter(reports, getActivity());
         reportsLv.setAdapter(reportAdapter);
+
+        reportsLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                /**
+                 * todo : get the data and send it with bundle
+                 */
+                startActivity(new Intent(getActivity(), ShowReportDetailActivity.class));
+            }
+        });
         // Inflate the layout for this fragment
         return v;
     }
