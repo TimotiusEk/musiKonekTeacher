@@ -97,11 +97,18 @@ public class ScheduleController {
                         try {
                             JSONObject responseJSON = new JSONObject(response);
                             JSONArray data = responseJSON.optJSONArray("data");
+
                             JSONObject appointment = new JSONObject();
                             Date[][] time = new Date[data.length()][2];
                             ArrayList<String>[] appointmentList = (ArrayList<String>[]) new ArrayList[days.length];
                             for(int i = 0; i < appointmentList.length; i++) {
                                 appointmentList[i] = new ArrayList<>();
+                            }
+
+                            JSONObject additionalData = new JSONObject();
+                            ArrayList<String>[] addDataList = (ArrayList<String>[]) new ArrayList[days.length];
+                            for(int i = 0; i < addDataList.length; i++) {
+                                addDataList[i] = new ArrayList<>();
                             }
 
                             for(int i = 0; i < data.length(); i++) {
@@ -112,22 +119,34 @@ public class ScheduleController {
                                 for(int j = 0; j < days.length; j++) {
                                     if(dayOfWeek.equals(days[j])) {
                                         appointmentList[j].add(MagicBox.dateStartEndFormatter(time[i][0], time[i][1]));
-//                                        appointmentList[j] += appointmentList[j].equals("") ?
-//                                                MagicBox.dateStartEndFormatter(time[i][0], time[i][1]) :
-//                                                "," + MagicBox.dateStartEndFormatter(time[i][0], time[i][1]);
+
+                                        JSONObject bundle = new JSONObject();
+                                        bundle.put("student_name", row.getString("student_name"));
+                                        bundle.put("program_name", row.getString("program_name"));
+                                        addDataList[j].add(bundle.toString());
                                         break;
                                     }
                                 }
                             }
+
                             for(int i = 0; i < days.length; i++) {
                                 JSONArray appointmentForTheDay = new JSONArray();
                                 for(int j = 0; j < appointmentList[i].size(); j++) {
                                     appointmentForTheDay.put(appointmentList[i].get(j));
                                 }
                                 appointment.put(days[i], appointmentForTheDay);
+
+                                JSONArray additionalDataForTheDay = new JSONArray();
+                                for(int j = 0; j < addDataList[i].size(); j++) {
+                                    additionalDataForTheDay.put(addDataList[i].get(j));
+                                }
+                                additionalData.put(days[i], additionalDataForTheDay);
                             }
                             setAppointment(appointment);
-                            activity.onDataReady(MagicBox.decodeDataFromServer(schedule, ScheduleController.this.appointment));
+
+                            Log.d("DEBUG", ScheduleController.this.appointment.toString());
+                            activity.onDataReady(MagicBox.decodeDataFromServer(schedule, ScheduleController.this.appointment),
+                                                 additionalData);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

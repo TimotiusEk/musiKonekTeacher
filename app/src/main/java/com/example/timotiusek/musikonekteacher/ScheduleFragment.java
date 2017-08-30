@@ -20,6 +20,8 @@ import com.example.timotiusek.musikonekteacher.CustomClass.Schedule;
 import com.example.timotiusek.musikonekteacher.CustomClass.ScheduleController;
 
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -59,7 +61,8 @@ public class ScheduleFragment extends Fragment {
             {R.id.line_pm_21_00__schedule_fra, 21},
             {R.id.line_pm_21_30__schedule_fra, 2130},
             {R.id.line_pm_22_00__schedule_fra, 22},
-            {R.id.line_pm_22_30__schedule_fra, 2230}
+            {R.id.line_pm_22_30__schedule_fra, 2230},
+            {R.id.line_pm_23_00__schedule_fra, 23}
     };
 
     @BindView(R.id.current_date__schedule_fra) TextView currentDate;
@@ -70,6 +73,8 @@ public class ScheduleFragment extends Fragment {
     private Resources r;
     private String day = "";
     private JSONArray data = null;
+    private JSONArray additionalData = null;
+    private int additionalDataPointer = 0;
 
     public ScheduleFragment() {
         // Required empty public constructor
@@ -78,6 +83,10 @@ public class ScheduleFragment extends Fragment {
     public void setData(JSONArray data) {
         this.data = data;
 //        updateView(data);
+    }
+
+    public void setAdditionalData(JSONArray additionalData) {
+        this.additionalData = additionalData;
     }
 
     public ScheduleFragment(String day){
@@ -175,7 +184,7 @@ public class ScheduleFragment extends Fragment {
         scheduleRL.addView(card);
     }
 
-    private void setCourseSchedule(int start, int end /** todo: dibkin parameter 1 lagi (object) yg nampung semua informasi course**/){
+    private void setCourseSchedule(int start, int end, JSONObject data){
         initializeCard();
         int startId = 0;
         int endId = 0;
@@ -268,8 +277,12 @@ public class ScheduleFragment extends Fragment {
         courseDescription.setLayoutParams(paramsCourseDescription);
 
         card.setCardBackgroundColor(Color.parseColor("#E49b48")); //Fire Bush (Orange)
-        courseName.setText("Kursus Piano Pemula");
-        courseDescription.setText("Paket 6 kali pertemuan" + "\n" +"Hendra Sulaeman");
+        try {
+            courseName.setText(data.getString("student_name"));
+            courseDescription.setText(data.getString("program_name"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
         courseName.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16);
         courseName.setTextColor(Color.WHITE);
@@ -284,23 +297,31 @@ public class ScheduleFragment extends Fragment {
     }
 
     private void setCard(int code, int start, int end) {
+        Log.d("DEBUG", start + " " + end + " " + hour[start][1] + " " + hour[end][1]);
         if(code == ScheduleController.AVAILABLE) {
             setAvailability(hour[start][1], hour[end][1], true);
         } else if(code == ScheduleController.UNAVAILABLE) {
             setAvailability(hour[start][1], hour[end][1], false);
         } else if(code == ScheduleController.OCCUPIED) {
-            setCourseSchedule(hour[start][1], hour[end][1]);
+            try {
+                setCourseSchedule(hour[start][1], hour[end][1], additionalData.getJSONObject(additionalDataPointer));
+                additionalDataPointer++;
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 
     private void updateView(JSONArray data) {
         int start = 0, end = 0;
         for(int i = 1; i < data.length(); i++) {
+            end = i;
             if(i + 1 == data.length()) {
-                if(data.optInt(i - 1) == data.optInt(i)) {
-                    end = i;
+                Log.d("DEBUG", "This is the end");
+                if(data.optInt(i - 1) != data.optInt(i)) {
+                    setCard(data.optInt(i), i, i + 1);
                 } else {
-                    setCard(data.optInt(i), i, i);
+                    end = i + 1;
                 }
                 setCard(data.optInt(i - 1), start, end);
             }
@@ -308,7 +329,6 @@ public class ScheduleFragment extends Fragment {
                 setCard(data.optInt(i - 1), start, end);
                 start = i;
             }
-            end = i;
         }
         Log.d("DEBUG", day + ": " + data.toString());
     }
