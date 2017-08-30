@@ -304,7 +304,8 @@ public class ScheduleFragment extends Fragment {
             setAvailability(hour[start][1], hour[end][1], false);
         } else if(code == ScheduleController.OCCUPIED) {
             try {
-                setCourseSchedule(hour[start][1], hour[end][1], additionalData.getJSONObject(additionalDataPointer));
+                setCourseSchedule(hour[start][1], hour[end][1],
+                                  new JSONObject(additionalData.get(additionalDataPointer).toString()));
                 additionalDataPointer++;
             } catch (JSONException e) {
                 e.printStackTrace();
