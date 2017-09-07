@@ -22,6 +22,7 @@ import com.android.volley.toolbox.DiskBasedCache;
 import com.android.volley.toolbox.HurlStack;
 import com.android.volley.toolbox.StringRequest;
 import com.example.timotiusek.musikonekteacher.Helper.Connector;
+import com.example.timotiusek.musikonekteacher.Helper.TextFormater;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -80,16 +81,19 @@ public class EditProfileActivity extends AppCompatActivity {
                             String fullname = data.getString("fullname");
                             String username = data.getString("username");
 
+                            String firstname = TextFormater.firstNameSplitter(fullname);
+                            String lastname = TextFormater.lastNameSplitter(fullname);
+
                             JSONObject location = data.getJSONObject("address");
 
                             String x = location.getString("x");
                             String y  = location.getString("y");
 
                             EditText firstnameInput = (EditText) findViewById(R.id.firstname_input__edit_profile_act);
-                            firstnameInput.setText(fullname);
+                            firstnameInput.setText(firstname);
 
                             EditText lastnameInput = (EditText) findViewById(R.id.lastname_input__edit_profile_act);
-                            lastnameInput.setText(username);
+                            lastnameInput.setText(lastname);
 
                             /**
                              * todo : ini harusnya bukan fullname dan username
@@ -178,9 +182,6 @@ public class EditProfileActivity extends AppCompatActivity {
                             SharedPreferences sharedPreferences = getSharedPreferences("profile", Context.MODE_PRIVATE);
 
 
-
-                            EditText firstNameInput = (EditText) findViewById(R.id.firstname_input__edit_profile_act);
-
                             /**
                              * todo : disini ga ada username
                              */
@@ -238,21 +239,19 @@ public class EditProfileActivity extends AppCompatActivity {
 
                 EditText lastNameInput = (EditText) findViewById(R.id.lastname_input__edit_profile_act);
 
-//                EditText usernameText = (EditText) findViewById(R.id.input_username_sign_up);
+//                EditText usernameText = (EditText) findViewById(R.id.);
 //                EditText fullnameText  = (EditText)  findViewById(R.id.input_fullname_signup);
 
-                String firstname = firstNameInput.getText().toString();
-                String lastname = lastNameInput.getText().toString();
+//                String firstname = firstNameInput.getText().toString();
+//                String lastname = lastNameInput.getText().toString();
 
-//                String username = usernameText.getText().toString();
-//                String fullname = fullnameText.getText().toString();
+                String fullname = firstNameInput.getText().toString() + " " + lastNameInput.getText().toString();
 
                 /**
                  * todo : ini harusnya bukan fullnama sama username tp first name & last name
                  */
 
-//                reqBody.put("fullname", fullname);
-//                reqBody.put("username", username);
+                reqBody.put("fullname", fullname);
 
                 String token = "";
                 SharedPreferences sharedPreferences = getSharedPreferences("profile", Context.MODE_PRIVATE);

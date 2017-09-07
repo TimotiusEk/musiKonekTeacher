@@ -112,8 +112,8 @@ public class SignInActivity extends AppCompatActivity {
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.putString("email",inputEmail.getText().toString());
                                 editor.putString("token",res.getString("token"));
-                                editor.putString("username",res.getString("username"));
-                                Log.d("ASDF",res.getString("username"));
+                                editor.putString("fullname",res.getString("fullname"));
+//                                Log.d("ASDF",res.getString("username"));
                                 editor.apply();
 
 

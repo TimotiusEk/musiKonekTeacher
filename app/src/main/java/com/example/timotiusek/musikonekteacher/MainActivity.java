@@ -170,10 +170,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             email = sharedPreferences.getString("email","");
         }
 
-        if(!sharedPreferences.getString("username","").equals("")) {
-            username = sharedPreferences.getString("username","");
+        if(!sharedPreferences.getString("fullname","").equals("")) {
+            username = sharedPreferences.getString("fullname","");
         }else{
-            username = "username";
+            username = "fullname";
         }
     }
 

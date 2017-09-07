@@ -10,17 +10,17 @@ public class Attendance {
     private String whichAttendance; //Contoh : Pertemuan 1, Pertemuan 2, dst.
     private String studentName;
     private String appointmentID;
-    private boolean teacherAttendance;
+    private String teacherAttendance;
 
-    public boolean isTeacherAttendance() {
+    public String isTeacherAttendance() {
         return teacherAttendance;
     }
 
-    public void setTeacherAttendance(boolean teacherAttendance) {
+    public void setTeacherAttendance(String teacherAttendance) {
         this.teacherAttendance = teacherAttendance;
     }
 
-    public Attendance(int studentImage, String courseName, String whichAttendance, String studentName, String appointmentID, boolean teacherAttendance) {
+    public Attendance(int studentImage, String courseName, String whichAttendance, String studentName, String appointmentID, String teacherAttendance) {
         this.studentImage = studentImage;
         this.courseName = courseName;
         this.whichAttendance = whichAttendance;

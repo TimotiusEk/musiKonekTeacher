@@ -20,6 +20,31 @@ public class TextFormater {
         return "Kursus "+type;
     }
 
+    public static String formatDateSpacing(String date){
+        date = date.replace("   "," ");
+        date = date.replace("  "," ");
+
+        date = date.replace("Monday", "Senin, ");
+        date = date.replace("Tuesday", "Selasa, ");
+        date = date.replace("Wednesday", "Rabu, ");
+        date = date.replace("Thursday", "Kamis, ");
+        date = date.replace("Friday", "Jumat, ");
+        date = date.replace("Saturday", "Sabtu, ");
+        date = date.replace("Sunday", "Minggu, ");
+
+        date = date.replace("January","Januari");
+        date = date.replace("February","Januari");
+        date = date.replace("March","Januari");
+        date = date.replace("May","Januari");
+        date = date.replace("June","Januari");
+        date = date.replace("July","Januari");
+        date = date.replace("August","Januari");
+        date = date.replace("October","Oktober");
+        date = date.replace("December","Desember");
+
+        return date;
+    }
+
     public static String  formatTime(String timeStamp){
 
         timeStamp = timeStamp.replace("T"," ");
@@ -82,6 +107,35 @@ public class TextFormater {
 
         return pric;
 
+    }
+
+    public static String firstNameSplitter(String name){
+
+        String[] splited = name.split("\\s+");
+
+//        if(splited.length == 0 ){
+//            return "";
+//        }
+
+        String newString = "";
+
+        for(int i = 0; i < splited.length - 1 ; i++){
+            newString = newString + splited[i];
+        }
+
+        return newString;
+
+    }
+
+    public static String lastNameSplitter(String name){
+
+        String[] splited = name.split("\\s+");
+
+        if(splited.length == 0 ){
+            return name;
+        }
+
+        return splited[splited.length-1];
     }
 
 }

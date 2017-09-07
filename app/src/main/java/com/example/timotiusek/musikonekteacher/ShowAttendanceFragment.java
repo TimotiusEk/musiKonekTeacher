@@ -94,8 +94,8 @@ public class ShowAttendanceFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.d("ASDF","tur or fals "+attendances.get(position).isTeacherAttendance());
-                if(attendances.get(position).isTeacherAttendance()){
-                    Intent intent = new Intent(getActivity(), ShowReportActivity.class);
+                if(attendances.get(position).isTeacherAttendance().equalsIgnoreCase("true")){
+                    Intent intent = new Intent(getActivity(), ShowReportDetailActivity.class);
 
                     Bundle extras = new Bundle();
                     extras.putString("appointment_id",attendances.get(position).getAppointmentID());
@@ -103,8 +103,11 @@ public class ShowAttendanceFragment extends Fragment {
                     intent.putExtras(extras);
 
                     startActivity(intent);
-                }else{
+                }else if(attendances.get(position).isTeacherAttendance().equalsIgnoreCase("false")){
 
+
+                }
+                else{
                     Intent intent = new Intent(getActivity(), CreateReportActivity.class);
 
                     Bundle extras = new Bundle();
@@ -165,7 +168,13 @@ public class ShowAttendanceFragment extends Fragment {
 
                                 JSONObject jo =  arr.getJSONObject(i);
 
-                                attendances.add(new Attendance(R.drawable.avatar, student.getCourseName(), "Pertemuan "+(i+1), TextFormater.formatTime(jo.getString("appointment_time")), jo.getString("appointment_id"), jo.getBoolean("attendance_teacher")));
+                                if(jo.get("attendance_teacher").toString().equals("null")){
+                                    attendances.add(new Attendance(R.drawable.avatar, student.getCourseName(), "Pertemuan "+(i+1), TextFormater.formatTime(jo.getString("appointment_time")), jo.getString("appointment_id"), "null"));
+
+                                }else{
+                                    attendances.add(new Attendance(R.drawable.avatar, student.getCourseName(), "Pertemuan "+(i+1), TextFormater.formatTime(jo.getString("appointment_time")), jo.getString("appointment_id"), String.valueOf(jo.getBoolean("attendance_teacher"))));
+                                }
+
 
                             }
 

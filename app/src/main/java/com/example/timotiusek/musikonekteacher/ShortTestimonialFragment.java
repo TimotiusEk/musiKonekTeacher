@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RatingBar;
 import android.widget.Toast;
 
 import butterknife.BindView;
@@ -36,6 +37,10 @@ public class ShortTestimonialFragment extends Fragment {
 //        ma = (MainActivity) getActivity();
         //ma.clearCheckedItems();
         // Inflate the layout for this fragment
+
+        RatingBar ratingBar = (RatingBar) v.findViewById(R.id.rating_bar__short_testimonial_fra);
+        ratingBar.setNumStars(2);
+
         return v;
     }
 

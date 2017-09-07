@@ -138,7 +138,7 @@
             android:layout_weight="1"/>
 
         <Button
-            android:id="@+id/checkin_btn__create_report_act"
+            android:id="@+id/save_btn__create_report_act"
             android:layout_width="match_parent"
             android:layout_height="33dp"
             android:layout_gravity="bottom"
@@ -149,7 +149,7 @@
             />
 
         <Button
-            android:id="@+id/save_btn__create_report_act"
+            android:id="@+id/tolak_btn__create_report_act"
             android:layout_width="match_parent"
             android:layout_height="33dp"
             android:layout_gravity="center_horizontal|bottom"

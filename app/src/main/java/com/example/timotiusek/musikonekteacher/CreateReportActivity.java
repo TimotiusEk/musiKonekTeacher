@@ -1,8 +1,14 @@
 package com.example.timotiusek.musikonekteacher;
 
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.app.FragmentManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+//import android.support.v4.app.DialogFragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -53,13 +59,56 @@ public class CreateReportActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_report);
         getSupportActionBar().setTitle("Buat Laporan");
 
+        Button cancelButton = (Button) findViewById(R.id.tolak_btn__create_report_act);
+        cancelButton.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(CreateReportActivity.this, ReasonRejectActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
         Button submitButton = (Button) findViewById(R.id.save_btn__create_report_act);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                submitReport();
+
+
+                new ConfirmationDialogFragment().show(getFragmentManager(), "yeah");
             }
         });
+
+    }
+
+    class ConfirmationDialogFragment extends DialogFragment {
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
+            alertDialogBuilder.setTitle("Konfirmasi");
+            alertDialogBuilder.setMessage("Laporan tidak bisa dirubah setelah dikirim, apakah anda yakin?");
+            //null should be your on click listener
+            alertDialogBuilder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    submitReport();
+                }
+            });
+            alertDialogBuilder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+
+
+            return alertDialogBuilder.create();
+        }
 
     }
 
