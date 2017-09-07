@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.android.volley.Cache;
@@ -79,7 +80,7 @@ public class EditProfileActivity extends AppCompatActivity {
                             JSONObject data = res.getJSONObject("data");
 
                             String fullname = data.getString("fullname");
-                            String username = data.getString("username");
+
 
                             String firstname = TextFormater.firstNameSplitter(fullname);
                             String lastname = TextFormater.lastNameSplitter(fullname);
@@ -94,6 +95,14 @@ public class EditProfileActivity extends AppCompatActivity {
 
                             EditText lastnameInput = (EditText) findViewById(R.id.lastname_input__edit_profile_act);
                             lastnameInput.setText(lastname);
+
+                            Spinner genderSpinner = (Spinner) findViewById(R.id.gender__edit_profile_act);
+
+                            if(data.getString("gender").equalsIgnoreCase("male")){
+                                genderSpinner.setSelection(0);
+                            }else{
+                                genderSpinner.setSelection(1);
+                            }
 
                             /**
                              * todo : ini harusnya bukan fullname dan username
@@ -246,6 +255,11 @@ public class EditProfileActivity extends AppCompatActivity {
 //                String lastname = lastNameInput.getText().toString();
 
                 String fullname = firstNameInput.getText().toString() + " " + lastNameInput.getText().toString();
+
+                Spinner genderSpinner = (Spinner) findViewById(R.id.gender__edit_profile_act);
+
+
+                reqBody.put("gender", genderSpinner.getSelectedItem().toString());
 
                 /**
                  * todo : ini harusnya bukan fullnama sama username tp first name & last name

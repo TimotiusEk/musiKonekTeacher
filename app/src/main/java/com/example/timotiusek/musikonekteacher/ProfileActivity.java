@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,6 +40,8 @@ public class ProfileActivity extends AppCompatActivity {
 
     String fullname = "JONATHAN ";
 
+    TextView genderText;
+
     CollapsingToolbarLayout ctl;
 
     @Override
@@ -48,6 +51,9 @@ public class ProfileActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         ctl = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar__profile_act);
+
+        genderText = (TextView) findViewById(R.id.gender__profile_act);
+
 
         callGetMyProfile();
 
@@ -105,11 +111,18 @@ public class ProfileActivity extends AppCompatActivity {
                             ctl.setTitle(fullname);
                             Log.d("ASDF","fullname"+fullname);
 
+                            if(data.getString("gender").equals("null") || data.getString("gender")==null){
+                                genderText.setText("Unspecified");
+                            }else{
+                                genderText.setText(data.getString("gender"));
+                            }
+
                             TextView emailText = (TextView) findViewById(R.id.email__profile_act);
                             emailText.setText(email);
 
                             TextView addressText = (TextView) findViewById(R.id.address__profile_act);
                             addressText.setText("long : "+x+"\t"+"lang : "+y);
+
 
 
                             Log.d("ASDF",res.toString());
