@@ -142,12 +142,12 @@ public class OrderPaymentFragment extends Fragment {
                             for (int i = 0; i < arr.length(); i++) {
                                 JSONObject jo = arr.getJSONObject(i);
 
-                                String instrument = jo.getString("instrument");
+                                String name = jo.getString("name");
                                 String student_name = jo.getString("student_name");
                                 String appointment = jo.getString("appointments");
                                 String status = jo.getString("status_name");
 
-                                notFilteredPayments.add(new Order(R.drawable.avatar, TextFormater.formatCourse(instrument), TextFormater.format(Integer.valueOf(appointment)), student_name, status));
+                                notFilteredPayments.add(new Order(R.drawable.avatar, name, TextFormater.format(Integer.valueOf(appointment)), student_name, status));
 //
 
                             }
@@ -211,6 +211,7 @@ public class OrderPaymentFragment extends Fragment {
 
     public void filterOrder() {
         //if(status.equals("PENDING")){
+        scheduledPayments.clear();
         for (Order notFilteredOrder : notFilteredPayments) {
             if (notFilteredOrder.getStatus().equalsIgnoreCase("WAITING FOR PAYMENT")) {
                 scheduledPayments.add(notFilteredOrder);
@@ -237,6 +238,7 @@ public class OrderPaymentFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        paidPayments.clear();
         // } //else if(status.equals("ACCEPTED")){
         for (Order notFilteredOrder : notFilteredPayments) {
             if (notFilteredOrder.getStatus().equalsIgnoreCase("RUNNING")) {

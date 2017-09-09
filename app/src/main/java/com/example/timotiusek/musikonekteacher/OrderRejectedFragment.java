@@ -124,12 +124,12 @@ public class OrderRejectedFragment extends Fragment {
                             for (int i = 0; i < arr.length(); i++) {
                                 JSONObject jo = arr.getJSONObject(i);
 
-                                String instrument = jo.getString("instrument");
+                                String name = jo.getString("name");
                                 String student_name = jo.getString("student_name");
                                 String appointment = jo.getString("appointments");
                                 String status = jo.getString("status_name");
 
-                                notFilteredOrders.add(new Order(R.drawable.avatar, TextFormater.formatCourse(instrument), TextFormater.format(Integer.valueOf(appointment)), student_name, status));
+                                notFilteredOrders.add(new Order(R.drawable.avatar, name, TextFormater.format(Integer.valueOf(appointment)), student_name, status));
 //
 
                             }
@@ -193,8 +193,9 @@ public class OrderRejectedFragment extends Fragment {
 
     public void filterOrder() {
         //if(status.equals("PENDING")){
+        filteredOrders.clear();
         for (Order notFilteredOrder : notFilteredOrders) {
-            if (notFilteredOrder.getStatus().equalsIgnoreCase("REQUESTED")) {
+            if (notFilteredOrder.getStatus().equalsIgnoreCase("REJECTED")) {
                 filteredOrders.add(notFilteredOrder);
             }
         }
