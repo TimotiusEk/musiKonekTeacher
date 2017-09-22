@@ -34,7 +34,7 @@ public class EarningLayoutFragment extends Fragment {
         ButterKnife.bind(this, view);
 
         ma = (MainActivity) getActivity();
-        ma.setTitle("Earning Page");
+        ma.getSupportActionBar().setTitle("Earnings");
         //ma.clearCheckedItems();
 
         /**

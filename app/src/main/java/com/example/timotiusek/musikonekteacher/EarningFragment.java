@@ -159,13 +159,13 @@ public class EarningFragment extends Fragment {
                             for (int i = 0; i < arr.length(); i++) {
                                 JSONObject jo = arr.getJSONObject(i);
 
-                                String instrument = jo.getString("instrument");
+                                String name = jo.getString("name");
                                 String student_name = jo.getString("student_name");
                                 String appointment = jo.getString("appointments");
                                 String status = jo.getString("status_name");
                                 String id = jo.getString("course_id");
 
-                                notFilteredEarnings.add(new Earning(R.drawable.avatar, TextFormater.formatCourse(instrument), TextFormater.format(Integer.valueOf(appointment)), student_name, status, id));
+                                notFilteredEarnings.add(new Earning(R.drawable.avatar, name, TextFormater.format(Integer.valueOf(appointment)), student_name, status, id));
 //
 
                             }
@@ -229,11 +229,21 @@ public class EarningFragment extends Fragment {
 
     void filterEarnings(){
         filteredEarnings.clear();
-        for (Earning notFilteredEarning : notFilteredEarnings) {
-            if (notFilteredEarning.getStatus().equalsIgnoreCase("RUNNING")) {
-                filteredEarnings.add(notFilteredEarning);
+        Log.d("ASDF","status is "+status);
+        if(status.equalsIgnoreCase("FINISHED")){
+            for (Earning notFilteredEarning : notFilteredEarnings) {
+                if (notFilteredEarning.getStatus().equalsIgnoreCase("DONE")) {
+                    filteredEarnings.add(notFilteredEarning);
+                }
+            }
+        }else if(status.equalsIgnoreCase("EXISTING")){
+            for (Earning notFilteredEarning : notFilteredEarnings) {
+                if (notFilteredEarning.getStatus().equalsIgnoreCase("RUNNING")) {
+                    filteredEarnings.add(notFilteredEarning);
+                }
             }
         }
+
         listView.setAdapter(new EarningAdapter(filteredEarnings, getActivity()));
 
     }

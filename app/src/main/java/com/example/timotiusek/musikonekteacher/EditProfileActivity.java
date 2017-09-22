@@ -90,6 +90,9 @@ public class EditProfileActivity extends AppCompatActivity {
                             String x = location.getString("x");
                             String y  = location.getString("y");
 
+                            EditText addressText = (EditText) findViewById(R.id.address__edit_profile_act);
+                            addressText.setText(data.getString("address_string"));
+
                             EditText firstnameInput = (EditText) findViewById(R.id.firstname_input__edit_profile_act);
                             firstnameInput.setText(firstname);
 
@@ -248,6 +251,8 @@ public class EditProfileActivity extends AppCompatActivity {
 
                 EditText lastNameInput = (EditText) findViewById(R.id.lastname_input__edit_profile_act);
 
+                EditText addressInput = (EditText) findViewById(R.id.address__edit_profile_act);
+
 //                EditText usernameText = (EditText) findViewById(R.id.);
 //                EditText fullnameText  = (EditText)  findViewById(R.id.input_fullname_signup);
 
@@ -266,6 +271,7 @@ public class EditProfileActivity extends AppCompatActivity {
                  */
 
                 reqBody.put("fullname", fullname);
+                reqBody.put("address_string",addressInput.getText().toString());
 
                 String token = "";
                 SharedPreferences sharedPreferences = getSharedPreferences("profile", Context.MODE_PRIVATE);

@@ -121,7 +121,10 @@ public class ProfileActivity extends AppCompatActivity {
                             emailText.setText(email);
 
                             TextView addressText = (TextView) findViewById(R.id.address__profile_act);
-                            addressText.setText("long : "+x+"\t"+"lang : "+y);
+
+                            String stringAddress = data.getString("address_string");
+
+                            addressText.setText(stringAddress+"\nlong : "+x+"\t"+"lang : "+y);
 
 
 

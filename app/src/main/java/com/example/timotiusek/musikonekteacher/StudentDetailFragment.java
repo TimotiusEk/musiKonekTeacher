@@ -83,7 +83,7 @@ public class StudentDetailFragment extends Fragment {
         {
             switch (position){
                 case 0 : return ShowAttendanceFragment.newInstance(student);
-                case 1 : return new ShortTestimonialFragment();
+                case 1 : return ShortTestimonialFragment.newInstance(student);
                 case 2 :  return StudentDetailScheduleFragment.newInstance(student);
             }
             return null;

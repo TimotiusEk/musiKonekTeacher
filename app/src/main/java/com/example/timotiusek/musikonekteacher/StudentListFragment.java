@@ -138,13 +138,13 @@ public class StudentListFragment extends Fragment {
                             for(int i=0;i<arr.length();i++){
                                 JSONObject jo =  arr.getJSONObject(i);
 
-                                String instrument = jo.getString("instrument");
+                                String name = jo.getString("name");
                                 String student_name = jo.getString("student_name");
                                 String appointment = jo.getString("appointments");
                                 String course = jo.getString("course_id");
                                 //String status = jo.getString("status_name");
 
-                                filteredStudents.add(new Student(R.drawable.avatar, TextFormater.formatCourse(instrument), TextFormater.format(Integer.valueOf(appointment)),student_name, status, course));
+                                filteredStudents.add(new Student(R.drawable.avatar, name, TextFormater.format(Integer.valueOf(appointment)),student_name, status, course));
 //
 
                             }
