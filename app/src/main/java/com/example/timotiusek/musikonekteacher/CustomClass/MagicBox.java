@@ -63,6 +63,7 @@ public class MagicBox {
                 int h2 = Integer.parseInt(m.group(3));
                 int m2 = Integer.parseInt(m.group(4));
                 if(!valid(h1, m1, h2, m2)) {
+                    Log.d("DEBUG", h1 + ":" + m1 + ", " + h2 + ":" + m2);
                     throw new DataFormatException("Date passed in the argument must be in range of [07:00, 23:00] and have minute value of 0 or 30");
                 }
                 output |= (((int) Math.pow(2, d(h1, m1, h2, m2)) - 1) << l(h1, m1, h2, m2));
