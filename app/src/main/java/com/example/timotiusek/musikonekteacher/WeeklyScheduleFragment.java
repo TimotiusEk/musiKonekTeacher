@@ -21,6 +21,7 @@ import android.widget.ProgressBar;
 import com.example.timotiusek.musikonekteacher.CustomClass.Schedule;
 import com.example.timotiusek.musikonekteacher.CustomClass.ScheduleController;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import butterknife.BindView;
@@ -94,10 +95,11 @@ public class WeeklyScheduleFragment extends Fragment {
         return view;
     }
 
-    public void onDataReady(JSONObject data) {
+    public void onDataReady(JSONObject data, JSONObject additionalData) {
         Log.d("DEBUG", "Fetched: " + data.toString());
         for(int i = 0; i < ScheduleController.days.length; i++) {
             scheduleFragments[i].setData(data.optJSONArray(ScheduleController.days[i]));
+            scheduleFragments[i].setAdditionalData(additionalData.optJSONArray(ScheduleController.days[i]));
         }
 
         loading.setVisibility(View.GONE);
