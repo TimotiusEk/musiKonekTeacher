@@ -147,9 +147,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if(id == R.id.menu_earning){
             changeFragment(new EarningLayoutFragment());
         } else if(id == R.id.menu_set_schedule){
-            /**
-             * todo : what happen if menu is clicked
-             */
+            startActivity(new Intent(this, SetScheduleActivity.class));
         }
         else if(id == R.id.menu_logout){
             logout();
