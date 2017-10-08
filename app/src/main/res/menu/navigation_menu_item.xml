@@ -51,6 +51,12 @@
             />
 
         <item
+            android:id="@+id/menu_set_schedule"
+            android:icon="@drawable/ic_event_black_24dp"
+            android:title="Set Schedule"
+            />
+
+        <item
             android:id="@+id/menu_logout"
             android:icon="@drawable/ic_exit_to_app_black_24dp"
             android:title="Logout"
