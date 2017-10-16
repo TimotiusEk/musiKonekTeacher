@@ -1,0 +1,165 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.timotiusek.musikonekteacher.HomeFragment"
+    android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:padding="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:text="Anda memiliki"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/lightColorPrimary"
+                android:text="999"
+                android:textSize="50sp"
+                android:textStyle="bold"
+                android:id="@+id/show_number_of_registered_students__home_fra"
+                android:layout_marginBottom="-10dp"
+                android:layout_marginTop="-10dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/lightColorPrimary"
+                android:text="murid terdaftar dalam kursus"
+                android:textStyle="bold"
+                />
+
+            <Button
+                android:id="@+id/registered_students_list_btn__home_fra"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:background="@drawable/round_btn"
+                android:text="Lihat Murid"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="10dp"
+                />
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:padding="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:text="Anda memiliki"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/lightColorPrimary"
+                android:text="999"
+                android:textSize="50sp"
+                android:textStyle="bold"
+                android:id="@+id/show_number_of_requests__home_fra"
+                android:layout_marginBottom="-10dp"
+                android:layout_marginTop="-10dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/lightColorPrimary"
+                android:text="pendaftaran murid kursus baru"
+                android:textStyle="bold"
+                />
+
+            <Button
+                android:id="@+id/requests_list_btn__home_fra"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:background="@drawable/round_btn"
+                android:text="Lihat Permintaan"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="10dp"
+                />
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:padding="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:text="Anda memiliki"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/lightColorPrimary"
+                android:text="99"
+                android:textSize="50sp"
+                android:textStyle="bold"
+                android:id="@+id/show_number_of_meetings__home_fra"
+                android:layout_marginBottom="-10dp"
+                android:layout_marginTop="-10dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/lightColorPrimary"
+                android:text="Pertemuan minggu ini"
+                android:textStyle="bold"
+                />
+
+            <Button
+                android:id="@+id/open_schedule_btn__home_fra"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:background="@drawable/round_btn"
+                android:text="Lihat Jadwal"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="10dp"
+                />
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
