@@ -22,7 +22,6 @@
     </style>
 
     <style name="NoActionBarTheme" parent="AppTheme">
-        <!-- Customize your theme here. -->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
