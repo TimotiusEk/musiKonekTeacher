@@ -50,7 +50,7 @@
         <activity android:name=".EditCourseActivity" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/NoActionBarTheme"></activity>
+            android:theme="@style/NoActionBarTheme"/>
         <activity android:name=".AddSkillActivity" />
         <activity android:name=".EditSkillActivity" />
         <activity

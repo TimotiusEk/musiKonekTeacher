@@ -17,6 +17,7 @@ import butterknife.OnClick;
  */
 public class HomeFragment extends Fragment {
 
+    MainActivity ma;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -27,30 +28,28 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
-        ButterKnife.bind(v, getActivity());
+        ButterKnife.bind(this, v);
+        ma = (MainActivity) getActivity();
         // Inflate the layout for this fragment
         return v;
     }
 
     @OnClick(R.id.registered_students_list_btn__home_fra)
     public void openRegisteredStudentsList(){
-        /**
-         * todo : redirect to list of registered student
-         */
+        ma.changeFragment(new StudentListLayoutFragment());
+        ma.setChecked(R.id.menu_student);
     }
 
     @OnClick(R.id.requests_list_btn__home_fra)
     public void openRequestsList(){
-        /**
-         * todo : redirect to list of requests
-         */
+        ma.changeFragment(new OrderLayoutFragment());
+        ma.setChecked(R.id.menu_order);
     }
 
     @OnClick(R.id.open_schedule_btn__home_fra)
     public void openTeacherSchedule(){
-        /**
-         * todo : redirect to teacher schedule
-         */
+        ma.changeFragment(new WeeklyScheduleFragment());
+        ma.setChecked(R.id.menu_schedule);
     }
 
 }
