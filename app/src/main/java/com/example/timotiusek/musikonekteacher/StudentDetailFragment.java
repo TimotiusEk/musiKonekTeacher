@@ -20,10 +20,8 @@ import butterknife.ButterKnife;
  * A simple {@link Fragment} subclass.
  */
 public class StudentDetailFragment extends Fragment {
-    @BindView(R.id.tab_layout__student_detail_fra)
-    TabLayout tabLayout;
-    @BindView(R.id.view_pager__student_detail_fra)
-    ViewPager viewPager;
+    @BindView(R.id.tab_layout__student_detail_fra) TabLayout tabLayout;
+    @BindView(R.id.view_pager__student_detail_fra) ViewPager viewPager;
     StudentListActivity ma;
 
     public Student getStudent() {
@@ -41,13 +39,10 @@ public class StudentDetailFragment extends Fragment {
     }
 
     public static StudentDetailFragment newInstance(Student student){
-
         StudentDetailFragment sdf = new StudentDetailFragment();
         sdf.setStudent(student);
 
         return sdf;
-
-
     }
 
     @Override

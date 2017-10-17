@@ -1,32 +1,202 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.timotiusek.musikonekteacher.SetScheduleActivity"
-    android:padding="15dp">
+    tools:context="com.example.timotiusek.musikonekteacher.SetScheduleActivity">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/show_scheduled_date__set_schedule_act"
-        android:layout_centerInParent="true"
-        android:textColor="@android:color/black"
-        android:textSize="24sp"
-        android:cursorVisible="false"
-        android:editable="false"
-       />
-
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="33dp"
-        android:text="PASANG"
-        android:textColor="@android:color/white"
-        android:background="@drawable/round_btn"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/send_btn__set_schedule_act"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="26dp">
 
-        />
+        <!--============================================================-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Senin"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
 
-</RelativeLayout>
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/monday__set_schedule_act" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add another available time"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/monday_add__set_schedule_act"/>
+        <!--============================================================-->
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="25dp" />
+
+        <!--============================================================-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selasa"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tuesday__set_schedule_act" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add another available time"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/tuesday_add__set_schedule_act"/>
+        <!--============================================================-->
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="25dp" />
+
+        <!--============================================================-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rabu"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/wednessday__set_schedule_act" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add another available time"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/wednessday_add__set_schedule_act"/>
+        <!--============================================================-->
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="25dp" />
+
+        <!--============================================================-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kamis"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/thursday__set_schedule_act" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add another available time"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/thursday_add__set_schedule_act"/>
+        <!--============================================================-->
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="25dp" />
+
+        <!--============================================================-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jumat"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/friday__set_schedule_act" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add another available time"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/friday_add__set_schedule_act"/>
+        <!--============================================================-->
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="25dp" />
+
+        <!--============================================================-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sabtu"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/saturday__set_schedule_act" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add another available time"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/saturday_add__set_schedule_act"/>
+        <!--============================================================-->
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="25dp" />
+
+        <!--============================================================-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Minggu"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/sunday__set_schedule_act" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add another available time"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/sunday_add__set_schedule_act"/>
+        <!--============================================================-->
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="25dp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="PASANG"
+            android:textColor="@android:color/white"
+            android:background="@drawable/round_btn"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/send_btn__set_schedule_act" />
+
+    </LinearLayout>
+
+</ScrollView>
