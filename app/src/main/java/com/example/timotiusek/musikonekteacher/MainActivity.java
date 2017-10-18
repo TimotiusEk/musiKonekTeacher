@@ -124,17 +124,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.menu_home) {
             toolbar.setTitle("Beranda");
-            changeFragment(new ShowReportsFragment());
-            /**
-             * Todo: add menu_home behaviour
-             */
-        } else if(id == R.id.menu_course){
-            toolbar.setTitle("Kursus");
-            changeFragment(new UnderDevelopmentFragment());
-            /**
-             * Todo: add menu_course behaviour
-             */
-        } else if(id == R.id.menu_profile){
+            changeFragment(new HomeFragment());
+
+        }
+//        else if(id == R.id.menu_course){
+//            toolbar.setTitle("Kursus");
+//            changeFragment(new UnderDevelopmentFragment());
+//            /**
+//             */
+//        }
+        else if(id == R.id.menu_profile){
             startActivity(new Intent(this, ProfileActivity.class));
         } else if(id == R.id.menu_skill){
             changeFragment(new ShowSkillFragment());

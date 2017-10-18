@@ -98,6 +98,9 @@ public class CourseDetailActivity extends AppCompatActivity {
             token = sharedPreferences.getString("token","");
         }
 
+        final DelayedProgressDialog dialog = new DelayedProgressDialog();
+        dialog.show(getSupportFragmentManager(),"loading");
+        dialog.setCancelable(false);
 
         RequestQueue requestQueue;
         Cache cache = new DiskBasedCache(getCacheDir(), 1024 * 1024); // 1MB cap
@@ -111,6 +114,8 @@ public class CourseDetailActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+
+                        dialog.cancel();
 
                         try {
                             JSONObject res = new JSONObject(response);
@@ -175,6 +180,8 @@ public class CourseDetailActivity extends AppCompatActivity {
                             }
 
                         }
+
+                        finish();
 
 
 
