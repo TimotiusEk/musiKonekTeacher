@@ -124,12 +124,13 @@ public class OrderRejectedFragment extends Fragment {
                             for (int i = 0; i < arr.length(); i++) {
                                 JSONObject jo = arr.getJSONObject(i);
 
+                                int id = jo.getInt("course_id");
                                 String name = jo.getString("name");
                                 String student_name = jo.getString("student_name");
                                 String appointment = jo.getString("appointments");
                                 String status = jo.getString("status_name");
 
-                                notFilteredOrders.add(new Order(R.drawable.avatar, name, TextFormater.format(Integer.valueOf(appointment)), student_name, status));
+                                notFilteredOrders.add(new Order(id, R.drawable.avatar, name, TextFormater.format(Integer.valueOf(appointment)), student_name, status));
 //
 
                             }

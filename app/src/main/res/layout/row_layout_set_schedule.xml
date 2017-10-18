@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:rowCount="2"
+    android:columnCount="2">
+
+    <TextView
+        android:text="Start"
+        android:layout_columnWeight="1"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:text="End"
+        android:layout_columnWeight="1"
+        android:layout_gravity="center"/>
+
+    <Spinner
+        android:id="@+id/start_spinner__set_schedule_rl"
+        android:layout_gravity="center"
+        android:popupBackground="#ffffff"/>
+
+    <Spinner
+        android:id="@+id/end_spinner__set_schedule_rl"
+        android:layout_gravity="center"
+        android:popupBackground="#ffffff"/>
+
+</GridLayout>

@@ -1,6 +1,8 @@
 package com.example.timotiusek.musikonekteacher.CustomClass;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -16,6 +18,8 @@ import com.android.volley.toolbox.DiskBasedCache;
 import com.android.volley.toolbox.HurlStack;
 import com.android.volley.toolbox.StringRequest;
 import com.example.timotiusek.musikonekteacher.Helper.Connector;
+import com.example.timotiusek.musikonekteacher.SetScheduleActivity;
+import com.example.timotiusek.musikonekteacher.ViewOrderActivity;
 import com.example.timotiusek.musikonekteacher.WeeklyScheduleFragment;
 
 import org.json.JSONArray;
@@ -28,7 +32,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.EmptyStackException;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 /**
  * Created by MOTI on 04/07/2017.
@@ -238,5 +245,150 @@ public class ScheduleController {
 
     public void getDataAsync(final WeeklyScheduleFragment activity) {
         getSchedule(activity, activity.getContext());
+    }
+
+    public void saveDataAsync(final SetScheduleActivity activity, final int[] schedule) {
+        for(int i : schedule) {
+            Log.d("DEBUG", i+ "");
+        }
+        RequestQueue requestQueue;
+        Cache cache = new DiskBasedCache(activity.getCacheDir(), 1024 * 1024); // 1MB cap
+        final Network network = new BasicNetwork(new HurlStack());
+        requestQueue = new RequestQueue(cache, network);
+        requestQueue.start();
+
+        String url = Connector.getURL() +"/api/v1/schedule/createNewSchedule";
+
+        StringRequest stringRequest = new StringRequest(Request.Method.PUT, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject res = new JSONObject(response);
+                            Log.d("DEBUG", res.toString());
+                            if(res.getBoolean("success")) {
+                                Toast.makeText(activity, "Jadwal Berhasil Disimpan", Toast.LENGTH_LONG).show();
+                                if(activity instanceof SetScheduleActivity) {
+                                    ((SetScheduleActivity) activity).onDataSaved();
+                                }
+                            } else {
+                                Toast.makeText(activity, "Simpan Jadwal Gagal", Toast.LENGTH_LONG).show();
+                                Log.d("DEBUG", res.get("data").toString());
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        if(error.networkResponse == null) {
+                            Toast.makeText(activity, "Connection Error",Toast.LENGTH_SHORT).show();
+                        } else if(error.networkResponse.statusCode == 403) {
+                            Toast.makeText(activity, "TOKEN INVALID, PLEASE RE-LOG",Toast.LENGTH_SHORT).show();
+                        } else if(error.networkResponse.statusCode == 500) {
+                            Toast.makeText(activity, "INVALID CREDENTIALS",Toast.LENGTH_SHORT).show();
+                        } else if(error.networkResponse.statusCode != 401) {
+                            Log.d("DEBUG","Error 401");
+                        } else {
+                            Toast.makeText(activity, "Unknown error: " + error.networkResponse.statusCode, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }) {
+
+            @Override
+            protected Map<String,String> getParams(){
+                Map<String,String> reqBody = new HashMap<String, String>();
+                reqBody.put("token", activity.getSharedPreferences("profile", Context.MODE_PRIVATE).getString("token", ""));
+                reqBody.put("mondayTime", String.valueOf(schedule[0]));
+                reqBody.put("tuesdayTime", String.valueOf(schedule[1]));
+                reqBody.put("wednessdayTime", String.valueOf(schedule[2]));
+                reqBody.put("thursdayTime", String.valueOf(schedule[3]));
+                reqBody.put("fridayTime", String.valueOf(schedule[4]));
+                reqBody.put("saturdayTime", String.valueOf(schedule[5]));
+                reqBody.put("sundayTime", String.valueOf(schedule[6]));
+
+                return reqBody;
+            }
+
+            @Override
+            protected Response<String> parseNetworkResponse(NetworkResponse response) {
+                return super.parseNetworkResponse(response);
+            }
+        };
+        requestQueue.add(stringRequest);
+    }
+
+    public static void getActiveSchedule(final Activity activity) {
+        SharedPreferences sharedPreferences = activity.getSharedPreferences("profile", Context.MODE_PRIVATE);
+        String token = sharedPreferences.getString("token", "");
+
+        RequestQueue requestQueue;
+        Cache cache = new DiskBasedCache(activity.getCacheDir(), 1024 * 1024); // 1MB cap
+        final Network network = new BasicNetwork(new HurlStack());
+        requestQueue = new RequestQueue(cache, network);
+        requestQueue.start();
+        String url = Connector.getURL() + "/api/v1/schedule/getTeacherLatestSchedule?token=" + token;
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        JSONObject output = new JSONObject();
+                        try {
+                            JSONObject res = new JSONObject(response);
+                            Log.d("DEBUG", res.toString());
+                            JSONArray arr = res.getJSONArray("data");
+                            if(arr.length() == 0) {
+                                Toast.makeText(activity, "No active schedule", Toast.LENGTH_SHORT).show();
+                                if(activity instanceof SetScheduleActivity) {
+                                    ((SetScheduleActivity) activity).onDataReady(output);
+                                }
+                                return;
+                            }
+                            JSONObject row = (JSONObject) arr.get(0);
+                            JSONObject noAppointment = new JSONObject();
+                            for(String day : days) {
+                                noAppointment.put(day, new JSONArray());
+                            }
+                            output = MagicBox.decodeDataFromServer(
+                                    new int[]{(int) row.get("monday"),(int) row.get("tuesday"),(int) row.get("wednesday"),
+                                            (int) row.get("thursday"),(int) row.get("friday"),(int) row.get("saturday"),
+                                            (int) row.get("sunday")},
+                                    noAppointment);
+                            if(activity instanceof SetScheduleActivity) {
+                                ((SetScheduleActivity) activity).onDataReady(output);
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                        NetworkResponse networkResponse = error.networkResponse;
+                        if (networkResponse == null) {
+                            Toast.makeText(activity, "Connection Error", Toast.LENGTH_SHORT).show();
+                        } else {
+                            if (networkResponse.statusCode == 403) {
+                                Toast.makeText(activity, "TOKEN INVALID, PLEASE RE LOG", Toast.LENGTH_SHORT).show();
+                            } else if (networkResponse.statusCode == 500) {
+                                Toast.makeText(activity, "INVALID CREDENTIALS", Toast.LENGTH_SHORT).show();
+                            } else if (networkResponse.statusCode != 401) {
+                                Log.d("ASDF", "SHIT");
+                            }
+                        }
+                    }
+                }) {
+
+            @Override
+            protected Response<String> parseNetworkResponse(NetworkResponse response) {
+                return super.parseNetworkResponse(response);
+            }
+        };
+        requestQueue.add(stringRequest);
     }
 }

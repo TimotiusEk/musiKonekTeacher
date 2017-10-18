@@ -50,7 +50,7 @@
         <activity android:name=".EditCourseActivity" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/NoActionBarTheme"></activity>
+            android:theme="@style/NoActionBarTheme" />
         <activity android:name=".AddSkillActivity" />
         <activity android:name=".EditSkillActivity" />
         <activity
@@ -62,8 +62,8 @@
         <activity android:name=".ShowReportActivity" />
         <activity android:name=".SkillCourseDetailActivity" />
         <activity android:name=".SetRevisedScheduleActivity" />
-        <activity android:name=".ShowReportDetailActivity"></activity>
-        <activity android:name=".NewCourseActivity"></activity>
+        <activity android:name=".ShowReportDetailActivity" />
+        <activity android:name=".NewCourseActivity" />
     </application>
 
 </manifest>

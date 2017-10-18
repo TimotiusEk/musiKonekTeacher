@@ -45,16 +45,14 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class StudentListFragment extends Fragment {
-    String status = "";
-    ArrayList<Student> filteredStudents;
+public class  StudentListFragment extends Fragment {
 
-    @BindView(R.id.students_lv__student_list_fra)
-    ListView listView;
+    @BindView(R.id.students_lv__student_list_fra) ListView listView;
 
-    MainActivity ma;
-
-    StudentAdapter studentAdapter;
+    private String status = "";
+    private ArrayList<Student> filteredStudents;
+    private MainActivity ma;
+    private StudentAdapter studentAdapter;
 
     public StudentListFragment() {
         // Required empty public constructor
@@ -63,7 +61,6 @@ public class StudentListFragment extends Fragment {
     public StudentListFragment(String status){
         this.status = status;
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -90,32 +87,21 @@ public class StudentListFragment extends Fragment {
                 intent.putExtras(extras);
 
                 startActivity(intent);
-
-//                ma.changeFragment(new StudentDetailFragment());
             }
         });
         filteredStudents = new ArrayList<>();
         studentAdapter = new StudentAdapter(filteredStudents, ma);
-
-
         populateStudents();
-
-        // Inflate the layout for this fragment
         return v;
     }
 
     private void populateStudents(){
-
-
-//
         SharedPreferences sharedPreferences = getContext().getSharedPreferences("profile", Context.MODE_PRIVATE);
-
         String token ="";
 
         if(!sharedPreferences.getString("token","").equals("")) {
             token = sharedPreferences.getString("token","");
         }
-
 
         RequestQueue requestQueue;
         Cache cache = new DiskBasedCache(getContext().getCacheDir(), 1024 * 1024); // 1MB cap
@@ -123,7 +109,6 @@ public class StudentListFragment extends Fragment {
         requestQueue = new RequestQueue(cache, network);
         requestQueue.start();
         String url = Connector.getURL() +"/api/v1/teacher/getStudentList?token="+token+"&status="+status;
-
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
@@ -144,9 +129,9 @@ public class StudentListFragment extends Fragment {
                                 String course = jo.getString("course_id");
                                 //String status = jo.getString("status_name");
 
-                                filteredStudents.add(new Student(R.drawable.avatar, name, TextFormater.format(Integer.valueOf(appointment)),student_name, status, course));
-//
-
+                                filteredStudents.add(
+                                        new Student(R.drawable.avatar, name, TextFormater.format(Integer.valueOf(appointment)),
+                                                student_name, status, course));
                             }
 
                             if(studentAdapter == null){
@@ -158,14 +143,10 @@ public class StudentListFragment extends Fragment {
                             listView.setAdapter(studentAdapter);
                             studentAdapter.notifyDataSetChanged();
 //                            Log.d("ASDF","ELEH" + res.toString());
-
-
                         } catch (JSONException e) {
                             Log.d("ASDF","Fail");
                             e.printStackTrace();
                         }
-
-
                     }
                 },
                 new Response.ErrorListener() {
@@ -175,14 +156,12 @@ public class StudentListFragment extends Fragment {
                         NetworkResponse networkResponse = error.networkResponse;
 
                         if(networkResponse == null){
-
                             Toast.makeText(getContext(), "Connection Error",Toast.LENGTH_SHORT).show();
 
-                        }else{
+                        } else {
                             int a = networkResponse.statusCode;
                             if(networkResponse.statusCode == 403){
                                 Toast.makeText(getContext(), "TOKEN INVALID, PLEASE RE LOG",Toast.LENGTH_SHORT).show();
-
                             }
 
                             if(networkResponse.statusCode == 500){
@@ -190,15 +169,9 @@ public class StudentListFragment extends Fragment {
                             }
 
                             if(networkResponse.statusCode != 401){
-
                                 Log.d("ASDF","SHIT");
-
                             }
-
                         }
-
-
-
                     }
                 }){
 
@@ -207,13 +180,7 @@ public class StudentListFragment extends Fragment {
                 int mStatusCode = response.statusCode;
                 return super.parseNetworkResponse(response);
             }
-
         };
-
         requestQueue.add(stringRequest);
     }
-
-
-
-
 }

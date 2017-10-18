@@ -24,11 +24,11 @@
         android:layout_marginBottom="10dp"/>
 
     <TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Jenis Kursus"
-    android:textColor="#b7b7b7"
-    android:textSize="15sp" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jenis Kursus"
+        android:textColor="#b7b7b7"
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/course_type__view_order_act"
@@ -69,7 +69,19 @@
         android:text="Saya pemula, tidak pernah pegang piano."
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jadwal"
+        android:textColor="#b7b7b7"
+        android:textSize="15sp" />
+
+    <ListView
+        android:id="@+id/appointment_list_view__view_order_act"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"/>
 
     <Button
@@ -89,4 +101,5 @@
         android:background="@color/colorPrimary"
         android:text="Terima"
         android:textColor="@android:color/white" />
+
 </LinearLayout>

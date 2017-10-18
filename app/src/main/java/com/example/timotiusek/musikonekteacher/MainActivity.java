@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     void showTheFirstFragment(){
         mFragmentManager = getSupportFragmentManager();
         mFragmentTransaction = mFragmentManager.beginTransaction();
-        mFragmentTransaction.replace(R.id.fragment_container__app_bar_main, new UnderDevelopmentFragment());
+        mFragmentTransaction.replace(R.id.fragment_container__app_bar_main, new HomeFragment());
         mFragmentTransaction.commit();
     }
     public void changeFragment(Fragment newFragment) {
@@ -146,7 +146,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             changeFragment(new StudentListLayoutFragment());
         } else if(id == R.id.menu_earning){
             changeFragment(new EarningLayoutFragment());
-        } else if(id == R.id.menu_logout){
+        } else if(id == R.id.menu_set_schedule){
+            startActivity(new Intent(this, SetScheduleActivity.class));
+        }
+        else if(id == R.id.menu_logout){
             logout();
         }
 

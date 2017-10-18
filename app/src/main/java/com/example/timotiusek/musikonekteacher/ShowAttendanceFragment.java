@@ -44,8 +44,7 @@ import butterknife.ButterKnife;
  * A simple {@link Fragment} subclass.
  */
 public class ShowAttendanceFragment extends Fragment {
-    @BindView(R.id.attendances_lv__show_attendance_fra)
-    ListView showAttendanceListView;
+    @BindView(R.id.attendances_lv__show_attendance_fra) ListView showAttendanceListView;
     ArrayList<Attendance> attendances;
     ShowAttendanceAdapter showAttendanceAdapter;
     StudentListActivity ma;
@@ -64,13 +63,10 @@ public class ShowAttendanceFragment extends Fragment {
     private Student student;
 
     public static ShowAttendanceFragment newInstance(Student student){
-
         ShowAttendanceFragment sdf = new ShowAttendanceFragment();
         sdf.setStudent(student);
 
         return sdf;
-
-
     }
 
     @Override
