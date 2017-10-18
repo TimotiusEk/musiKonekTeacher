@@ -87,7 +87,9 @@ public class SignInActivity extends AppCompatActivity {
         requestQueue.start();
         String url = Connector.getURL() +"/api/v1/teacherLogin";
 
-
+        final DelayedProgressDialog dialog = new DelayedProgressDialog();
+        dialog.show(getSupportFragmentManager(),"loading");
+        dialog.setCancelable(false);
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
@@ -139,6 +141,8 @@ public class SignInActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+
+                        dialog.cancel();
 
                         NetworkResponse networkResponse = error.networkResponse;
 
