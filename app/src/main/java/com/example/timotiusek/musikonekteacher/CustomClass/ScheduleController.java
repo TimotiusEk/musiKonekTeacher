@@ -89,8 +89,10 @@ public class ScheduleController {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
 
+                    private static final int OFFSET = 7;
+
                     private Date timezoneOffsetAdd(Date origin) {
-                        origin.setHours(origin.getHours()+7);
+                        origin.setHours(origin.getHours() + OFFSET);
                         return origin;
                     }
 
