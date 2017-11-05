@@ -88,20 +88,27 @@ public class ScheduleController {
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
+
+                    private Date timezoneOffsetAdd(Date origin) {
+                        origin.setHours(origin.getHours()+7);
+                        return origin;
+                    }
+
                     private Date parse(String timestamp) {
-                        DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+                        DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.US);
                         Date date = null;
                         try {
                             date = format.parse(timestamp);
                         } catch (ParseException e) {
                             e.printStackTrace();
                         }
-                        return date;
+                        return timezoneOffsetAdd(date);
                     }
 
                     @Override
                     public void onResponse(String response) {
                         try {
+                            Log.d("DEBUG", "STRING:\n" + response);
                             JSONObject responseJSON = new JSONObject(response);
                             JSONArray data = responseJSON.optJSONArray("data");
 

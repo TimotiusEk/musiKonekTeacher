@@ -76,7 +76,7 @@ public class MagicBox {
         int[] output = new int[schedule.length];
         for(int i = 0; i < schedule.length; i++) {
             if(appointment[i] == 1 && schedule[i] == 0) {
-                throw new DataFormatException("Unmatched schedule appointment. Assigning an appointment to unavailable time");
+//                throw new DataFormatException("Unmatched schedule appointment. Assigning an appointment to unavailable time");
             }
             output[i] = appointment[i] == 1 ? ScheduleController.OCCUPIED : schedule[i] == 1 ? ScheduleController.AVAILABLE : ScheduleController.UNAVAILABLE;
         }
